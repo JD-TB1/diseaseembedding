@@ -1,0 +1,22 @@
+{
+  "checkpoint": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/tuning/radius_separation/runs/stage1/stage1__cpccweight-0p05__radialweight-0p05__radialmargin-0p01__cpccmingroupsize-2__lr-0p1__burnin-20__epochs-300__negs-50__dampening-0p75__dim-10__batchsize-64/stage1__cpccweight-0p05__radialweight-0p05__radialmargin-0p01__cpccmingroupsize-2__lr-0p1__burnin-20__epochs-300__negs-50__dampening-0p75__dim-10__batchsize-64.pth",
+  "dataset": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease90/disease90_relations_direct.csv",
+  "hyperparameters": {
+    "batchsize": 64,
+    "burnin": 20,
+    "cpcc_min_group_size": 2,
+    "cpcc_weight": 0.05,
+    "dampening": 0.75,
+    "dim": 10,
+    "epochs": 300,
+    "eval_each": 1,
+    "gpu": -1,
+    "lr": 0.1,
+    "ndproc": 4,
+    "negs": 50,
+    "radial_margin": 0.01,
+    "radial_weight": 0.05,
+    "selection_metric": "depth_spearman"
+  },
+  "metadata_tsv": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/metadata/disease90_nodes.tsv"
+}

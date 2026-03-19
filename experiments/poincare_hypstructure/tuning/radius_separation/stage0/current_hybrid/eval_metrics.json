@@ -1,0 +1,98 @@
+{
+  "ancestor_ranking": {
+    "mean_average_precision": 0.9937113402061856,
+    "mean_positive_rank": 1.0206185567010309
+  },
+  "branch_separation": {
+    "across_branch": {
+      "count": 4000,
+      "max": 1.179806864599717,
+      "mean": 0.8577355285953301,
+      "median": 0.8608889101241326,
+      "min": 0.133649072444501
+    },
+    "within_branch": {
+      "count": 4000,
+      "max": 1.0314001056678692,
+      "mean": 0.4070280693706045,
+      "median": 0.43050800998036837,
+      "min": 0.0031573369965425644
+    }
+  },
+  "checkpoint_epoch": 296,
+  "depth_radius": {
+    "pearson": 0.4668301653638137,
+    "spearman": 0.24168610941117155
+  },
+  "parent_ranking": {
+    "depth_stratified_mean_rank": {
+      "1": 1.0,
+      "2": 1.103896103896104,
+      "3": 1.0051546391752577,
+      "4": 1.0
+    },
+    "mean_rank": 1.0206185567010309,
+    "median_rank": 1.0
+  },
+  "radius_structure": {
+    "adjacent_depth_gaps": {
+      "0_to_1": 0.12801479974177776,
+      "1_to_2": 0.055082820571540264,
+      "2_to_3": 0.008351588881029048,
+      "3_to_4": 0.0837216133825579
+    },
+    "internal_mean_radius": 0.2018274589552249,
+    "leaf_internal_radius_ratio": 1.3739869821436996,
+    "leaf_mean_radius": 0.2773083012436208,
+    "mean_radius_by_depth": {
+      "0": 0.08545036828088144,
+      "1": 0.21346516802265922,
+      "2": 0.2685479885941995,
+      "3": 0.27689957747522853,
+      "4": 0.36062119085778643
+    },
+    "minimum_adjacent_gap": 0.008351588881029048,
+    "monotonic_depth_means": true,
+    "parent_child_radial_violation_rate": 0.14432989690721648
+  },
+  "radius_summary": {
+    "internal": {
+      "count": 11,
+      "max": 0.2631960964250927,
+      "mean": 0.2018274589552249,
+      "median": 0.24440346232983373,
+      "min": 0.08545036828088144
+    },
+    "leaf": {
+      "count": 475,
+      "max": 0.3644417706031195,
+      "mean": 0.2773083012436208,
+      "median": 0.28034392333718733,
+      "min": 0.08708837160217282
+    }
+  },
+  "ratios": {
+    "sibling_to_non_sibling_mean": 0.1645465001096741,
+    "within_branch_to_across_branch_mean": 0.47453796164555956
+  },
+  "reconstruction": {
+    "map_rank": 0.3166255087154743,
+    "mean_rank": 5.921649484536083
+  },
+  "sibling_cohesion": {
+    "same_depth_non_siblings": {
+      "count": 4000,
+      "max": 1.1786605887236519,
+      "mean": 0.8162589694825776,
+      "median": 0.8656943362009659,
+      "min": 0.09574103724872766
+    },
+    "siblings": {
+      "count": 1517,
+      "max": 1.0273158196212995,
+      "mean": 0.13431255661148742,
+      "median": 0.003159828440388918,
+      "min": 0.0031572972113764947
+    }
+  }
+}

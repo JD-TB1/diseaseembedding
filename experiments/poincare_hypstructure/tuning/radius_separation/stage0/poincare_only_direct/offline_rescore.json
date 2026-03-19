@@ -1,0 +1,676 @@
+{
+  "acceptance_floors": {
+    "branch_ratio": 0.5,
+    "parent_mean_rank": 1.3,
+    "reconstruction_map": 0.3,
+    "sibling_ratio": 0.35
+  },
+  "candidate_count": 4,
+  "checkpoint_prefix": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_only/results/disease90/disease90_embeddings_direct.pth",
+  "full_eval_candidates": [
+    {
+      "acceptance_pass": false,
+      "ancestor_ranking": {
+        "mean_average_precision": 0.5415209740732951,
+        "mean_positive_rank": 10.119587628865979
+      },
+      "branch_separation": {
+        "across_branch": {
+          "count": 4000,
+          "max": 0.0031581024283492166,
+          "mean": 0.0031575060812036185,
+          "median": 0.003157485027178964,
+          "min": 0.0031573160391155713
+        },
+        "within_branch": {
+          "count": 4000,
+          "max": 0.003158023079135133,
+          "mean": 0.0031574691986668057,
+          "median": 0.003157456035674154,
+          "min": 0.0031572928784230465
+        }
+      },
+      "checkpoint": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_only/results/disease90/disease90_embeddings_direct.pth.4",
+      "checkpoint_epoch": 4,
+      "depth_radius": {
+        "pearson": -0.37399050550506097,
+        "spearman": -0.29883255601126474
+      },
+      "parent_ranking": {
+        "depth_stratified_mean_rank": {
+          "1": 1.0,
+          "2": 2.7142857142857144,
+          "3": 9.47938144329897,
+          "4": 101.1
+        },
+        "mean_rank": 10.119587628865979,
+        "median_rank": 2.0
+      },
+      "radius_structure": {
+        "adjacent_depth_gaps": {
+          "0_to_1": 7.983582135843683e-05,
+          "1_to_2": 4.026120012853732e-06,
+          "2_to_3": -6.165970721312805e-05,
+          "3_to_4": 2.6378328833357378e-05
+        },
+        "internal_mean_radius": 0.00025667895809644066,
+        "leaf_internal_radius_ratio": 0.8448447459373932,
+        "leaf_mean_radius": 0.00021685386914046222,
+        "mean_radius_by_depth": {
+          "0": 0.00018410093867967986,
+          "1": 0.0002639367600381167,
+          "2": 0.0002679628800509704,
+          "3": 0.00020630317283784237,
+          "4": 0.00023268150167119974
+        },
+        "minimum_adjacent_gap": -6.165970721312805e-05,
+        "monotonic_depth_means": false,
+        "parent_child_radial_violation_rate": 0.7195876288659794
+      },
+      "radius_summary": {
+        "internal": {
+          "count": 11,
+          "max": 0.0003799637777183186,
+          "mean": 0.00025667895809644066,
+          "median": 0.0002784636703003401,
+          "min": 0.00012315897201589505
+        },
+        "leaf": {
+          "count": 475,
+          "max": 0.00042024537139381715,
+          "mean": 0.00021685386914046222,
+          "median": 0.00020764418228954917,
+          "min": 0.00011937115831209453
+        }
+      },
+      "rank_key": [
+        0.0,
+        -6.165970721312805e-05,
+        -0.29883255601126474,
+        -0.7195876288659794,
+        0.00021685386914046222,
+        0.07576931336796831
+      ],
+      "ratios": {
+        "sibling_to_non_sibling_mean": 0.9999937348428684,
+        "within_branch_to_across_branch_mean": 0.9999883190923899
+      },
+      "reconstruction": {
+        "map_rank": 0.07576931336796831,
+        "mean_rank": 102.14020618556701
+      },
+      "sibling_cohesion": {
+        "same_depth_non_siblings": {
+          "count": 4000,
+          "max": 0.0031582500770442985,
+          "mean": 0.003157467503200837,
+          "median": 0.003157454511924657,
+          "min": 0.003157311740437423
+        },
+        "siblings": {
+          "count": 1517,
+          "max": 0.003158283709809273,
+          "mean": 0.0031574477211707913,
+          "median": 0.0031574165792789778,
+          "min": 0.0031572974835903504
+        }
+      }
+    },
+    {
+      "acceptance_pass": false,
+      "ancestor_ranking": {
+        "mean_average_precision": 0.8243510730223962,
+        "mean_positive_rank": 3.709278350515464
+      },
+      "branch_separation": {
+        "across_branch": {
+          "count": 4000,
+          "max": 0.0031593654469517078,
+          "mean": 0.0031577805259108897,
+          "median": 0.0031577195528469182,
+          "min": 0.003157314947051335
+        },
+        "within_branch": {
+          "count": 4000,
+          "max": 0.003158937758884931,
+          "mean": 0.0031576290320799194,
+          "median": 0.003157596402921268,
+          "min": 0.0031572890006227997
+        }
+      },
+      "checkpoint": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_only/results/disease90/disease90_embeddings_direct.pth.9",
+      "checkpoint_epoch": 9,
+      "depth_radius": {
+        "pearson": -0.37774024431121866,
+        "spearman": -0.3173001218136707
+      },
+      "parent_ranking": {
+        "depth_stratified_mean_rank": {
+          "1": 1.0,
+          "2": 2.155844155844156,
+          "3": 2.7783505154639174,
+          "4": 54.5
+        },
+        "mean_rank": 3.709278350515464,
+        "median_rank": 1.0
+      },
+      "radius_structure": {
+        "adjacent_depth_gaps": {
+          "0_to_1": 6.79721478670634e-05,
+          "1_to_2": -5.672355392764887e-05,
+          "2_to_3": -9.907093203825401e-05,
+          "3_to_4": 7.255654567832494e-05
+        },
+        "internal_mean_radius": 0.0004394442477894693,
+        "leaf_internal_radius_ratio": 0.6995573961289936,
+        "leaf_mean_radius": 0.00030741647372746543,
+        "mean_radius_by_depth": {
+          "0": 0.000377651386092139,
+          "1": 0.0004456235339592024,
+          "2": 0.00038889998003155353,
+          "3": 0.0002898290479932995,
+          "4": 0.00036238559367162445
+        },
+        "minimum_adjacent_gap": -9.907093203825401e-05,
+        "monotonic_depth_means": false,
+        "parent_child_radial_violation_rate": 0.8041237113402062
+      },
+      "radius_summary": {
+        "internal": {
+          "count": 11,
+          "max": 0.0006643537635913754,
+          "mean": 0.0004394442477894693,
+          "median": 0.00044715349288683605,
+          "min": 0.00016721913843926708
+        },
+        "leaf": {
+          "count": 475,
+          "max": 0.0006447391529796689,
+          "mean": 0.00030741647372746543,
+          "median": 0.00029216234350887575,
+          "min": 0.0001276848453367589
+        }
+      },
+      "rank_key": [
+        0.0,
+        -9.907093203825401e-05,
+        -0.3173001218136707,
+        -0.8041237113402062,
+        0.00030741647372746543,
+        0.149659827234512
+      ],
+      "ratios": {
+        "sibling_to_non_sibling_mean": 0.9999513368090805,
+        "within_branch_to_across_branch_mean": 0.999952025218432
+      },
+      "reconstruction": {
+        "map_rank": 0.149659827234512,
+        "mean_rank": 40.95463917525773
+      },
+      "sibling_cohesion": {
+        "same_depth_non_siblings": {
+          "count": 4000,
+          "max": 0.0031598432532186868,
+          "mean": 0.0031576581362655364,
+          "median": 0.003157615506071558,
+          "min": 0.003157323372612268
+        },
+        "siblings": {
+          "count": 1517,
+          "max": 0.0031595679043519963,
+          "mean": 0.003157504474544793,
+          "median": 0.0031573726413775655,
+          "min": 0.0031572883856766697
+        }
+      }
+    },
+    {
+      "acceptance_pass": false,
+      "ancestor_ranking": {
+        "mean_average_precision": 0.9809278350515463,
+        "mean_positive_rank": 1.0618556701030928
+      },
+      "branch_separation": {
+        "across_branch": {
+          "count": 4000,
+          "max": 3.494309112557846,
+          "mean": 2.762274772722791,
+          "median": 2.799948730684181,
+          "min": 0.6522279663091404
+        },
+        "within_branch": {
+          "count": 4000,
+          "max": 3.3727643751688867,
+          "mean": 2.2258893881239636,
+          "median": 2.4883618411125132,
+          "min": 0.003157452154698356
+        }
+      },
+      "checkpoint": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_only/results/disease90/disease90_embeddings_direct.pth.best",
+      "checkpoint_epoch": 294,
+      "depth_radius": {
+        "pearson": 0.4975122830821766,
+        "spearman": 0.1986719318763254
+      },
+      "parent_ranking": {
+        "depth_stratified_mean_rank": {
+          "1": 1.0,
+          "2": 1.3376623376623376,
+          "3": 1.0,
+          "4": 1.4
+        },
+        "mean_rank": 1.0618556701030928,
+        "median_rank": 1.0
+      },
+      "radius_structure": {
+        "adjacent_depth_gaps": {
+          "0_to_1": 0.38068218394090086,
+          "1_to_2": 0.1898608649375791,
+          "2_to_3": 0.0215986069383155,
+          "3_to_4": -0.0017406013357522676
+        },
+        "internal_mean_radius": 0.4485383581914139,
+        "leaf_internal_radius_ratio": 1.5407097221761423,
+        "leaf_mean_radius": 0.6910674092344363,
+        "mean_radius_by_depth": {
+          "0": 0.1024636455178677,
+          "1": 0.48314582945876855,
+          "2": 0.6730066943963476,
+          "3": 0.6946053013346631,
+          "4": 0.6928646999989109
+        },
+        "minimum_adjacent_gap": -0.0017406013357522676,
+        "monotonic_depth_means": false,
+        "parent_child_radial_violation_rate": 0.1979381443298969
+      },
+      "radius_summary": {
+        "internal": {
+          "count": 11,
+          "max": 0.6686584288832579,
+          "mean": 0.4485383581914139,
+          "median": 0.5331993444400643,
+          "min": 0.1024636455178677
+        },
+        "leaf": {
+          "count": 475,
+          "max": 0.7368681428200072,
+          "mean": 0.6910674092344363,
+          "median": 0.6980651753912419,
+          "min": 0.3083081763064224
+        }
+      },
+      "rank_key": [
+        0.0,
+        -0.0017406013357522676,
+        0.1986719318763254,
+        -0.1979381443298969,
+        0.6910674092344363,
+        0.3484217404347624
+      ],
+      "ratios": {
+        "sibling_to_non_sibling_mean": 0.2422956173993187,
+        "within_branch_to_across_branch_mean": 0.8058175131976066
+      },
+      "reconstruction": {
+        "map_rank": 0.3484217404347624,
+        "mean_rank": 4.657731958762887
+      },
+      "sibling_cohesion": {
+        "same_depth_non_siblings": {
+          "count": 4000,
+          "max": 3.4961493062653437,
+          "mean": 2.7690376680610793,
+          "median": 2.8094764931897727,
+          "min": 0.013258698863435055
+        },
+        "siblings": {
+          "count": 1517,
+          "max": 3.3683814208989955,
+          "mean": 0.6709256913848289,
+          "median": 0.006626363069756213,
+          "min": 0.0031574307139782013
+        }
+      }
+    },
+    {
+      "acceptance_pass": false,
+      "ancestor_ranking": {
+        "mean_average_precision": 0.9805841924398626,
+        "mean_positive_rank": 1.0597938144329897
+      },
+      "branch_separation": {
+        "across_branch": {
+          "count": 4000,
+          "max": 3.552513736332665,
+          "mean": 2.8148309399832607,
+          "median": 2.8553080278538436,
+          "min": 0.6583393092524636
+        },
+        "within_branch": {
+          "count": 4000,
+          "max": 3.4302620326390465,
+          "mean": 2.2713452897544677,
+          "median": 2.540100983695374,
+          "min": 0.0031574075649662536
+        }
+      },
+      "checkpoint": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_only/results/disease90/disease90_embeddings_direct.pth",
+      "checkpoint_epoch": 299,
+      "depth_radius": {
+        "pearson": 0.498724527598074,
+        "spearman": 0.20216954003837148
+      },
+      "parent_ranking": {
+        "depth_stratified_mean_rank": {
+          "1": 1.0,
+          "2": 1.3376623376623376,
+          "3": 1.0,
+          "4": 1.3
+        },
+        "mean_rank": 1.0597938144329897,
+        "median_rank": 1.0
+      },
+      "radius_structure": {
+        "adjacent_depth_gaps": {
+          "0_to_1": 0.38724268354054847,
+          "1_to_2": 0.19209444329682734,
+          "2_to_3": 0.021632454389261757,
+          "3_to_4": -0.0023368953818992955
+        },
+        "internal_mean_radius": 0.453021430852157,
+        "leaf_internal_radius_ratio": 1.5416407012740172,
+        "leaf_mean_radius": 0.698396276351078,
+        "mean_radius_by_depth": {
+          "0": 0.10098262763347655,
+          "1": 0.488225311174025,
+          "2": 0.6803197544708524,
+          "3": 0.7019522088601141,
+          "4": 0.6996153134782148
+        },
+        "minimum_adjacent_gap": -0.0023368953818992955,
+        "monotonic_depth_means": false,
+        "parent_child_radial_violation_rate": 0.1402061855670103
+      },
+      "radius_summary": {
+        "internal": {
+          "count": 11,
+          "max": 0.6768291368226312,
+          "mean": 0.453021430852157,
+          "median": 0.5384095771077655,
+          "min": 0.10098262763347655
+        },
+        "leaf": {
+          "count": 475,
+          "max": 0.7438763927180037,
+          "mean": 0.698396276351078,
+          "median": 0.7050595805376735,
+          "min": 0.31120014834081733
+        }
+      },
+      "rank_key": [
+        0.0,
+        -0.0023368953818992955,
+        0.20216954003837148,
+        -0.1402061855670103,
+        0.698396276351078,
+        0.32792844220950573
+      ],
+      "ratios": {
+        "sibling_to_non_sibling_mean": 0.24261025877709955,
+        "within_branch_to_across_branch_mean": 0.8069206777185614
+      },
+      "reconstruction": {
+        "map_rank": 0.32792844220950573,
+        "mean_rank": 4.802061855670103
+      },
+      "sibling_cohesion": {
+        "same_depth_non_siblings": {
+          "count": 4000,
+          "max": 3.553209158847973,
+          "mean": 2.822641872760054,
+          "median": 2.8634334605041296,
+          "min": 0.020560375527094228
+        },
+        "siblings": {
+          "count": 1517,
+          "max": 3.4141540653046594,
+          "mean": 0.6848018751853936,
+          "median": 0.006549851910974209,
+          "min": 0.003157480028255958
+        }
+      }
+    }
+  ],
+  "preliminary_candidates": [
+    {
+      "adjacent_depth_gaps": {
+        "0_to_1": 7.983582135843683e-05,
+        "1_to_2": 4.026120012853732e-06,
+        "2_to_3": -6.165970721312805e-05,
+        "3_to_4": 2.6378328833357378e-05
+      },
+      "checkpoint": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_only/results/disease90/disease90_embeddings_direct.pth.4",
+      "depth_radius_pearson": -0.37399050550506097,
+      "depth_radius_spearman": -0.29883255601126474,
+      "epoch": 4,
+      "internal_mean_radius": 0.00025667895809644066,
+      "leaf_internal_radius_ratio": 0.8448447459373932,
+      "leaf_mean_radius": 0.00021685386914046222,
+      "mean_radius_by_depth": {
+        "0": 0.00018410093867967986,
+        "1": 0.0002639367600381167,
+        "2": 0.0002679628800509704,
+        "3": 0.00020630317283784237,
+        "4": 0.00023268150167119974
+      },
+      "minimum_adjacent_gap": -6.165970721312805e-05,
+      "monotonic_depth_means": false,
+      "parent_child_radial_violation_rate": 0.7195876288659794,
+      "reconstruction_map": NaN,
+      "reconstruction_mean_rank": NaN
+    },
+    {
+      "adjacent_depth_gaps": {
+        "0_to_1": 6.79721478670634e-05,
+        "1_to_2": -5.672355392764887e-05,
+        "2_to_3": -9.907093203825401e-05,
+        "3_to_4": 7.255654567832494e-05
+      },
+      "checkpoint": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_only/results/disease90/disease90_embeddings_direct.pth.9",
+      "depth_radius_pearson": -0.37774024431121866,
+      "depth_radius_spearman": -0.3173001218136707,
+      "epoch": 9,
+      "internal_mean_radius": 0.0004394442477894693,
+      "leaf_internal_radius_ratio": 0.6995573961289936,
+      "leaf_mean_radius": 0.00030741647372746543,
+      "mean_radius_by_depth": {
+        "0": 0.000377651386092139,
+        "1": 0.0004456235339592024,
+        "2": 0.00038889998003155353,
+        "3": 0.0002898290479932995,
+        "4": 0.00036238559367162445
+      },
+      "minimum_adjacent_gap": -9.907093203825401e-05,
+      "monotonic_depth_means": false,
+      "parent_child_radial_violation_rate": 0.8041237113402062,
+      "reconstruction_map": NaN,
+      "reconstruction_mean_rank": NaN
+    },
+    {
+      "adjacent_depth_gaps": {
+        "0_to_1": 0.38068218394090086,
+        "1_to_2": 0.1898608649375791,
+        "2_to_3": 0.0215986069383155,
+        "3_to_4": -0.0017406013357522676
+      },
+      "checkpoint": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_only/results/disease90/disease90_embeddings_direct.pth.best",
+      "depth_radius_pearson": 0.4975122830821766,
+      "depth_radius_spearman": 0.1986719318763254,
+      "epoch": -1,
+      "internal_mean_radius": 0.4485383581914139,
+      "leaf_internal_radius_ratio": 1.5407097221761423,
+      "leaf_mean_radius": 0.6910674092344363,
+      "mean_radius_by_depth": {
+        "0": 0.1024636455178677,
+        "1": 0.48314582945876855,
+        "2": 0.6730066943963476,
+        "3": 0.6946053013346631,
+        "4": 0.6928646999989109
+      },
+      "minimum_adjacent_gap": -0.0017406013357522676,
+      "monotonic_depth_means": false,
+      "parent_child_radial_violation_rate": 0.1979381443298969,
+      "reconstruction_map": NaN,
+      "reconstruction_mean_rank": NaN
+    },
+    {
+      "adjacent_depth_gaps": {
+        "0_to_1": 0.38724268354054847,
+        "1_to_2": 0.19209444329682734,
+        "2_to_3": 0.021632454389261757,
+        "3_to_4": -0.0023368953818992955
+      },
+      "checkpoint": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_only/results/disease90/disease90_embeddings_direct.pth",
+      "depth_radius_pearson": 0.498724527598074,
+      "depth_radius_spearman": 0.20216954003837148,
+      "epoch": -1,
+      "internal_mean_radius": 0.453021430852157,
+      "leaf_internal_radius_ratio": 1.5416407012740172,
+      "leaf_mean_radius": 0.698396276351078,
+      "mean_radius_by_depth": {
+        "0": 0.10098262763347655,
+        "1": 0.488225311174025,
+        "2": 0.6803197544708524,
+        "3": 0.7019522088601141,
+        "4": 0.6996153134782148
+      },
+      "minimum_adjacent_gap": -0.0023368953818992955,
+      "monotonic_depth_means": false,
+      "parent_child_radial_violation_rate": 0.1402061855670103,
+      "reconstruction_map": NaN,
+      "reconstruction_mean_rank": NaN
+    }
+  ],
+  "selected_candidate": {
+    "acceptance_pass": false,
+    "checkpoint": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_only/results/disease90/disease90_embeddings_direct.pth.4",
+    "epoch": 4,
+    "metrics": {
+      "acceptance_pass": false,
+      "ancestor_ranking": {
+        "mean_average_precision": 0.5415209740732951,
+        "mean_positive_rank": 10.119587628865979
+      },
+      "branch_separation": {
+        "across_branch": {
+          "count": 4000,
+          "max": 0.0031581024283492166,
+          "mean": 0.0031575060812036185,
+          "median": 0.003157485027178964,
+          "min": 0.0031573160391155713
+        },
+        "within_branch": {
+          "count": 4000,
+          "max": 0.003158023079135133,
+          "mean": 0.0031574691986668057,
+          "median": 0.003157456035674154,
+          "min": 0.0031572928784230465
+        }
+      },
+      "checkpoint": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_only/results/disease90/disease90_embeddings_direct.pth.4",
+      "checkpoint_epoch": 4,
+      "depth_radius": {
+        "pearson": -0.37399050550506097,
+        "spearman": -0.29883255601126474
+      },
+      "parent_ranking": {
+        "depth_stratified_mean_rank": {
+          "1": 1.0,
+          "2": 2.7142857142857144,
+          "3": 9.47938144329897,
+          "4": 101.1
+        },
+        "mean_rank": 10.119587628865979,
+        "median_rank": 2.0
+      },
+      "radius_structure": {
+        "adjacent_depth_gaps": {
+          "0_to_1": 7.983582135843683e-05,
+          "1_to_2": 4.026120012853732e-06,
+          "2_to_3": -6.165970721312805e-05,
+          "3_to_4": 2.6378328833357378e-05
+        },
+        "internal_mean_radius": 0.00025667895809644066,
+        "leaf_internal_radius_ratio": 0.8448447459373932,
+        "leaf_mean_radius": 0.00021685386914046222,
+        "mean_radius_by_depth": {
+          "0": 0.00018410093867967986,
+          "1": 0.0002639367600381167,
+          "2": 0.0002679628800509704,
+          "3": 0.00020630317283784237,
+          "4": 0.00023268150167119974
+        },
+        "minimum_adjacent_gap": -6.165970721312805e-05,
+        "monotonic_depth_means": false,
+        "parent_child_radial_violation_rate": 0.7195876288659794
+      },
+      "radius_summary": {
+        "internal": {
+          "count": 11,
+          "max": 0.0003799637777183186,
+          "mean": 0.00025667895809644066,
+          "median": 0.0002784636703003401,
+          "min": 0.00012315897201589505
+        },
+        "leaf": {
+          "count": 475,
+          "max": 0.00042024537139381715,
+          "mean": 0.00021685386914046222,
+          "median": 0.00020764418228954917,
+          "min": 0.00011937115831209453
+        }
+      },
+      "rank_key": [
+        0.0,
+        -6.165970721312805e-05,
+        -0.29883255601126474,
+        -0.7195876288659794,
+        0.00021685386914046222,
+        0.07576931336796831
+      ],
+      "ratios": {
+        "sibling_to_non_sibling_mean": 0.9999937348428684,
+        "within_branch_to_across_branch_mean": 0.9999883190923899
+      },
+      "reconstruction": {
+        "map_rank": 0.07576931336796831,
+        "mean_rank": 102.14020618556701
+      },
+      "sibling_cohesion": {
+        "same_depth_non_siblings": {
+          "count": 4000,
+          "max": 0.0031582500770442985,
+          "mean": 0.003157467503200837,
+          "median": 0.003157454511924657,
+          "min": 0.003157311740437423
+        },
+        "siblings": {
+          "count": 1517,
+          "max": 0.003158283709809273,
+          "mean": 0.0031574477211707913,
+          "median": 0.0031574165792789778,
+          "min": 0.0031572974835903504
+        }
+      }
+    },
+    "rank_key": [
+      0.0,
+      -6.165970721312805e-05,
+      -0.29883255601126474,
+      -0.7195876288659794,
+      0.00021685386914046222,
+      0.07576931336796831
+    ]
+  },
+  "train_log": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_only/logs/train_disease90_direct.log"
+}

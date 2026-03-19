@@ -1,0 +1,15 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+build/
+**/build/
+*.so
+
+**/mplconfig/
+fontconfig/
+
+*.pth.[0-9]*

@@ -1,0 +1,9 @@
+{
+  "embedding_dim": 10,
+  "epoch": 24,
+  "model_type": "distance_cpcc_radial",
+  "node_count": 486,
+  "radius_max": 0.011669989871272145,
+  "radius_mean": 0.007114981971620792,
+  "radius_min": 0.001468464582398394
+}

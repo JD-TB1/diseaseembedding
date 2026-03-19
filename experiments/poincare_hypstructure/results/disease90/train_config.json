@@ -1,0 +1,22 @@
+{
+  "checkpoint": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease90/disease90_embeddings_poincare_hypstructure.pth",
+  "dataset": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease90/disease90_relations_direct.csv",
+  "hyperparameters": {
+    "batchsize": 64,
+    "burnin": 20,
+    "cpcc_min_group_size": 2,
+    "cpcc_weight": 0.05,
+    "dampening": 0.75,
+    "dim": 10,
+    "epochs": 300,
+    "eval_each": 5,
+    "gpu": -1,
+    "lr": 0.1,
+    "ndproc": 4,
+    "negs": 50,
+    "radial_margin": 0.02,
+    "radial_weight": 0.01,
+    "selection_metric": "combined"
+  },
+  "metadata_tsv": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/metadata/disease90_nodes.tsv"
+}
