@@ -21,6 +21,10 @@ The project started by reconstructing the original Facebook `poincare-embeddings
   - Primary working area for all maintained experiment pipelines and outputs.
 - `archive/`
   - Preserved older workspaces and transitional files kept for provenance.
+- `tools/`
+  - General-purpose utilities, including TSV tree visualization.
+- `visualizations/`
+  - Generated whole-forest and subtree views.
 
 ## Data
 
