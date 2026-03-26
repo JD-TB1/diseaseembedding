@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Block I10-I15 (Hypertensive diseases)</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f6f8fb;
+      color: #18212d;
+    }
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 24px 56px;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: 32px;
+      line-height: 1.15;
+    }
+    .lede {
+      margin: 0 0 20px;
+      color: #536173;
+      font-size: 16px;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin: 0 0 24px;
+    }
+    .stat-card {
+      background: white;
+      border: 1px solid #dce4ef;
+      border-radius: 12px;
+      padding: 14px 16px;
+      box-shadow: 0 4px 14px rgba(24, 33, 45, 0.05);
+    }
+    .stat-label {
+      display: block;
+      color: #5a6676;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+    .stat-value {
+      font-size: 22px;
+      font-weight: 700;
+    }
+    .tree-shell {
+      background: white;
+      border: 1px solid #dce4ef;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 6px 20px rgba(24, 33, 45, 0.06);
+    }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+      align-items: center;
+    }
+    .controls input {
+      min-width: 280px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid #cdd8e6;
+      font-size: 14px;
+    }
+    .controls button {
+      padding: 10px 12px;
+      border: 1px solid #cdd8e6;
+      border-radius: 10px;
+      background: #f8fbff;
+      cursor: pointer;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding-left: 22px;
+      position: relative;
+    }
+    ul::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 8px;
+      width: 1px;
+      background: #dbe3ef;
+    }
+    li {
+      margin: 6px 0;
+      position: relative;
+    }
+    li::before {
+      content: "";
+      position: absolute;
+      top: 18px;
+      left: -14px;
+      width: 14px;
+      height: 1px;
+      background: #dbe3ef;
+    }
+    details > summary {
+      list-style: none;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(100, 120, 140, 0.12);
+      cursor: pointer;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 10px;
+      align-items: baseline;
+    }
+    details > summary::-webkit-details-marker {
+      display: none;
+    }
+    .leaf-row {
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(100, 120, 140, 0.12);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 10px;
+      align-items: baseline;
+    }
+    .node-code {
+      font-weight: 700;
+      font-size: 15px;
+    }
+    .node-meaning {
+      font-size: 14px;
+    }
+    .node-meta {
+      color: #5b6674;
+      font-size: 12px;
+    }
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>Block I10-I15 (Hypertensive diseases)</h1>
+    <p class="lede">Interactive collapsible view of the selected disease tree. This layout works better than a flat same-level node-link plot when the tree is very wide.</p>
+    <div class="stats">
+      <div class="stat-card"><span class="stat-label">Root</span><span class="stat-value">1150</span></div>
+      <div class="stat-card"><span class="stat-label">Nodes</span><span class="stat-value">19</span></div>
+      <div class="stat-card"><span class="stat-label">Edges</span><span class="stat-value">18</span></div>
+      <div class="stat-card"><span class="stat-label">Leaves</span><span class="stat-value">14</span></div>
+      <div class="stat-card"><span class="stat-label">Selectable</span><span class="stat-value">18</span></div>
+      <div class="stat-card"><span class="stat-label">Max depth</span><span class="stat-value">2</span></div>
+    </div>
+    <div class="tree-shell">
+      <div class="controls">
+        <input id="tree-filter" type="search" placeholder="Filter by code, meaning, node id, or parent id">
+        <button type="button" onclick="setOpenState(true)">Expand all</button>
+        <button type="button" onclick="setOpenState(false)">Collapse all</button>
+      </div>
+      <ul id="tree-root"><li class="tree-node depth-0" data-search="block i10-i15 i10-i15 hypertensive diseases 1150 90"><details open><summary style="background:#e9f0fa"><span class="node-code">Block I10-I15</span> <span class="node-meaning">I10-I15 Hypertensive diseases</span> <span class="node-meta">id=1150 | depth=0 | selectable=N | children=5 | leaves=14</span></summary><ul><li class="tree-node tree-leaf depth-1" data-search="i10 i10 essential (primary) hypertension 40520 1150"><div class="leaf-row" style="background:#a6ecc7"><span class="node-code">I10</span> <span class="node-meaning">I10 Essential (primary) hypertension</span> <span class="node-meta">id=40520 | depth=1 | selectable=Y | children=0 | leaves=1</span></div></li><li class="tree-node depth-1" data-search="i11 i11 hypertensive heart disease 40530 1150"><details open><summary style="background:#a6ecc7"><span class="node-code">I11</span> <span class="node-meaning">I11 Hypertensive heart disease</span> <span class="node-meta">id=40530 | depth=1 | selectable=Y | children=2 | leaves=2</span></summary><ul><li class="tree-node tree-leaf depth-2" data-search="i110 i11.0 hypertensive heart disease with (congestive) heart failure 40540 40530"><div class="leaf-row" style="background:#b5dd63"><span class="node-code">I110</span> <span class="node-meaning">I11.0 Hypertensive heart disease with (congestive) heart failure</span> <span class="node-meta">id=40540 | depth=2 | selectable=Y | children=0 | leaves=1</span></div></li><li class="tree-node tree-leaf depth-2" data-search="i119 i11.9 hypertensive heart disease without (congestive) heart failure 40550 40530"><div class="leaf-row" style="background:#b5dd63"><span class="node-code">I119</span> <span class="node-meaning">I11.9 Hypertensive heart disease without (congestive) heart failure</span> <span class="node-meta">id=40550 | depth=2 | selectable=Y | children=0 | leaves=1</span></div></li></ul></details></li><li class="tree-node depth-1" data-search="i12 i12 hypertensive renal disease 40560 1150"><details open><summary style="background:#a6ecc7"><span class="node-code">I12</span> <span class="node-meaning">I12 Hypertensive renal disease</span> <span class="node-meta">id=40560 | depth=1 | selectable=Y | children=2 | leaves=2</span></summary><ul><li class="tree-node tree-leaf depth-2" data-search="i120 i12.0 hypertensive renal disease with renal failure 40570 40560"><div class="leaf-row" style="background:#b5dd63"><span class="node-code">I120</span> <span class="node-meaning">I12.0 Hypertensive renal disease with renal failure</span> <span class="node-meta">id=40570 | depth=2 | selectable=Y | children=0 | leaves=1</span></div></li><li class="tree-node tree-leaf depth-2" data-search="i129 i12.9 hypertensive renal disease without renal failure 40580 40560"><div class="leaf-row" style="background:#b5dd63"><span class="node-code">I129</span> <span class="node-meaning">I12.9 Hypertensive renal disease without renal failure</span> <span class="node-meta">id=40580 | depth=2 | selectable=Y | children=0 | leaves=1</span></div></li></ul></details></li><li class="tree-node depth-1" data-search="i13 i13 hypertensive heart and renal disease 40590 1150"><details open><summary style="background:#a6ecc7"><span class="node-code">I13</span> <span class="node-meaning">I13 Hypertensive heart and renal disease</span> <span class="node-meta">id=40590 | depth=1 | selectable=Y | children=4 | leaves=4</span></summary><ul><li class="tree-node tree-leaf depth-2" data-search="i130 i13.0 hypertensive heart and renal disease with (congestive) heart failure 40600 40590"><div class="leaf-row" style="background:#b5dd63"><span class="node-code">I130</span> <span class="node-meaning">I13.0 Hypertensive heart and renal disease with (congestive) heart fail…</span> <span class="node-meta">id=40600 | depth=2 | selectable=Y | children=0 | leaves=1</span></div></li><li class="tree-node tree-leaf depth-2" data-search="i131 i13.1 hypertensive heart and renal disease with renal failure 40610 40590"><div class="leaf-row" style="background:#b5dd63"><span class="node-code">I131</span> <span class="node-meaning">I13.1 Hypertensive heart and renal disease with renal failure</span> <span class="node-meta">id=40610 | depth=2 | selectable=Y | children=0 | leaves=1</span></div></li><li class="tree-node tree-leaf depth-2" data-search="i132 i13.2 hypertensive heart and renal disease with both (congestive) heart failure and renal failure 40620 40590"><div class="leaf-row" style="background:#b5dd63"><span class="node-code">I132</span> <span class="node-meaning">I13.2 Hypertensive heart and renal disease with both (congestive) heart…</span> <span class="node-meta">id=40620 | depth=2 | selectable=Y | children=0 | leaves=1</span></div></li><li class="tree-node tree-leaf depth-2" data-search="i139 i13.9 hypertensive heart and renal disease, unspecified 40630 40590"><div class="leaf-row" style="background:#b5dd63"><span class="node-code">I139</span> <span class="node-meaning">I13.9 Hypertensive heart and renal disease, unspecified</span> <span class="node-meta">id=40630 | depth=2 | selectable=Y | children=0 | leaves=1</span></div></li></ul></details></li><li class="tree-node depth-1" data-search="i15 i15 secondary hypertension 40640 1150"><details open><summary style="background:#a6ecc7"><span class="node-code">I15</span> <span class="node-meaning">I15 Secondary hypertension</span> <span class="node-meta">id=40640 | depth=1 | selectable=Y | children=5 | leaves=5</span></summary><ul><li class="tree-node tree-leaf depth-2" data-search="i150 i15.0 renovascular hypertension 40650 40640"><div class="leaf-row" style="background:#b5dd63"><span class="node-code">I150</span> <span class="node-meaning">I15.0 Renovascular hypertension</span> <span class="node-meta">id=40650 | depth=2 | selectable=Y | children=0 | leaves=1</span></div></li><li class="tree-node tree-leaf depth-2" data-search="i151 i15.1 hypertension secondary to other renal disorders 40660 40640"><div class="leaf-row" style="background:#b5dd63"><span class="node-code">I151</span> <span class="node-meaning">I15.1 Hypertension secondary to other renal disorders</span> <span class="node-meta">id=40660 | depth=2 | selectable=Y | children=0 | leaves=1</span></div></li><li class="tree-node tree-leaf depth-2" data-search="i152 i15.2 hypertension secondary to endocrine disorders 40670 40640"><div class="leaf-row" style="background:#b5dd63"><span class="node-code">I152</span> <span class="node-meaning">I15.2 Hypertension secondary to endocrine disorders</span> <span class="node-meta">id=40670 | depth=2 | selectable=Y | children=0 | leaves=1</span></div></li><li class="tree-node tree-leaf depth-2" data-search="i158 i15.8 other secondary hypertension 40680 40640"><div class="leaf-row" style="background:#b5dd63"><span class="node-code">I158</span> <span class="node-meaning">I15.8 Other secondary hypertension</span> <span class="node-meta">id=40680 | depth=2 | selectable=Y | children=0 | leaves=1</span></div></li><li class="tree-node tree-leaf depth-2" data-search="i159 i15.9 seconday hypertension, unspecified 40690 40640"><div class="leaf-row" style="background:#b5dd63"><span class="node-code">I159</span> <span class="node-meaning">I15.9 Seconday hypertension, unspecified</span> <span class="node-meta">id=40690 | depth=2 | selectable=Y | children=0 | leaves=1</span></div></li></ul></details></li></ul></details></li></ul>
+    </div>
+  </div>
+  <script>
+    function setOpenState(isOpen) {
+      document.querySelectorAll("details").forEach((element) => {
+        element.open = isOpen;
+      });
+    }
+
+    function applyFilter(query) {
+      const normalized = query.trim().toLowerCase();
+      const nodes = Array.from(document.querySelectorAll("li.tree-node"));
+      if (!normalized) {
+        nodes.forEach((node) => node.classList.remove("hidden"));
+        return;
+      }
+
+      function visit(node) {
+        const ownMatch = (node.dataset.search || "").includes(normalized);
+        const childNodes = Array.from(node.querySelectorAll(":scope > details > ul > li.tree-node"));
+        let descendantMatch = false;
+        childNodes.forEach((childNode) => {
+          if (visit(childNode)) {
+            descendantMatch = true;
+          }
+        });
+        const visible = ownMatch || descendantMatch;
+        node.classList.toggle("hidden", !visible);
+        const detail = node.querySelector(":scope > details");
+        if (detail && descendantMatch) {
+          detail.open = true;
+        }
+        return visible;
+      }
+
+      const rootNode = document.querySelector("#tree-root > li.tree-node");
+      if (rootNode) {
+        visit(rootNode);
+      }
+    }
+
+    document.getElementById("tree-filter").addEventListener("input", (event) => {
+      applyFilter(event.target.value);
+    });
+  </script>
+</body>
+</html>

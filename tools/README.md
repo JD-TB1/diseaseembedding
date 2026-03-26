@@ -37,3 +37,24 @@ conda run -n reasoning python tools/visualize_disease_tree.py \
 ```
 
 The `--color-by route` setting colors each node by the first branch below the selected root, which is often more useful than depth coloring when you want to inspect parent-child cluster structure.
+
+Traditional tree view with only a few representative paths kept and all other sibling branches collapsed into ellipsis nodes:
+
+```bash
+conda run -n reasoning python tools/visualize_disease_tree.py \
+  --input-tsv data/datacode-19.tsv \
+  --root-id 90 \
+  --mode graphviz \
+  --layout leftright \
+  --color-by route \
+  --auto-focus-by-route 6 \
+  --collapse-omitted \
+  --output visualizations/disease_subtree_90_focus_paths.svg \
+  --title "Disease-90 subtree (focused paths)"
+```
+
+Useful focus options:
+
+- `--focus-node-id <node>` repeated several times to keep specific root-to-node paths
+- `--auto-focus-by-route N` to choose up to `N` representative deepest leaf paths from distinct first-level routes
+- `--collapse-omitted` to replace all non-kept sibling subtrees with dashed ellipsis nodes

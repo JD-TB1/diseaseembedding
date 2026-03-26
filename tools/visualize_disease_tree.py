@@ -108,6 +108,23 @@ def parse_args() -> argparse.Namespace:
         default="depth",
         help="Color nodes by depth shell or by route under the selected root.",
     )
+    parser.add_argument(
+        "--focus-node-id",
+        action="append",
+        default=[],
+        help="Keep the root-to-node path for this node id. Repeat the flag to keep several paths.",
+    )
+    parser.add_argument(
+        "--auto-focus-by-route",
+        type=int,
+        default=0,
+        help="Automatically keep up to N representative deepest leaf paths, one per first-level route under the selected root.",
+    )
+    parser.add_argument(
+        "--collapse-omitted",
+        action="store_true",
+        help="For Graphviz output, collapse omitted sibling subtrees into dashed ellipsis nodes.",
+    )
     return parser.parse_args()
 
 
@@ -572,6 +589,104 @@ def edge_color_for_child(
     return route_color_map.get(anchor_id, "#b8c4d6")
 
 
+def subtree_size_map(
+    root_id: str,
+    children: dict[str, list[str]],
+    allowed: set[str],
+) -> dict[str, int]:
+    sizes: dict[str, int] = {}
+
+    def visit(node_id: str) -> int:
+        total = 1
+        for child_id in children.get(node_id, []):
+            if child_id not in allowed:
+                continue
+            total += visit(child_id)
+        sizes[node_id] = total
+        return total
+
+    visit(root_id)
+    return sizes
+
+
+def path_to_root(node_id: str, root_id: str, parent_map: dict[str, str]) -> list[str]:
+    path: list[str] = []
+    current = node_id
+    seen: set[str] = set()
+    while current and current not in seen:
+        seen.add(current)
+        path.append(current)
+        if current == root_id:
+            return list(reversed(path))
+        current = parent_map.get(current, "")
+    raise ValueError(f"Node {node_id!r} is not reachable from root {root_id!r}.")
+
+
+def choose_auto_focus_nodes(
+    records: dict[str, dict[str, str]],
+    ordered_nodes: list[str],
+    root_id: str,
+    parent_map: dict[str, str],
+    children: dict[str, list[str]],
+    limit: int,
+) -> list[str]:
+    if limit <= 0:
+        return []
+
+    allowed = set(ordered_nodes)
+    route_to_leaf: dict[str, str] = {}
+    for node_id in ordered_nodes:
+        if node_id == root_id:
+            continue
+        child_ids = [child_id for child_id in children.get(node_id, []) if child_id in allowed]
+        if child_ids:
+            continue
+        anchor_id = route_anchor_for_node(node_id, root_id, parent_map)
+        current_best = route_to_leaf.get(anchor_id)
+        if current_best is None:
+            route_to_leaf[anchor_id] = node_id
+            continue
+        current_best_depth = len(path_to_root(current_best, root_id, parent_map))
+        candidate_depth = len(path_to_root(node_id, root_id, parent_map))
+        if candidate_depth > current_best_depth:
+            route_to_leaf[anchor_id] = node_id
+            continue
+        if candidate_depth == current_best_depth:
+            candidate_key = (
+                records[node_id]["coding"],
+                records[node_id]["meaning"],
+                records[node_id]["node_id"],
+            )
+            best_key = (
+                records[current_best]["coding"],
+                records[current_best]["meaning"],
+                records[current_best]["node_id"],
+            )
+            if candidate_key < best_key:
+                route_to_leaf[anchor_id] = node_id
+
+    selected = sorted(
+        route_to_leaf.items(),
+        key=lambda item: (
+            records[item[0]]["coding"],
+            records[item[0]]["meaning"],
+            records[item[0]]["node_id"],
+        ),
+    )
+    return [leaf_id for _, leaf_id in selected[:limit]]
+
+
+def build_focus_keep_set(
+    root_id: str,
+    focus_node_ids: list[str],
+    parent_map: dict[str, str],
+) -> set[str]:
+    keep: set[str] = {root_id}
+    for focus_node_id in focus_node_ids:
+        keep.update(path_to_root(focus_node_id, root_id, parent_map))
+    return keep
+
+
 def render_graphviz(
     records: dict[str, dict[str, str]],
     children: dict[str, list[str]],
@@ -582,6 +697,8 @@ def render_graphviz(
     max_meaning_chars: int,
     layout: str,
     color_by: str,
+    focus_node_ids: list[str],
+    collapse_omitted: bool,
     output_path: Path,
     graphviz_node_limit: int,
 ) -> None:
@@ -594,6 +711,9 @@ def render_graphviz(
     max_depth = max(depth_map.values()) if depth_map else 0
     parent_map = build_parent_map(records)
     node_route_colors, route_color_map = assign_route_colors(records, ordered_nodes, root_id, parent_map)
+    allowed = set(ordered_nodes)
+    focus_keep = build_focus_keep_set(root_id, focus_node_ids, parent_map) if focus_node_ids else allowed
+    subtree_sizes = subtree_size_map(root_id, children, allowed)
     graph_lines = [
         "digraph disease_tree {",
         "  graph [overlap=false, splines=true, pad=0.4, nodesep=0.35, ranksep=0.55, bgcolor=\"white\", labelloc=\"t\"];",
@@ -606,7 +726,9 @@ def render_graphviz(
     elif layout == "topdown":
         graph_lines.append("  rankdir=TB;")
 
-    for node_id in ordered_nodes:
+    display_nodes = ordered_nodes if not collapse_omitted or not focus_node_ids else [node_id for node_id in ordered_nodes if node_id in focus_keep]
+
+    for node_id in display_nodes:
         row = records[node_id]
         depth = depth_map[node_id]
         meaning = truncate(row["meaning"], max_meaning_chars)
@@ -619,10 +741,13 @@ def render_graphviz(
             f"  \"{dot_escape(node_id)}\" [label=\"{dot_escape(chr(10).join(label_lines))}\", fillcolor=\"{fill}\"];"
         )
 
-    allowed = set(ordered_nodes)
-    for parent_id in ordered_nodes:
-        for child_id in children.get(parent_id, []):
-            if child_id not in allowed:
+    for parent_id in display_nodes:
+        child_ids = [child_id for child_id in children.get(parent_id, []) if child_id in allowed]
+        kept_child_ids = child_ids if not collapse_omitted or not focus_node_ids else [child_id for child_id in child_ids if child_id in focus_keep]
+        omitted_child_ids = [] if not collapse_omitted or not focus_node_ids else [child_id for child_id in child_ids if child_id not in focus_keep]
+
+        for child_id in kept_child_ids:
+            if child_id not in display_nodes:
                 continue
             if color_by == "route":
                 edge_color = edge_color_for_child(child_id, root_id, route_color_map, parent_map)
@@ -631,6 +756,24 @@ def render_graphviz(
                 )
             else:
                 graph_lines.append(f"  \"{dot_escape(parent_id)}\" -> \"{dot_escape(child_id)}\";")
+
+        if omitted_child_ids:
+            hidden_branch_count = len(omitted_child_ids)
+            hidden_node_count = sum(subtree_sizes[child_id] for child_id in omitted_child_ids)
+            sample_labels = ", ".join((records[child_id]["coding"] or child_id) for child_id in omitted_child_ids[:3])
+            if len(omitted_child_ids) > 3:
+                sample_labels += ", …"
+            ellipsis_id = f"ellipsis__{parent_id}"
+            ellipsis_label = f"...\\n{hidden_branch_count} hidden branches\\n{hidden_node_count} hidden nodes"
+            if sample_labels:
+                ellipsis_label += f"\\n{sample_labels}"
+            graph_lines.append(
+                f"  \"{dot_escape(ellipsis_id)}\" [shape=ellipse, style=\"dashed,filled\", fillcolor=\"#f1f3f6\", "
+                f"color=\"#9aa4b2\", label=\"{dot_escape(ellipsis_label)}\", fontsize=9];"
+            )
+            graph_lines.append(
+                f"  \"{dot_escape(parent_id)}\" -> \"{dot_escape(ellipsis_id)}\" [style=dashed, color=\"#9aa4b2\"];"
+            )
 
     if root_id == "0":
         graph_lines.append("  {rank=source; \"0\";}")
@@ -693,6 +836,24 @@ def main() -> int:
     if not ordered_nodes:
         raise ValueError(f"No nodes found under root {args.root_id!r}")
 
+    parent_map = build_parent_map(records)
+    auto_focus_nodes = choose_auto_focus_nodes(
+        records=records,
+        ordered_nodes=ordered_nodes,
+        root_id=args.root_id,
+        parent_map=parent_map,
+        children=children,
+        limit=args.auto_focus_by_route,
+    )
+    focus_node_ids = list(dict.fromkeys(args.focus_node_id + auto_focus_nodes))
+    if focus_node_ids:
+        allowed = set(ordered_nodes)
+        missing_focus = [node_id for node_id in focus_node_ids if node_id not in allowed]
+        if missing_focus:
+            raise ValueError(
+                f"Focus nodes are not inside the selected tree rooted at {args.root_id}: {missing_focus[:5]}"
+            )
+
     if args.mode == "html":
         render_html(
             records=records,
@@ -716,6 +877,8 @@ def main() -> int:
             max_meaning_chars=args.max_meaning_chars,
             layout=args.layout,
             color_by=args.color_by,
+            focus_node_ids=focus_node_ids,
+            collapse_omitted=args.collapse_omitted,
             output_path=args.output,
             graphviz_node_limit=args.graphviz_node_limit,
         )
@@ -724,6 +887,8 @@ def main() -> int:
     print(f"Root id: {args.root_id}")
     print(f"Nodes in selection: {len(ordered_nodes)}")
     print(f"Max depth in selection: {max(depth_map.values()) if depth_map else 0}")
+    if focus_node_ids:
+        print(f"Focus nodes: {', '.join(focus_node_ids)}")
     return 0
 
 
