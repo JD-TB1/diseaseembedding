@@ -1,0 +1,747 @@
+{
+  "baseline": {
+    "checkpoint": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/tuning/geometry_separation/stage0/current_hybrid/current_hybrid.offline_best.pth",
+    "label": "current_hybrid",
+    "metrics": {
+      "acceptance_pass": false,
+      "ancestor_ranking": {
+        "mean_average_precision": 0.9552830960562919,
+        "mean_positive_rank": 1.2268041237113403
+      },
+      "angular_branch_separation": {
+        "across_branch": {
+          "count": 4000,
+          "max": 1.7674972927613115,
+          "mean": 1.036839308045411,
+          "median": 1.0436918285537957,
+          "min": 0.20231196196945678
+        },
+        "within_branch": {
+          "count": 4000,
+          "max": 1.8390078848284093,
+          "mean": 0.24626747636142518,
+          "median": 0.1861995810506329,
+          "min": 6.632156226127339e-05
+        }
+      },
+      "branch_geometry": {
+        "branch_silhouette": 0.44197142094186237,
+        "top_branch_centroid_distances": {
+          "count": 45,
+          "max": 0.021762022582991064,
+          "mean": 0.014756677600092243,
+          "median": 0.01538751435209054,
+          "min": 0.007652250069362419
+        }
+      },
+      "branch_separation": {
+        "across_branch": {
+          "count": 4000,
+          "max": 0.03335210988082609,
+          "mean": 0.021558136029991716,
+          "median": 0.0214280425103034,
+          "min": 0.004786583781673757
+        },
+        "within_branch": {
+          "count": 4000,
+          "max": 0.03072433705340324,
+          "mean": 0.008963923893845876,
+          "median": 0.008140930722092946,
+          "min": 0.0031573367709405806
+        }
+      },
+      "checkpoint": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/tuning/geometry_separation/stage0/current_hybrid/current_hybrid.offline_best.pth",
+      "checkpoint_epoch": 24,
+      "depth_radius": {
+        "pearson": 0.5692517438793342,
+        "spearman": 0.36325055282085733
+      },
+      "gate_deficit_score": 0.6948796024296853,
+      "gate_deficits": {
+        "ancestor_map": 0.0,
+        "branch_ratio": 0.18800675019600827,
+        "minimum_adjacent_gap": 0.0,
+        "parent_mean_rank": 0.02233676975945028,
+        "positive_quantile_gaps": 0.0,
+        "radial_violation": 0.48453608247422675,
+        "reconstruction_map": 0.0,
+        "sibling_ratio": 0.0,
+        "total": 0.6948796024296853
+      },
+      "parent_ranking": {
+        "depth_stratified_mean_rank": {
+          "1": 1.0,
+          "2": 1.7792207792207793,
+          "3": 1.1288659793814433,
+          "4": 1.0
+        },
+        "mean_rank": 1.2268041237113403,
+        "median_rank": 1.0
+      },
+      "radius_structure": {
+        "adjacent_depth_gaps": {
+          "0_to_1": 0.0024202105983235018,
+          "1_to_2": 0.0025651008622732704,
+          "2_to_3": 0.0007836200261275754,
+          "3_to_4": 0.00401016309966088
+        },
+        "adjacent_depth_quantile_gaps": {
+          "0_to_1": 0.0004665177708760846,
+          "1_to_2": 3.226852364874612e-05,
+          "2_to_3": -0.0014939286305035125,
+          "3_to_4": 0.0027546311919024544
+        },
+        "depth_overlap_rates": {
+          "0_to_1": 0.0,
+          "1_to_2": 0.08311688311688312,
+          "2_to_3": 0.3196211005489356,
+          "3_to_4": 0.0036082474226804126
+        },
+        "internal_mean_radius": 0.0036686560354197593,
+        "leaf_internal_radius_ratio": 1.96115186472012,
+        "leaf_mean_radius": 0.007194791624880184,
+        "mean_radius_by_depth": {
+          "0": 0.001468464582398394,
+          "1": 0.0038886751807218956,
+          "2": 0.006453776042995166,
+          "3": 0.0072373960691227415,
+          "4": 0.011247559168783621
+        },
+        "minimum_adjacent_gap": 0.0007836200261275754,
+        "minimum_adjacent_quantile_gap": -0.0014939286305035125,
+        "monotonic_depth_means": true,
+        "parent_child_radial_violation_rate": 0.14845360824742268,
+        "positive_adjacent_depth_quantile_gap_count": 3
+      },
+      "radius_summary": {
+        "internal": {
+          "count": 11,
+          "max": 0.006126628000225181,
+          "mean": 0.0036686560354197593,
+          "median": 0.003300889515603914,
+          "min": 0.001468464582398394
+        },
+        "leaf": {
+          "count": 475,
+          "max": 0.011669989871272145,
+          "mean": 0.007194791624880184,
+          "median": 0.007199402836275459,
+          "min": 0.001985219443613626
+        }
+      },
+      "rank_key": [
+        -0.6948796024296853,
+        -0.18800675019600827,
+        -0.0,
+        -0.48453608247422675,
+        3.0,
+        -0.0014939286305035125,
+        -0.41580236256860287,
+        0.9552830960562919,
+        0.3024145053427674
+      ],
+      "ratios": {
+        "angular_within_branch_to_across_branch_mean": 0.23751749615441786,
+        "same_depth_within_branch_to_across_branch_mean": 0.4070318312074421,
+        "sibling_to_non_sibling_mean": 0.25336845514962375,
+        "within_branch_to_across_branch_mean": 0.41580236256860287
+      },
+      "reconstruction": {
+        "map_rank": 0.3024145053427674,
+        "mean_rank": 7.538144329896907
+      },
+      "same_depth_branch_separation": {
+        "across_branch": {
+          "count": 4000,
+          "max": 0.03148226411173994,
+          "mean": 0.021932986590297465,
+          "median": 0.02203332774622333,
+          "min": 0.010508820344857322
+        },
+        "within_branch": {
+          "count": 4000,
+          "max": 0.03021006861568972,
+          "mean": 0.008927423695697049,
+          "median": 0.008240831760419506,
+          "min": 0.003157310122754018
+        }
+      },
+      "sibling_cohesion": {
+        "same_depth_non_siblings": {
+          "count": 4000,
+          "max": 0.0313866987831594,
+          "mean": 0.020149487742864028,
+          "median": 0.021700166403495043,
+          "min": 0.0031603129503239335
+        },
+        "siblings": {
+          "count": 1517,
+          "max": 0.029863491564696216,
+          "mean": 0.005105244581465738,
+          "median": 0.003160632227534373,
+          "min": 0.003157310122754018
+        }
+      }
+    }
+  },
+  "run_count": 3,
+  "runs": [
+    {
+      "checkpoint": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/tuning/geometry_separation/runs/stage1/stage1__depthbandweight-0p05__branchweight-0p05__branchcosmargin-0p2__radialweight-0p05__radialmargin-0p01__cpccweight-0p05__lr-0p1__burnin-20__epochs-300__negs-50__dampening-0p75__dim-10__batchsize-64__geometryschedule-ramp/stage1__depthbandweight-0p05__branchweight-0p05__branchcosmargin-0p2__radialweight-0p05__radialmargin-0p01__cpccweight-0p05__lr-0p1__burnin-20__epochs-300__negs-50__dampening-0p75__dim-10__batchsize-64__geometryschedule-ramp.pth.68",
+      "label": "geometry_stage1_best",
+      "metrics": {
+        "acceptance_pass": false,
+        "ancestor_ranking": {
+          "mean_average_precision": 0.9767893961708395,
+          "mean_positive_rank": 1.0845360824742267
+        },
+        "angular_branch_separation": {
+          "across_branch": {
+            "count": 4000,
+            "max": 1.88398683637224,
+            "mean": 1.051219451850505,
+            "median": 1.0544244991425014,
+            "min": 0.25479626242924536
+          },
+          "within_branch": {
+            "count": 4000,
+            "max": 1.781817208561824,
+            "mean": 0.7458138567251721,
+            "median": 0.793608868915919,
+            "min": 1.1620897345521186e-06
+          }
+        },
+        "branch_geometry": {
+          "branch_silhouette": 0.11461706303562245,
+          "top_branch_centroid_distances": {
+            "count": 45,
+            "max": 0.16055051012921506,
+            "mean": 0.10546887347576266,
+            "median": 0.10408766057964491,
+            "min": 0.06156307412085581
+          }
+        },
+        "branch_separation": {
+          "across_branch": {
+            "count": 4000,
+            "max": 0.2098262046315076,
+            "mean": 0.1450760665431649,
+            "median": 0.14652031532570897,
+            "min": 0.06133709360399167
+          },
+          "within_branch": {
+            "count": 4000,
+            "max": 0.18333731827038166,
+            "mean": 0.1115001706338506,
+            "median": 0.12063406174990327,
+            "min": 0.0031573029999731237
+          }
+        },
+        "checkpoint": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/tuning/geometry_separation/runs/stage1/stage1__depthbandweight-0p05__branchweight-0p05__branchcosmargin-0p2__radialweight-0p05__radialmargin-0p01__cpccweight-0p05__lr-0p1__burnin-20__epochs-300__negs-50__dampening-0p75__dim-10__batchsize-64__geometryschedule-ramp/stage1__depthbandweight-0p05__branchweight-0p05__branchcosmargin-0p2__radialweight-0p05__radialmargin-0p01__cpccweight-0p05__lr-0p1__burnin-20__epochs-300__negs-50__dampening-0p75__dim-10__batchsize-64__geometryschedule-ramp.pth.68",
+        "checkpoint_epoch": 68,
+        "depth_radius": {
+          "pearson": 0.5101235543886166,
+          "spearman": 0.30071784207227553
+        },
+        "gate_deficit_score": 1.288679242387978,
+        "gate_deficits": {
+          "ancestor_map": 0.0,
+          "branch_ratio": 1.195895737233339,
+          "minimum_adjacent_gap": 0.0,
+          "parent_mean_rank": 0.0,
+          "positive_quantile_gaps": 0.0,
+          "radial_violation": 0.09278350515463912,
+          "reconstruction_map": 0.0,
+          "sibling_ratio": 0.0,
+          "total": 1.288679242387978
+        },
+        "parent_ranking": {
+          "depth_stratified_mean_rank": {
+            "1": 1.0,
+            "2": 1.4545454545454546,
+            "3": 1.0,
+            "4": 1.6
+          },
+          "mean_rank": 1.0845360824742267,
+          "median_rank": 1.0
+        },
+        "radius_structure": {
+          "adjacent_depth_gaps": {
+            "0_to_1": 0.025857228449522335,
+            "1_to_2": 0.015444338274251505,
+            "2_to_3": 0.0025760412770073488,
+            "3_to_4": 0.007094549297060264
+          },
+          "adjacent_depth_quantile_gaps": {
+            "0_to_1": 0.014751877033619729,
+            "1_to_2": 0.00017652102850742452,
+            "2_to_3": -0.00838607002303162,
+            "3_to_4": 0.0003440996343653871
+          },
+          "depth_overlap_rates": {
+            "0_to_1": 0.0,
+            "1_to_2": 0.05194805194805195,
+            "2_to_3": 0.376221716427902,
+            "3_to_4": 0.030154639175257732
+          },
+          "internal_mean_radius": 0.029877656983123137,
+          "leaf_internal_radius_ratio": 1.6728374242278707,
+          "leaf_mean_radius": 0.049980462749611564,
+          "mean_radius_by_depth": {
+            "0": 0.006371085665375555,
+            "1": 0.03222831411489789,
+            "2": 0.047672652389149396,
+            "3": 0.050248693666156745,
+            "4": 0.05734324296321701
+          },
+          "minimum_adjacent_gap": 0.0025760412770073488,
+          "minimum_adjacent_quantile_gap": -0.00838607002303162,
+          "monotonic_depth_means": true,
+          "parent_child_radial_violation_rate": 0.10927835051546392,
+          "positive_adjacent_depth_quantile_gap_count": 3
+        },
+        "radius_summary": {
+          "internal": {
+            "count": 11,
+            "max": 0.04145829399519646,
+            "mean": 0.029877656983123137,
+            "median": 0.03475684359959888,
+            "min": 0.006371085665375555
+          },
+          "leaf": {
+            "count": 475,
+            "max": 0.060338568475333115,
+            "mean": 0.049980462749611564,
+            "median": 0.050652133561272676,
+            "min": 0.0207584315488702
+          }
+        },
+        "rank_key": [
+          -1.288679242387978,
+          -1.195895737233339,
+          -0.0,
+          -0.09278350515463912,
+          3.0,
+          -0.00838607002303162,
+          -0.7685635080316686,
+          0.9767893961708395,
+          0.3178705207452308
+        ],
+        "ratios": {
+          "angular_within_branch_to_across_branch_mean": 0.7094749392358419,
+          "same_depth_within_branch_to_across_branch_mean": 0.7865388223586365,
+          "sibling_to_non_sibling_mean": 0.2514598479783677,
+          "within_branch_to_across_branch_mean": 0.7685635080316686
+        },
+        "reconstruction": {
+          "map_rank": 0.3178705207452308,
+          "mean_rank": 6.018556701030928
+        },
+        "same_depth_branch_separation": {
+          "across_branch": {
+            "count": 4000,
+            "max": 0.20902805993394988,
+            "mean": 0.14438707503004974,
+            "median": 0.14560238020063315,
+            "min": 0.07193967224243158
+          },
+          "within_branch": {
+            "count": 4000,
+            "max": 0.18323599803756213,
+            "mean": 0.11356603995794341,
+            "median": 0.12193583370658782,
+            "min": 0.0031573148643974816
+          }
+        },
+        "sibling_cohesion": {
+          "same_depth_non_siblings": {
+            "count": 4000,
+            "max": 0.21072775001185776,
+            "mean": 0.14173215178827742,
+            "median": 0.1432600741032471,
+            "min": 0.005390036953090963
+          },
+          "siblings": {
+            "count": 1517,
+            "max": 0.18083825778906146,
+            "mean": 0.03563994534232717,
+            "median": 0.0031599898855912477,
+            "min": 0.0031573029999731237
+          }
+        }
+      }
+    },
+    {
+      "checkpoint": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/tuning/geometry_separation/runs/stage3/stage3__depthbandweight-0p1__branchweight-0p05__branchcosmargin-0p2__radialweight-0p05__radialmargin-0p01__cpccweight-0p05__lr-0p1__burnin-20__epochs-500__negs-50__dampening-0p75__dim-10__batchsize-64__geometryschedule-ramp/stage3__depthbandweight-0p1__branchweight-0p05__branchcosmargin-0p2__radialweight-0p05__radialmargin-0p01__cpccweight-0p05__lr-0p1__burnin-20__epochs-500__negs-50__dampening-0p75__dim-10__batchsize-64__geometryschedule-ramp.pth.68",
+      "label": "geometry_stage3_best",
+      "metrics": {
+        "acceptance_pass": false,
+        "ancestor_ranking": {
+          "mean_average_precision": 0.9791948944526264,
+          "mean_positive_rank": 1.0783505154639175
+        },
+        "angular_branch_separation": {
+          "across_branch": {
+            "count": 4000,
+            "max": 1.8438246157767226,
+            "mean": 1.051865859059885,
+            "median": 1.0625480167626002,
+            "min": 0.27562265258650764
+          },
+          "within_branch": {
+            "count": 4000,
+            "max": 1.6939858680178448,
+            "mean": 0.7423075569618615,
+            "median": 0.7709764779299271,
+            "min": 2.111345563493572e-06
+          }
+        },
+        "branch_geometry": {
+          "branch_silhouette": 0.11580015628437475,
+          "top_branch_centroid_distances": {
+            "count": 45,
+            "max": 0.1615341259254984,
+            "mean": 0.10544860802549226,
+            "median": 0.10387128492903991,
+            "min": 0.06355532688456893
+          }
+        },
+        "branch_separation": {
+          "across_branch": {
+            "count": 4000,
+            "max": 0.20775231160929974,
+            "mean": 0.14496311925098365,
+            "median": 0.14523839129677818,
+            "min": 0.06481957436687799
+          },
+          "within_branch": {
+            "count": 4000,
+            "max": 0.18220846265167315,
+            "mean": 0.1114090443519108,
+            "median": 0.11941428102985116,
+            "min": 0.003157324222612665
+          }
+        },
+        "checkpoint": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/tuning/geometry_separation/runs/stage3/stage3__depthbandweight-0p1__branchweight-0p05__branchcosmargin-0p2__radialweight-0p05__radialmargin-0p01__cpccweight-0p05__lr-0p1__burnin-20__epochs-500__negs-50__dampening-0p75__dim-10__batchsize-64__geometryschedule-ramp/stage3__depthbandweight-0p1__branchweight-0p05__branchcosmargin-0p2__radialweight-0p05__radialmargin-0p01__cpccweight-0p05__lr-0p1__burnin-20__epochs-500__negs-50__dampening-0p75__dim-10__batchsize-64__geometryschedule-ramp.pth.68",
+        "checkpoint_epoch": 68,
+        "depth_radius": {
+          "pearson": 0.5034988964987801,
+          "spearman": 0.29260186343679956
+        },
+        "gate_deficit_score": 1.7834394758494763,
+        "gate_deficits": {
+          "ancestor_map": 0.0,
+          "branch_ratio": 1.1958106098700951,
+          "minimum_adjacent_gap": 0.0,
+          "parent_mean_rank": 0.0,
+          "positive_quantile_gaps": 0.0,
+          "radial_violation": 0.5876288659793812,
+          "reconstruction_map": 0.0,
+          "sibling_ratio": 0.0,
+          "total": 1.7834394758494763
+        },
+        "parent_ranking": {
+          "depth_stratified_mean_rank": {
+            "1": 1.0,
+            "2": 1.4285714285714286,
+            "3": 1.0,
+            "4": 1.5
+          },
+          "mean_rank": 1.0783505154639175,
+          "median_rank": 1.0
+        },
+        "radius_structure": {
+          "adjacent_depth_gaps": {
+            "0_to_1": 0.02528347732970445,
+            "1_to_2": 0.015792195248607914,
+            "2_to_3": 0.0024793615674856134,
+            "3_to_4": 0.007070686285252002
+          },
+          "adjacent_depth_quantile_gaps": {
+            "0_to_1": 0.015325765605767202,
+            "1_to_2": 2.2464711364293677e-05,
+            "2_to_3": -0.009111621562470286,
+            "3_to_4": 0.0007107842838569162
+          },
+          "depth_overlap_rates": {
+            "0_to_1": 0.0,
+            "1_to_2": 0.05454545454545454,
+            "2_to_3": 0.3827486946043647,
+            "3_to_4": 0.037371134020618556
+          },
+          "internal_mean_radius": 0.029685716248119796,
+          "leaf_internal_radius_ratio": 1.6844030165671777,
+          "leaf_mean_radius": 0.050002709997290264,
+          "mean_radius_by_depth": {
+            "0": 0.006700736857479386,
+            "1": 0.031984214187183835,
+            "2": 0.04777640943579175,
+            "3": 0.05025577100327736,
+            "4": 0.057326457288529364
+          },
+          "minimum_adjacent_gap": 0.0024793615674856134,
+          "minimum_adjacent_quantile_gap": -0.009111621562470286,
+          "monotonic_depth_means": true,
+          "parent_child_radial_violation_rate": 0.15876288659793814,
+          "positive_adjacent_depth_quantile_gap_count": 3
+        },
+        "radius_summary": {
+          "internal": {
+            "count": 11,
+            "max": 0.04179743232648493,
+            "mean": 0.029685716248119796,
+            "median": 0.03253910896548037,
+            "min": 0.006700736857479386
+          },
+          "leaf": {
+            "count": 475,
+            "max": 0.06128421225094548,
+            "mean": 0.050002709997290264,
+            "median": 0.050602748447818334,
+            "min": 0.020383160866684045
+          }
+        },
+        "rank_key": [
+          -1.7834394758494763,
+          -1.1958106098700951,
+          -0.0,
+          -0.5876288659793812,
+          3.0,
+          -0.009111621562470286,
+          -0.7685337134545333,
+          0.9791948944526264,
+          0.31316197092632303
+        ],
+        "ratios": {
+          "angular_within_branch_to_across_branch_mean": 0.7057055332371999,
+          "same_depth_within_branch_to_across_branch_mean": 0.7865123837975345,
+          "sibling_to_non_sibling_mean": 0.2512380002011494,
+          "within_branch_to_across_branch_mean": 0.7685337134545333
+        },
+        "reconstruction": {
+          "map_rank": 0.31316197092632303,
+          "mean_rank": 5.991752577319588
+        },
+        "same_depth_branch_separation": {
+          "across_branch": {
+            "count": 4000,
+            "max": 0.20728767107818466,
+            "mean": 0.1443362003443291,
+            "median": 0.144733994762167,
+            "min": 0.07421746463514381
+          },
+          "within_branch": {
+            "count": 4000,
+            "max": 0.1808647679230045,
+            "mean": 0.1135222090010968,
+            "median": 0.12132107815736189,
+            "min": 0.003157314755512738
+          }
+        },
+        "sibling_cohesion": {
+          "same_depth_non_siblings": {
+            "count": 4000,
+            "max": 0.20985699317452383,
+            "mean": 0.1418829414420515,
+            "median": 0.14347560325381295,
+            "min": 0.006609447973549477
+          },
+          "siblings": {
+            "count": 1517,
+            "max": 0.18011335158012,
+            "mean": 0.035646386470557796,
+            "median": 0.0031598768780785615,
+            "min": 0.0031573121462219233
+          }
+        }
+      }
+    },
+    {
+      "checkpoint": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/tuning/geometry_separation/runs/stage2/stage2__depthbandweight-0p05__branchweight-0p02__branchcosmargin-0p2__radialweight-0p05__radialmargin-0p01__cpccweight-0p05__lr-0p1__burnin-20__epochs-300__negs-50__dampening-0p75__dim-10__batchsize-64__geometryschedule-ramp/stage2__depthbandweight-0p05__branchweight-0p02__branchcosmargin-0p2__radialweight-0p05__radialmargin-0p01__cpccweight-0p05__lr-0p1__burnin-20__epochs-300__negs-50__dampening-0p75__dim-10__batchsize-64__geometryschedule-ramp.pth.69",
+      "label": "geometry_stage2_best",
+      "metrics": {
+        "acceptance_pass": false,
+        "ancestor_ranking": {
+          "mean_average_precision": 0.9757928325969563,
+          "mean_positive_rank": 1.0824742268041236
+        },
+        "angular_branch_separation": {
+          "across_branch": {
+            "count": 4000,
+            "max": 1.884433260916761,
+            "mean": 1.0503586682172277,
+            "median": 1.0554635572750484,
+            "min": 0.27664791169056724
+          },
+          "within_branch": {
+            "count": 4000,
+            "max": 1.6869578492495765,
+            "mean": 0.7426882396058916,
+            "median": 0.775846689348248,
+            "min": 3.334418069211864e-06
+          }
+        },
+        "branch_geometry": {
+          "branch_silhouette": 0.1161052740059886,
+          "top_branch_centroid_distances": {
+            "count": 45,
+            "max": 0.16470705337378141,
+            "mean": 0.10716823652425,
+            "median": 0.10652456529666753,
+            "min": 0.06263894966855468
+          }
+        },
+        "branch_separation": {
+          "across_branch": {
+            "count": 4000,
+            "max": 0.21561897113362904,
+            "mean": 0.14817835869224563,
+            "median": 0.14969910928553226,
+            "min": 0.06924765429862136
+          },
+          "within_branch": {
+            "count": 4000,
+            "max": 0.18674037967668303,
+            "mean": 0.11346738847993786,
+            "median": 0.1224570693445558,
+            "min": 0.0031573337225020547
+          }
+        },
+        "checkpoint": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/tuning/geometry_separation/runs/stage2/stage2__depthbandweight-0p05__branchweight-0p02__branchcosmargin-0p2__radialweight-0p05__radialmargin-0p01__cpccweight-0p05__lr-0p1__burnin-20__epochs-300__negs-50__dampening-0p75__dim-10__batchsize-64__geometryschedule-ramp/stage2__depthbandweight-0p05__branchweight-0p02__branchcosmargin-0p2__radialweight-0p05__radialmargin-0p01__cpccweight-0p05__lr-0p1__burnin-20__epochs-300__negs-50__dampening-0p75__dim-10__batchsize-64__geometryschedule-ramp.pth.69",
+        "checkpoint_epoch": 69,
+        "depth_radius": {
+          "pearson": 0.5083033640979117,
+          "spearman": 0.2938639379546234
+        },
+        "gate_deficit_score": 2.064142145115714,
+        "gate_deficits": {
+          "ancestor_map": 0.0,
+          "branch_ratio": 1.1878534853218996,
+          "minimum_adjacent_gap": 0.0,
+          "parent_mean_rank": 0.0,
+          "positive_quantile_gaps": 0.0,
+          "radial_violation": 0.8762886597938143,
+          "reconstruction_map": 0.0,
+          "sibling_ratio": 0.0,
+          "total": 2.064142145115714
+        },
+        "parent_ranking": {
+          "depth_stratified_mean_rank": {
+            "1": 1.0,
+            "2": 1.4545454545454546,
+            "3": 1.0,
+            "4": 1.5
+          },
+          "mean_rank": 1.0824742268041236,
+          "median_rank": 1.0
+        },
+        "radius_structure": {
+          "adjacent_depth_gaps": {
+            "0_to_1": 0.02616409399263918,
+            "1_to_2": 0.01564634579911487,
+            "2_to_3": 0.0025228066863744736,
+            "3_to_4": 0.007662034273467358
+          },
+          "adjacent_depth_quantile_gaps": {
+            "0_to_1": 0.015257707427694682,
+            "1_to_2": 0.0006819366004963967,
+            "2_to_3": -0.008484146557907787,
+            "3_to_4": 0.0005623010220737606
+          },
+          "depth_overlap_rates": {
+            "0_to_1": 0.0,
+            "1_to_2": 0.04935064935064935,
+            "2_to_3": 0.3837863167760075,
+            "3_to_4": 0.025257731958762887
+          },
+          "internal_mean_radius": 0.030690702875235055,
+          "leaf_internal_radius_ratio": 1.661439795310587,
+          "leaf_mean_radius": 0.05099075510296858,
+          "mean_radius_by_depth": {
+            "0": 0.006905162881926713,
+            "1": 0.03306925687456589,
+            "2": 0.04871560267368076,
+            "3": 0.051238409360055234,
+            "4": 0.05890044363352259
+          },
+          "minimum_adjacent_gap": 0.0025228066863744736,
+          "minimum_adjacent_quantile_gap": -0.008484146557907787,
+          "monotonic_depth_means": true,
+          "parent_child_radial_violation_rate": 0.18762886597938144,
+          "positive_adjacent_depth_quantile_gap_count": 3
+        },
+        "radius_summary": {
+          "internal": {
+            "count": 11,
+            "max": 0.04257463402373808,
+            "mean": 0.030690702875235055,
+            "median": 0.03601468148409715,
+            "min": 0.006905162881926713
+          },
+          "leaf": {
+            "count": 475,
+            "max": 0.06201270869393661,
+            "mean": 0.05099075510296858,
+            "median": 0.051506626722965784,
+            "min": 0.021494392244560224
+          }
+        },
+        "rank_key": [
+          -2.064142145115714,
+          -1.1878534853218996,
+          -0.0,
+          -0.8762886597938143,
+          3.0,
+          -0.008484146557907787,
+          -0.7657487198626648,
+          0.9757928325969563,
+          0.3017474542116952
+        ],
+        "ratios": {
+          "angular_within_branch_to_across_branch_mean": 0.7070806021589323,
+          "same_depth_within_branch_to_across_branch_mean": 0.7839968396172381,
+          "sibling_to_non_sibling_mean": 0.2512370625039564,
+          "within_branch_to_across_branch_mean": 0.7657487198626648
+        },
+        "reconstruction": {
+          "map_rank": 0.3017474542116952,
+          "mean_rank": 6.270103092783505
+        },
+        "same_depth_branch_separation": {
+          "across_branch": {
+            "count": 4000,
+            "max": 0.2125068153996507,
+            "mean": 0.14726253200205422,
+            "median": 0.14817811314657348,
+            "min": 0.07407983035112409
+          },
+          "within_branch": {
+            "count": 4000,
+            "max": 0.18622522748944614,
+            "mean": 0.1154533596836429,
+            "median": 0.12353019108307359,
+            "min": 0.003157321026275593
+          }
+        },
+        "sibling_cohesion": {
+          "same_depth_non_siblings": {
+            "count": 4000,
+            "max": 0.21256792143825876,
+            "mean": 0.14456057029392758,
+            "median": 0.1460073590892364,
+            "min": 0.007569873905065237
+          },
+          "siblings": {
+            "count": 1517,
+            "max": 0.18406355484173903,
+            "mean": 0.03631897303454306,
+            "median": 0.0031600201942369273,
+            "min": 0.003157321026275593
+          }
+        }
+      }
+    }
+  ],
+  "skipped_reason": null,
+  "stage": "stageA"
+}

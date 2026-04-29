@@ -73,6 +73,17 @@ Default active hyperparameters:
 - `radial_weight = 0.01`
 - `radial_margin = 0.02`
 - `cpcc_min_group_size = 2`
+- `depth_band_weight = 0.0`
+- `depth_quantile_weight = 0.0`
+- `depth_quantile_margin = 0.001`
+- `branch_weight = 0.0`
+- `branch_cos_margin = 0.2`
+- `branch_teacher_weight = 0.0`
+- `branch_contrastive_weight = 0.0`
+- `branch_contrastive_margin = 0.02`
+- `branch_contrastive_hard_k = 0`
+- `init_source = current-hybrid`
+- `geometry_schedule = ramp`
 - `selection_metric = combined`
 
 Expected committed orientation outputs:
@@ -107,6 +118,38 @@ Committed tuning orientation files:
 - `experiments/poincare_hypstructure/tuning/radius_separation/summaries/stage1_summary.md`
 
 Large per-run tuning artifacts are intentionally excluded from version control.
+
+## Geometry Campaign
+
+The branch/depth geometry campaign is separate from the older radius campaign:
+
+```bash
+conda run -n reasoning python experiments/poincare_hypstructure/scripts/run_geometry_tuning_campaign.py \
+  --stages stage0 stage1 stage2 stage3 \
+  --skip-existing
+```
+
+Stage 1 runs depth-only, branch-only, and combined ablations. Stage 2 sweeps
+depth-band, branch, and radial weights. Stage 3 reruns the top candidates for
+500 epochs with Poincare initialization and the ramped geometry schedule.
+
+## Branch Repair Campaign
+
+The next campaign is gate-oriented and starts from the current hybrid checkpoint
+instead of rebuilding geometry from direct Poincare initialization:
+
+```bash
+conda run -n reasoning python experiments/poincare_hypstructure/scripts/run_branch_repair_campaign.py \
+  --stages stageA stageB \
+  --skip-existing
+```
+
+Stage A re-scores the current hybrid and prior Stage 1-3 geometry candidates
+with `gate_deficit`. Stage B sweeps quantile depth margins, teacher branch
+preservation, same-depth branch contrastive loss, and lower learning rates for
+150 epochs. If branch ratio remains above `0.35`, Stage C increases
+contrastive weight and enables same-depth hard-negative mining. Stage D reruns
+the top five candidates for 500 epochs.
 
 ## Tree Visualizations
 

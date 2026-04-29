@@ -39,6 +39,39 @@ def safe_ratio(numerator: float, denominator: float) -> float:
     return float(numerator / denominator)
 
 
+def pairwise_poincare_distances(embeddings: np.ndarray) -> np.ndarray:
+    rows = []
+    for index in range(embeddings.shape[0]):
+        rows.append(poincare_distance_matrix(embeddings[index : index + 1], embeddings))
+    return np.vstack(rows)
+
+
+def project_to_ball_np(values: np.ndarray, eps: float = 1e-5) -> np.ndarray:
+    norms = np.linalg.norm(values, axis=-1, keepdims=True)
+    scales = np.minimum(1.0, (1.0 - eps) / np.maximum(norms, eps))
+    return values * scales
+
+
+def sample_angular_distances(
+    embeddings: np.ndarray,
+    index_pairs: list[tuple[int, int]],
+    max_pairs: int = 4000,
+    seed: int = 42,
+) -> np.ndarray:
+    if not index_pairs:
+        return np.empty(0, dtype=np.float64)
+    rng = np.random.default_rng(seed)
+    if len(index_pairs) > max_pairs:
+        selected = rng.choice(len(index_pairs), size=max_pairs, replace=False)
+        pairs = [index_pairs[index] for index in selected]
+    else:
+        pairs = index_pairs
+    norms = np.linalg.norm(embeddings, axis=1, keepdims=True)
+    directions = embeddings / np.maximum(norms, 1e-8)
+    distances = [1.0 - float(np.dot(directions[left], directions[right])) for left, right in pairs]
+    return np.asarray(distances, dtype=np.float64)
+
+
 def compute_radius_structure_metrics(
     embeddings: np.ndarray,
     objects: list[str],
@@ -56,15 +89,31 @@ def compute_radius_structure_metrics(
             mean_radius_by_depth[str(depth)] = float(radii[indices].mean())
 
     adjacent_depth_gaps = {}
+    adjacent_depth_quantile_gaps = {}
+    depth_overlap_rates = {}
     ordered_depths = sorted(int(depth) for depth in mean_radius_by_depth)
     for left_depth, right_depth in zip(ordered_depths[:-1], ordered_depths[1:]):
         gap = mean_radius_by_depth[str(right_depth)] - mean_radius_by_depth[str(left_depth)]
         adjacent_depth_gaps[f"{left_depth}_to_{right_depth}"] = float(gap)
+        left_indices = [node_to_index[node_id] for node_id in objects if int(metadata_map[node_id]["depth"]) == left_depth]
+        right_indices = [node_to_index[node_id] for node_id in objects if int(metadata_map[node_id]["depth"]) == right_depth]
+        left_radii = radii[left_indices]
+        right_radii = radii[right_indices]
+        quantile_gap = float(np.quantile(right_radii, 0.10) - np.quantile(left_radii, 0.90))
+        adjacent_depth_quantile_gaps[f"{left_depth}_to_{right_depth}"] = quantile_gap
+        overlap_rate = float(np.mean(right_radii[:, None] <= left_radii[None, :]))
+        depth_overlap_rates[f"{left_depth}_to_{right_depth}"] = overlap_rate
 
     minimum_adjacent_gap = (
         float(min(adjacent_depth_gaps.values())) if adjacent_depth_gaps else float("nan")
     )
+    minimum_adjacent_quantile_gap = (
+        float(min(adjacent_depth_quantile_gaps.values())) if adjacent_depth_quantile_gaps else float("nan")
+    )
     monotonic_depth_means = bool(adjacent_depth_gaps) and all(gap > 0.0 for gap in adjacent_depth_gaps.values())
+    positive_adjacent_depth_quantile_gap_count = sum(
+        1 for gap in adjacent_depth_quantile_gaps.values() if gap > 0.0
+    )
 
     parent_child_violations = 0
     parent_child_pairs = 0
@@ -92,6 +141,10 @@ def compute_radius_structure_metrics(
         },
         "mean_radius_by_depth": mean_radius_by_depth,
         "adjacent_depth_gaps": adjacent_depth_gaps,
+        "adjacent_depth_quantile_gaps": adjacent_depth_quantile_gaps,
+        "minimum_adjacent_quantile_gap": minimum_adjacent_quantile_gap,
+        "positive_adjacent_depth_quantile_gap_count": positive_adjacent_depth_quantile_gap_count,
+        "depth_overlap_rates": depth_overlap_rates,
         "minimum_adjacent_gap": minimum_adjacent_gap,
         "monotonic_depth_means": monotonic_depth_means,
         "parent_child_radial_violation_rate": (
@@ -106,6 +159,177 @@ def compute_radius_structure_metrics(
         "radius_summary": {
             "leaf": summarize(leaf_radii),
             "internal": summarize(internal_radii),
+        },
+    }
+
+
+def compute_branch_geometry_metrics(
+    embeddings: np.ndarray,
+    objects: list[str],
+    metadata_rows: list[dict[str, str]],
+) -> dict[str, object]:
+    metadata_map = {row["node_id"]: row for row in metadata_rows}
+    node_to_index = {node_id: index for index, node_id in enumerate(objects)}
+    branch_groups = defaultdict(list)
+    for node_id in objects:
+        row = metadata_map[node_id]
+        if int(row["depth"]) == 0:
+            continue
+        branch_groups[row["top_branch_id"]].append(node_to_index[node_id])
+
+    branch_ids = sorted(branch for branch, indices in branch_groups.items() if indices)
+    if len(branch_ids) < 2:
+        return {
+            "branch_silhouette": float("nan"),
+            "top_branch_centroid_distances": {
+                "count": 0,
+                "mean": float("nan"),
+                "median": float("nan"),
+                "min": float("nan"),
+                "max": float("nan"),
+            },
+        }
+
+    included_indices = [index for branch in branch_ids for index in branch_groups[branch]]
+    compact_embeddings = embeddings[included_indices]
+    compact_distances = pairwise_poincare_distances(compact_embeddings)
+    original_to_compact = {original: compact for compact, original in enumerate(included_indices)}
+
+    silhouettes = []
+    for branch_id in branch_ids:
+        same_original = branch_groups[branch_id]
+        same_compact = [original_to_compact[index] for index in same_original]
+        for original_index in same_original:
+            compact_index = original_to_compact[original_index]
+            same_without_self = [index for index in same_compact if index != compact_index]
+            a = float(compact_distances[compact_index, same_without_self].mean()) if same_without_self else 0.0
+            other_means = []
+            for other_branch in branch_ids:
+                if other_branch == branch_id:
+                    continue
+                other_compact = [original_to_compact[index] for index in branch_groups[other_branch]]
+                other_means.append(float(compact_distances[compact_index, other_compact].mean()))
+            b = min(other_means)
+            denominator = max(a, b)
+            if denominator > 0.0:
+                silhouettes.append((b - a) / denominator)
+
+    centroids = []
+    for branch_id in branch_ids:
+        centroid = embeddings[branch_groups[branch_id]].mean(axis=0, keepdims=True)
+        centroids.append(project_to_ball_np(centroid)[0])
+    centroid_distances = pairwise_poincare_distances(np.asarray(centroids, dtype=np.float64))
+    tri = np.triu_indices(len(branch_ids), k=1)
+    centroid_pair_distances = centroid_distances[tri]
+
+    return {
+        "branch_silhouette": float(np.mean(silhouettes)) if silhouettes else float("nan"),
+        "top_branch_centroid_distances": summarize(centroid_pair_distances),
+    }
+
+
+def compute_branch_pair_diagnostics(
+    embeddings: np.ndarray,
+    objects: list[str],
+    metadata_rows: list[dict[str, str]],
+) -> dict[str, object]:
+    metadata_map = {row["node_id"]: row for row in metadata_rows}
+    node_to_index = {node_id: index for index, node_id in enumerate(objects)}
+    branch_groups = defaultdict(list)
+    depth_groups = defaultdict(list)
+    for node_id in objects:
+        row = metadata_map[node_id]
+        depth = int(row["depth"])
+        depth_groups[depth].append(node_id)
+        if depth > 0:
+            branch_groups[row["top_branch_id"]].append(node_id)
+
+    within_branch_pairs = []
+    across_branch_pairs = []
+    same_depth_within_branch_pairs = []
+    same_depth_across_branch_pairs = []
+    branch_ids = sorted(branch for branch, node_ids in branch_groups.items() if node_ids)
+    for branch_id in branch_ids:
+        branch_nodes = [node_to_index[node_id] for node_id in branch_groups[branch_id]]
+        for left_index in range(len(branch_nodes)):
+            for right_index in range(left_index + 1, len(branch_nodes)):
+                within_branch_pairs.append((branch_nodes[left_index], branch_nodes[right_index]))
+
+    for _, node_ids in depth_groups.items():
+        non_root = [node_id for node_id in node_ids if int(metadata_map[node_id]["depth"]) > 0]
+        for left_index in range(len(non_root)):
+            for right_index in range(left_index + 1, len(non_root)):
+                left = non_root[left_index]
+                right = non_root[right_index]
+                pair = (node_to_index[left], node_to_index[right])
+                if metadata_map[left]["top_branch_id"] == metadata_map[right]["top_branch_id"]:
+                    same_depth_within_branch_pairs.append(pair)
+                else:
+                    same_depth_across_branch_pairs.append(pair)
+
+    for left_index, left_branch in enumerate(branch_ids):
+        for right_branch in branch_ids[left_index + 1 :]:
+            left_nodes = [node_to_index[node_id] for node_id in branch_groups[left_branch][:30]]
+            right_nodes = [node_to_index[node_id] for node_id in branch_groups[right_branch][:30]]
+            for left_node in left_nodes:
+                for right_node in right_nodes:
+                    across_branch_pairs.append((left_node, right_node))
+
+    within_branch_distances = sample_pairwise_distances(embeddings, within_branch_pairs, max_pairs=4000, seed=42)
+    across_branch_distances = sample_pairwise_distances(embeddings, across_branch_pairs, max_pairs=4000, seed=42)
+    same_depth_within_branch_distances = sample_pairwise_distances(
+        embeddings,
+        same_depth_within_branch_pairs,
+        max_pairs=4000,
+        seed=43,
+    )
+    same_depth_across_branch_distances = sample_pairwise_distances(
+        embeddings,
+        same_depth_across_branch_pairs,
+        max_pairs=4000,
+        seed=43,
+    )
+    angular_within_branch_distances = sample_angular_distances(embeddings, within_branch_pairs, max_pairs=4000, seed=44)
+    angular_across_branch_distances = sample_angular_distances(embeddings, across_branch_pairs, max_pairs=4000, seed=44)
+
+    within_branch_mean = float(np.mean(within_branch_distances)) if within_branch_distances.size else float("nan")
+    across_branch_mean = float(np.mean(across_branch_distances)) if across_branch_distances.size else float("nan")
+    same_depth_within_branch_mean = (
+        float(np.mean(same_depth_within_branch_distances)) if same_depth_within_branch_distances.size else float("nan")
+    )
+    same_depth_across_branch_mean = (
+        float(np.mean(same_depth_across_branch_distances)) if same_depth_across_branch_distances.size else float("nan")
+    )
+    angular_within_branch_mean = (
+        float(np.mean(angular_within_branch_distances)) if angular_within_branch_distances.size else float("nan")
+    )
+    angular_across_branch_mean = (
+        float(np.mean(angular_across_branch_distances)) if angular_across_branch_distances.size else float("nan")
+    )
+
+    return {
+        "branch_separation": {
+            "within_branch": summarize(within_branch_distances),
+            "across_branch": summarize(across_branch_distances),
+        },
+        "same_depth_branch_separation": {
+            "within_branch": summarize(same_depth_within_branch_distances),
+            "across_branch": summarize(same_depth_across_branch_distances),
+        },
+        "angular_branch_separation": {
+            "within_branch": summarize(angular_within_branch_distances),
+            "across_branch": summarize(angular_across_branch_distances),
+        },
+        "ratios": {
+            "within_branch_to_across_branch_mean": safe_ratio(within_branch_mean, across_branch_mean),
+            "same_depth_within_branch_to_across_branch_mean": safe_ratio(
+                same_depth_within_branch_mean,
+                same_depth_across_branch_mean,
+            ),
+            "angular_within_branch_to_across_branch_mean": safe_ratio(
+                angular_within_branch_mean,
+                angular_across_branch_mean,
+            ),
         },
     }
 
@@ -134,6 +358,7 @@ def compute_disease90_metrics(
         mean_rank, map_rank = eval_reconstruction(adjacency, model)
 
     radius_structure = compute_radius_structure_metrics(embeddings, objects, metadata_rows)
+    branch_geometry = compute_branch_geometry_metrics(embeddings, objects, metadata_rows)
 
     candidate_ancestors = {
         node_id: [other for other in objects if int(metadata_map[other]["depth"]) < int(metadata_map[node_id]["depth"])]
@@ -191,39 +416,23 @@ def compute_disease90_metrics(
     sibling_distances = sample_pairwise_distances(embeddings, sibling_pairs, max_pairs=4000, seed=42)
     non_sibling_distances = sample_pairwise_distances(embeddings, non_sibling_pairs, max_pairs=4000, seed=42)
 
-    branch_groups = defaultdict(list)
-    for node_id in objects:
-        branch_groups[metadata_map[node_id]["top_branch_id"]].append(node_id)
-    within_branch_pairs = []
-    across_branch_pairs = []
-    branch_ids = sorted(branch_groups)
-    for branch_id in branch_ids:
-        branch_nodes = [node_to_index[node_id] for node_id in branch_groups[branch_id] if metadata_map[node_id]["depth"] != "0"]
-        for left_index in range(len(branch_nodes)):
-            for right_index in range(left_index + 1, len(branch_nodes)):
-                within_branch_pairs.append((branch_nodes[left_index], branch_nodes[right_index]))
-    for left_index, left_branch in enumerate(branch_ids):
-        for right_branch in branch_ids[left_index + 1 :]:
-            left_nodes = [node_to_index[node_id] for node_id in branch_groups[left_branch][:30]]
-            right_nodes = [node_to_index[node_id] for node_id in branch_groups[right_branch][:30]]
-            for left_node in left_nodes:
-                for right_node in right_nodes:
-                    across_branch_pairs.append((left_node, right_node))
-    within_branch_distances = sample_pairwise_distances(embeddings, within_branch_pairs, max_pairs=4000, seed=42)
-    across_branch_distances = sample_pairwise_distances(embeddings, across_branch_pairs, max_pairs=4000, seed=42)
-
     sibling_mean = float(np.mean(sibling_distances)) if sibling_distances.size else float("nan")
     non_sibling_mean = float(np.mean(non_sibling_distances)) if non_sibling_distances.size else float("nan")
-    within_branch_mean = float(np.mean(within_branch_distances)) if within_branch_distances.size else float("nan")
-    across_branch_mean = float(np.mean(across_branch_distances)) if across_branch_distances.size else float("nan")
+    branch_pair_diagnostics = compute_branch_pair_diagnostics(embeddings, objects, metadata_rows)
 
-    return {
+    metrics = {
         "checkpoint_epoch": checkpoint.get("epoch"),
         "reconstruction": {"mean_rank": float(mean_rank), "map_rank": float(map_rank)},
         "depth_radius": radius_structure["depth_radius"],
         "radius_structure": {
             "mean_radius_by_depth": radius_structure["mean_radius_by_depth"],
             "adjacent_depth_gaps": radius_structure["adjacent_depth_gaps"],
+            "adjacent_depth_quantile_gaps": radius_structure["adjacent_depth_quantile_gaps"],
+            "minimum_adjacent_quantile_gap": radius_structure["minimum_adjacent_quantile_gap"],
+            "positive_adjacent_depth_quantile_gap_count": radius_structure[
+                "positive_adjacent_depth_quantile_gap_count"
+            ],
+            "depth_overlap_rates": radius_structure["depth_overlap_rates"],
             "minimum_adjacent_gap": radius_structure["minimum_adjacent_gap"],
             "monotonic_depth_means": radius_structure["monotonic_depth_means"],
             "parent_child_radial_violation_rate": radius_structure["parent_child_radial_violation_rate"],
@@ -246,43 +455,134 @@ def compute_disease90_metrics(
             "siblings": summarize(sibling_distances),
             "same_depth_non_siblings": summarize(non_sibling_distances),
         },
-        "branch_separation": {
-            "within_branch": summarize(within_branch_distances),
-            "across_branch": summarize(across_branch_distances),
-        },
+        "branch_separation": branch_pair_diagnostics["branch_separation"],
+        "same_depth_branch_separation": branch_pair_diagnostics["same_depth_branch_separation"],
+        "angular_branch_separation": branch_pair_diagnostics["angular_branch_separation"],
+        "branch_geometry": branch_geometry,
         "radius_summary": radius_structure["radius_summary"],
         "ratios": {
             "sibling_to_non_sibling_mean": safe_ratio(sibling_mean, non_sibling_mean),
-            "within_branch_to_across_branch_mean": safe_ratio(within_branch_mean, across_branch_mean),
+            **branch_pair_diagnostics["ratios"],
         },
     }
+    metrics["gate_deficits"] = gate_deficits(metrics)
+    metrics["gate_deficit_score"] = float(metrics["gate_deficits"]["total"])
+    return metrics
 
 
 def passes_acceptance_floors(
     metrics: dict[str, object],
     floor_reconstruction_map: float = 0.30,
-    floor_parent_mean_rank: float = 1.30,
-    floor_sibling_ratio: float = 0.35,
-    floor_branch_ratio: float = 0.50,
+    floor_parent_mean_rank: float = 1.20,
+    floor_ancestor_map: float = 0.95,
+    floor_sibling_ratio: float = 0.30,
+    floor_branch_ratio: float = 0.35,
+    floor_min_adjacent_gap: float = 0.0,
+    floor_positive_quantile_gaps: int = 3,
+    ceiling_radial_violation: float = 0.10,
 ) -> bool:
-    return bool(
-        metrics["reconstruction"]["map_rank"] >= floor_reconstruction_map
-        and metrics["parent_ranking"]["mean_rank"] <= floor_parent_mean_rank
-        and metrics["ratios"]["sibling_to_non_sibling_mean"] <= floor_sibling_ratio
-        and metrics["ratios"]["within_branch_to_across_branch_mean"] <= floor_branch_ratio
+    deficits = gate_deficits(
+        metrics,
+        floor_reconstruction_map=floor_reconstruction_map,
+        floor_parent_mean_rank=floor_parent_mean_rank,
+        floor_ancestor_map=floor_ancestor_map,
+        floor_sibling_ratio=floor_sibling_ratio,
+        floor_branch_ratio=floor_branch_ratio,
+        floor_min_adjacent_gap=floor_min_adjacent_gap,
+        floor_positive_quantile_gaps=floor_positive_quantile_gaps,
+        ceiling_radial_violation=ceiling_radial_violation,
     )
+    return bool(deficits["total"] == 0.0)
+
+
+def normalized_floor_deficit(value: float, floor: float) -> float:
+    if np.isnan(value):
+        return 1.0
+    if floor == 0.0:
+        return max(0.0, -value)
+    return max(0.0, (floor - value) / abs(floor))
+
+
+def normalized_ceiling_deficit(value: float, ceiling: float) -> float:
+    if np.isnan(value):
+        return 1.0
+    if ceiling == 0.0:
+        return max(0.0, value)
+    return max(0.0, (value - ceiling) / abs(ceiling))
+
+
+def gate_deficits(
+    metrics: dict[str, object],
+    floor_reconstruction_map: float = 0.30,
+    floor_parent_mean_rank: float = 1.20,
+    floor_ancestor_map: float = 0.95,
+    floor_sibling_ratio: float = 0.30,
+    floor_branch_ratio: float = 0.35,
+    floor_min_adjacent_gap: float = 0.0,
+    floor_positive_quantile_gaps: int = 3,
+    ceiling_radial_violation: float = 0.10,
+) -> dict[str, float]:
+    radius_structure = metrics["radius_structure"]
+    deficits = {
+        "reconstruction_map": normalized_floor_deficit(
+            float(metrics["reconstruction"]["map_rank"]),
+            floor_reconstruction_map,
+        ),
+        "parent_mean_rank": normalized_ceiling_deficit(
+            float(metrics["parent_ranking"]["mean_rank"]),
+            floor_parent_mean_rank,
+        ),
+        "ancestor_map": normalized_floor_deficit(
+            float(metrics["ancestor_ranking"]["mean_average_precision"]),
+            floor_ancestor_map,
+        ),
+        "sibling_ratio": normalized_ceiling_deficit(
+            float(metrics["ratios"]["sibling_to_non_sibling_mean"]),
+            floor_sibling_ratio,
+        ),
+        "branch_ratio": normalized_ceiling_deficit(
+            float(metrics["ratios"]["within_branch_to_across_branch_mean"]),
+            floor_branch_ratio,
+        ),
+        "minimum_adjacent_gap": normalized_floor_deficit(
+            float(radius_structure["minimum_adjacent_gap"]),
+            floor_min_adjacent_gap,
+        ),
+        "positive_quantile_gaps": normalized_floor_deficit(
+            float(radius_structure["positive_adjacent_depth_quantile_gap_count"]),
+            float(floor_positive_quantile_gaps),
+        ),
+        "radial_violation": normalized_ceiling_deficit(
+            float(radius_structure["parent_child_radial_violation_rate"]),
+            ceiling_radial_violation,
+        ),
+    }
+    deficits["total"] = float(sum(deficits.values()))
+    return deficits
+
+
+def gate_deficit_rank_key(metrics: dict[str, object]) -> tuple[float, ...]:
+    deficits = metrics.get("gate_deficits") or gate_deficits(metrics)
+    radius_structure = metrics["radius_structure"]
+    return (
+        -float(deficits["total"]),
+        -float(deficits["branch_ratio"]),
+        -float(deficits["sibling_ratio"]),
+        -float(deficits["radial_violation"]),
+        float(radius_structure["positive_adjacent_depth_quantile_gap_count"]),
+        float(radius_structure["minimum_adjacent_quantile_gap"]),
+        -float(metrics["ratios"]["within_branch_to_across_branch_mean"]),
+        float(metrics["ancestor_ranking"]["mean_average_precision"]),
+        float(metrics["reconstruction"]["map_rank"]),
+    )
+
+
+def geometry_rank_key(metrics: dict[str, object]) -> tuple[float, ...]:
+    return gate_deficit_rank_key(metrics)
 
 
 def depth_first_rank_key(metrics: dict[str, object]) -> tuple[float, ...]:
-    radius_structure = metrics["radius_structure"]
-    return (
-        1.0 if radius_structure["monotonic_depth_means"] else 0.0,
-        float(radius_structure["minimum_adjacent_gap"]),
-        float(metrics["depth_radius"]["spearman"]),
-        -float(radius_structure["parent_child_radial_violation_rate"]),
-        float(radius_structure["leaf_mean_radius"]),
-        float(metrics["reconstruction"]["map_rank"]),
-    )
+    return geometry_rank_key(metrics)
 
 
 def load_metadata_and_relations(

@@ -2,10 +2,15 @@
 
 This is the active method-development track.
 
-It combines the original Poincare relation loss with two additional structure losses:
+It combines the original Poincare relation loss with optional structure losses:
 
 - CPCC global hierarchy alignment
 - radial parent-child ordering
+- depth-band radial targets
+- adjacent-depth quantile margins
+- top-branch angular separation
+- teacher-preserved branch layout
+- same-depth branch contrastive margins
 
 The active data mode is:
 
@@ -24,7 +29,11 @@ without reverting to a large artifact dump or a closure-edge training graph.
 ## Objective
 
 ```text
-L_total = L_edge + alpha * L_CPCC + beta * L_radial
+L_total = L_edge
+        + alpha * L_CPCC
+        + beta * L_radial
+        + gamma * L_depth
+        + delta * L_branch
 ```
 
 See `../../docs/algorithm.md` for the full explanation.
@@ -61,6 +70,10 @@ Generated checkpoints, logs, exported embedding tables, and full per-run tuning 
   - offline checkpoint rescoring for tuning
 - `scripts/run_radius_tuning_campaign.py`
   - staged radius-separation sweep
+- `scripts/run_geometry_tuning_campaign.py`
+  - staged branch/depth geometry sweep
+- `scripts/run_branch_repair_campaign.py`
+  - current-hybrid repair sweep using gate-deficit selection
 
 Maintained figure generators:
 
@@ -76,6 +89,46 @@ conda run -n reasoning python experiments/poincare_hypstructure/scripts/run_dise
   --relation-mode direct \
   --fresh
 ```
+
+The default trainer now uses a ramped geometry schedule and initializes from
+the current hybrid checkpoint when available. Fixed depth bands and the older
+angular branch loss are available but opt-in; the branch-repair campaign uses
+the current-hybrid checkpoint, constant geometry weighting, quantile depth
+margins, teacher branch preservation, and same-depth branch contrastive loss.
+The main geometry knobs are:
+
+- `--depth-band-weight`
+- `--depth-quantile-weight`
+- `--depth-quantile-margin`
+- `--branch-weight`
+- `--branch-cos-margin`
+- `--branch-teacher-weight`
+- `--branch-teacher-checkpoint`
+- `--branch-contrastive-weight`
+- `--branch-contrastive-margin`
+- `--branch-contrastive-hard-k`
+- `--geometry-schedule`
+- `--init-source`
+- `--init-checkpoint`
+
+If `--init-checkpoint` is omitted, the trainer attempts to initialize from the
+best available current-hybrid checkpoint, then falls back to the direct
+pure-Poincare checkpoint, then scratch.
+
+## Branch Repair Campaign
+
+Run the next gate-oriented repair campaign with:
+
+```bash
+conda run -n reasoning python experiments/poincare_hypstructure/scripts/run_branch_repair_campaign.py \
+  --stages stageA stageB \
+  --skip-existing
+```
+
+Stage A re-ranks current and prior geometry baselines with gate-deficit scoring.
+Stage B repairs from the current hybrid checkpoint for 150 epochs. Stage C adds
+stronger hard-negative branch contrastive loss if Stage B still misses the
+branch-ratio gate. Stage D reruns the top five candidates for 500 epochs.
 
 ## Comparison Target
 

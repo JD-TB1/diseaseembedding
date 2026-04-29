@@ -19,6 +19,7 @@ from disease90_common import (
     DEFAULT_RELATIONS_CSV,
     DEFAULT_TRAIN_CONFIG,
     DEFAULT_TRAIN_LOG,
+    PROJECT_DIR,
     depth_radius_from_checkpoint,
     ensure_poincare_reference_built,
     import_hype_modules,
@@ -28,7 +29,19 @@ from disease90_common import (
     read_relations_csv,
     write_json,
 )
-from hybrid_losses import GlobalHierarchyCPCCLoss, RadialOrderLoss
+from hybrid_losses import (
+    BranchAngularSeparationLoss,
+    BranchContrastiveMarginLoss,
+    BranchTeacherLayoutLoss,
+    DepthBandLoss,
+    DepthQuantileMarginLoss,
+    GlobalHierarchyCPCCLoss,
+    RadialOrderLoss,
+)
+
+
+GEOMETRY_RAMP_START = 50
+GEOMETRY_RAMP_END = 150
 
 
 def selection_score(metric: str, reconstruction_map: float, depth_spearman: float, total_loss: float) -> float:
@@ -41,6 +54,153 @@ def selection_score(metric: str, reconstruction_map: float, depth_spearman: floa
     if metric == "negative_loss":
         return -total_loss
     raise ValueError(f"Unknown selection metric: {metric}")
+
+
+def geometry_schedule_scale(epoch: int, schedule: str) -> float:
+    if schedule == "off":
+        return 0.0
+    if schedule == "constant":
+        return 1.0
+    if schedule != "ramp":
+        raise ValueError(f"Unknown geometry schedule: {schedule}")
+    if epoch < GEOMETRY_RAMP_START:
+        return 0.0
+    if epoch >= GEOMETRY_RAMP_END:
+        return 1.0
+    return float((epoch - GEOMETRY_RAMP_START) / (GEOMETRY_RAMP_END - GEOMETRY_RAMP_START))
+
+
+def checkpoint_epoch(path: Path) -> int:
+    suffix = path.name.rsplit(".", 1)[-1]
+    return int(suffix) if suffix.isdigit() else -1
+
+
+def latest_numbered_checkpoint(prefix: Path) -> Path | None:
+    snapshots = sorted(
+        [path for path in prefix.parent.glob(f"{prefix.name}.*") if checkpoint_epoch(path) >= 0],
+        key=checkpoint_epoch,
+    )
+    return snapshots[-1] if snapshots else None
+
+
+def direct_poincare_init_checkpoint() -> Path | None:
+    direct_prefix = PROJECT_DIR / "experiments" / "poincare_only" / "results" / "disease90" / "disease90_embeddings_direct.pth"
+    candidates = [Path(f"{direct_prefix}.best"), direct_prefix]
+    latest = latest_numbered_checkpoint(direct_prefix)
+    if latest is not None:
+        candidates.append(latest)
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    return None
+
+
+def current_hybrid_init_checkpoint() -> Path | None:
+    geometry_stage0_best = (
+        PROJECT_DIR
+        / "experiments"
+        / "poincare_hypstructure"
+        / "tuning"
+        / "geometry_separation"
+        / "stage0"
+        / "current_hybrid"
+        / "current_hybrid.offline_best.pth"
+    )
+    hybrid_prefix = DEFAULT_CHECKPOINT
+    candidates = [geometry_stage0_best, Path(f"{hybrid_prefix}.offline_best"), Path(f"{hybrid_prefix}.best"), hybrid_prefix]
+    latest = latest_numbered_checkpoint(hybrid_prefix)
+    if latest is not None:
+        candidates.append(latest)
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    return None
+
+
+def resolve_init_checkpoint(explicit_checkpoint: Path | None, init_source: str) -> tuple[Path | None, bool, str]:
+    if explicit_checkpoint is not None:
+        if not explicit_checkpoint.exists():
+            raise FileNotFoundError(f"Requested init checkpoint does not exist: {explicit_checkpoint}")
+        return explicit_checkpoint, True, "explicit"
+
+    if init_source == "none":
+        return None, False, "none"
+    if init_source == "direct-poincare":
+        return direct_poincare_init_checkpoint(), False, "direct-poincare"
+    if init_source != "current-hybrid":
+        raise ValueError(f"Unknown init source: {init_source}")
+
+    current_hybrid = current_hybrid_init_checkpoint()
+    if current_hybrid is not None:
+        return current_hybrid, False, "current-hybrid"
+    return direct_poincare_init_checkpoint(), False, "direct-poincare-fallback"
+
+
+def load_aligned_teacher_embeddings(
+    teacher_checkpoint: Path,
+    normalized_objects: list[str],
+    device: torch.device,
+) -> torch.Tensor:
+    checkpoint = torch.load(teacher_checkpoint, map_location="cpu", weights_only=False)
+    embeddings = checkpoint.get("embeddings")
+    objects = checkpoint.get("objects")
+    if embeddings is None or objects is None:
+        raise ValueError(f"Teacher checkpoint is missing embeddings/objects: {teacher_checkpoint}")
+    if not isinstance(embeddings, torch.Tensor):
+        embeddings = torch.tensor(embeddings)
+    source_objects = normalize_object_ids(list(objects))
+    source_index = {node_id: index for index, node_id in enumerate(source_objects)}
+    missing = [node_id for node_id in normalized_objects if node_id not in source_index]
+    if missing:
+        raise ValueError(f"Teacher checkpoint is missing {len(missing)} objects, example: {missing[:5]}")
+    aligned = torch.stack([embeddings[source_index[node_id]] for node_id in normalized_objects], dim=0)
+    return aligned.to(device=device, dtype=torch.double)
+
+
+def initialize_from_checkpoint(
+    model,
+    init_checkpoint: Path | None,
+    normalized_objects: list[str],
+    explicit: bool,
+) -> dict[str, object]:
+    if init_checkpoint is None:
+        return {"status": "scratch", "path": None, "reason": "no_init_checkpoint_found"}
+
+    checkpoint = torch.load(init_checkpoint, map_location="cpu", weights_only=False)
+    embeddings = checkpoint.get("embeddings")
+    objects = checkpoint.get("objects")
+    if embeddings is None or objects is None:
+        if explicit:
+            raise ValueError(f"Init checkpoint is missing embeddings/objects: {init_checkpoint}")
+        return {"status": "scratch", "path": str(init_checkpoint), "reason": "missing_embeddings_or_objects"}
+
+    source_objects = normalize_object_ids(list(objects))
+    source_index = {node_id: index for index, node_id in enumerate(source_objects)}
+    missing = [node_id for node_id in normalized_objects if node_id not in source_index]
+    if missing:
+        if explicit:
+            raise ValueError(f"Init checkpoint is missing {len(missing)} objects, example: {missing[:5]}")
+        return {"status": "scratch", "path": str(init_checkpoint), "reason": "object_mismatch"}
+
+    if not isinstance(embeddings, torch.Tensor):
+        embeddings = torch.tensor(embeddings)
+    if embeddings.size(1) != model.lt.weight.data.size(1):
+        if explicit:
+            raise ValueError(
+                f"Init dim {embeddings.size(1)} does not match model dim {model.lt.weight.data.size(1)}"
+            )
+        return {"status": "scratch", "path": str(init_checkpoint), "reason": "dimension_mismatch"}
+
+    aligned = torch.stack([embeddings[source_index[node_id]] for node_id in normalized_objects], dim=0)
+    model.lt.weight.data.copy_(aligned.to(device=model.lt.weight.device, dtype=model.lt.weight.dtype))
+    model.manifold.normalize(model.lt.weight.data)
+    return {
+        "status": "initialized",
+        "path": str(init_checkpoint),
+        "reason": "ok",
+        "source_epoch": checkpoint.get("epoch"),
+        "explicit": explicit,
+    }
 
 
 def evaluate_checkpoint(
@@ -87,6 +247,23 @@ def main() -> None:
     parser.add_argument("--radial-weight", type=float, default=0.01)
     parser.add_argument("--radial-margin", type=float, default=0.02)
     parser.add_argument("--cpcc-min-group-size", type=int, default=2)
+    parser.add_argument("--depth-band-weight", type=float, default=0.0)
+    parser.add_argument("--depth-quantile-weight", type=float, default=0.0)
+    parser.add_argument("--depth-quantile-margin", type=float, default=0.001)
+    parser.add_argument("--branch-weight", type=float, default=0.0)
+    parser.add_argument("--branch-cos-margin", type=float, default=0.2)
+    parser.add_argument("--branch-teacher-weight", type=float, default=0.0)
+    parser.add_argument("--branch-teacher-checkpoint", type=Path, default=None)
+    parser.add_argument("--branch-contrastive-weight", type=float, default=0.0)
+    parser.add_argument("--branch-contrastive-margin", type=float, default=0.02)
+    parser.add_argument("--branch-contrastive-hard-k", type=int, default=0)
+    parser.add_argument("--init-checkpoint", type=Path, default=None)
+    parser.add_argument(
+        "--init-source",
+        choices=["current-hybrid", "direct-poincare", "none"],
+        default="current-hybrid",
+    )
+    parser.add_argument("--geometry-schedule", choices=["ramp", "constant", "off"], default="ramp")
     parser.add_argument(
         "--selection-metric",
         choices=["combined", "reconstruction_map", "depth_spearman", "negative_loss"],
@@ -145,6 +322,23 @@ def main() -> None:
         min_group_size=args.cpcc_min_group_size,
     ).to(device)
     radial_loss_fn = RadialOrderLoss(metadata_rows, normalized_objects, margin=args.radial_margin).to(device)
+    depth_band_loss_fn = DepthBandLoss(metadata_rows, normalized_objects).to(device)
+    depth_quantile_loss_fn = DepthQuantileMarginLoss(
+        metadata_rows,
+        normalized_objects,
+        margin=args.depth_quantile_margin,
+    ).to(device)
+    branch_loss_fn = BranchAngularSeparationLoss(
+        metadata_rows,
+        normalized_objects,
+        cos_margin=args.branch_cos_margin,
+    ).to(device)
+    branch_contrastive_loss_fn = BranchContrastiveMarginLoss(
+        metadata_rows,
+        normalized_objects,
+        margin=args.branch_contrastive_margin,
+        hard_negative_k=args.branch_contrastive_hard_k,
+    ).to(device)
 
     checkpoint = LocalCheckpoint(
         str(args.checkpoint),
@@ -154,6 +348,24 @@ def main() -> None:
     state = checkpoint.initialize({"epoch": 0, "model": model.state_dict()})
     model.load_state_dict(state["model"])
     epoch_start = state["epoch"]
+    init_candidate, init_explicit, init_source = resolve_init_checkpoint(args.init_checkpoint, args.init_source)
+    init_payload = {"status": "not_applied", "path": None, "reason": "resuming_existing_checkpoint"}
+    if epoch_start == 0 and (args.fresh or args.init_checkpoint is not None or not args.checkpoint.exists()):
+        init_payload = initialize_from_checkpoint(model, init_candidate, normalized_objects, init_explicit)
+    init_payload["source"] = init_source
+
+    teacher_checkpoint = args.branch_teacher_checkpoint
+    if teacher_checkpoint is None and args.branch_teacher_weight > 0.0:
+        teacher_checkpoint = current_hybrid_init_checkpoint()
+    if teacher_checkpoint is None and args.branch_teacher_weight > 0.0:
+        raise FileNotFoundError("Branch teacher loss requested, but no current-hybrid teacher checkpoint was found")
+    branch_teacher_payload = {"status": "disabled", "path": None}
+    if teacher_checkpoint is not None and args.branch_teacher_weight > 0.0:
+        teacher_embeddings = load_aligned_teacher_embeddings(teacher_checkpoint, normalized_objects, device)
+        branch_teacher_loss_fn = BranchTeacherLayoutLoss(metadata_rows, normalized_objects, teacher_embeddings).to(device)
+        branch_teacher_payload = {"status": "loaded", "path": str(teacher_checkpoint)}
+    else:
+        branch_teacher_loss_fn = None
 
     node_to_index = {node_id: index for index, node_id in enumerate(normalized_objects)}
     adjacency = {}
@@ -178,9 +390,23 @@ def main() -> None:
             "radial_weight": args.radial_weight,
             "radial_margin": args.radial_margin,
             "cpcc_min_group_size": args.cpcc_min_group_size,
+            "depth_band_weight": args.depth_band_weight,
+            "depth_quantile_weight": args.depth_quantile_weight,
+            "depth_quantile_margin": args.depth_quantile_margin,
+            "branch_weight": args.branch_weight,
+            "branch_cos_margin": args.branch_cos_margin,
+            "branch_teacher_weight": args.branch_teacher_weight,
+            "branch_teacher_checkpoint": str(args.branch_teacher_checkpoint) if args.branch_teacher_checkpoint else None,
+            "branch_contrastive_weight": args.branch_contrastive_weight,
+            "branch_contrastive_margin": args.branch_contrastive_margin,
+            "branch_contrastive_hard_k": args.branch_contrastive_hard_k,
+            "init_source": args.init_source,
+            "geometry_schedule": args.geometry_schedule,
             "selection_metric": args.selection_metric,
             "gpu": args.gpu,
         },
+        "init_checkpoint": init_payload,
+        "branch_teacher": branch_teacher_payload,
     }
     write_json(args.train_config, config_payload)
 
@@ -204,7 +430,13 @@ def main() -> None:
             epoch_edge = []
             epoch_cpcc = []
             epoch_radial = []
+            epoch_depth_band = []
+            epoch_depth_quantile = []
+            epoch_branch = []
+            epoch_branch_teacher = []
+            epoch_branch_contrastive = []
             epoch_total = []
+            geometry_scale = geometry_schedule_scale(epoch, args.geometry_schedule)
             start_time = timeit.default_timer()
             iterator = tqdm(data, disable=args.quiet)
             for inputs, targets in iterator:
@@ -215,13 +447,36 @@ def main() -> None:
                 loss_edge = model.loss(preds, targets, size_average=True)
                 loss_cpcc = cpcc_loss_fn(model.lt.weight)
                 loss_radial = radial_loss_fn(model.lt.weight)
-                total_loss = loss_edge + args.cpcc_weight * loss_cpcc + args.radial_weight * loss_radial
+                loss_depth_band = depth_band_loss_fn(model.lt.weight)
+                loss_depth_quantile = depth_quantile_loss_fn(model.lt.weight)
+                loss_branch = branch_loss_fn(model.lt.weight)
+                loss_branch_teacher = (
+                    branch_teacher_loss_fn(model.lt.weight)
+                    if branch_teacher_loss_fn is not None
+                    else model.lt.weight.new_tensor(0.0)
+                )
+                loss_branch_contrastive = branch_contrastive_loss_fn(model.lt.weight)
+                total_loss = (
+                    loss_edge
+                    + geometry_scale * args.cpcc_weight * loss_cpcc
+                    + geometry_scale * args.radial_weight * loss_radial
+                    + geometry_scale * args.depth_band_weight * loss_depth_band
+                    + geometry_scale * args.depth_quantile_weight * loss_depth_quantile
+                    + geometry_scale * args.branch_weight * loss_branch
+                    + geometry_scale * args.branch_teacher_weight * loss_branch_teacher
+                    + geometry_scale * args.branch_contrastive_weight * loss_branch_contrastive
+                )
                 total_loss.backward()
                 optimizer.step(lr=lr)
                 model.manifold.normalize(model.lt.weight.data)
                 epoch_edge.append(float(loss_edge.detach().cpu()))
                 epoch_cpcc.append(float(loss_cpcc.detach().cpu()))
                 epoch_radial.append(float(loss_radial.detach().cpu()))
+                epoch_depth_band.append(float(loss_depth_band.detach().cpu()))
+                epoch_depth_quantile.append(float(loss_depth_quantile.detach().cpu()))
+                epoch_branch.append(float(loss_branch.detach().cpu()))
+                epoch_branch_teacher.append(float(loss_branch_teacher.detach().cpu()))
+                epoch_branch_contrastive.append(float(loss_branch_contrastive.detach().cpu()))
                 epoch_total.append(float(total_loss.detach().cpu()))
 
             elapsed = timeit.default_timer() - start_time
@@ -231,6 +486,12 @@ def main() -> None:
                 "edge_loss": float(np.mean(epoch_edge)),
                 "cpcc_loss": float(np.mean(epoch_cpcc)),
                 "radial_loss": float(np.mean(epoch_radial)),
+                "depth_band_loss": float(np.mean(epoch_depth_band)),
+                "depth_quantile_loss": float(np.mean(epoch_depth_quantile)),
+                "branch_loss": float(np.mean(epoch_branch)),
+                "branch_teacher_loss": float(np.mean(epoch_branch_teacher)),
+                "branch_contrastive_loss": float(np.mean(epoch_branch_contrastive)),
+                "geometry_scale": geometry_scale,
                 "total_loss": float(np.mean(epoch_total)),
             }
 
@@ -241,7 +502,9 @@ def main() -> None:
                     "model": model.state_dict(),
                     "embeddings": model.lt.weight.data.detach().cpu(),
                     "epoch": epoch,
-                    "model_type": "distance_cpcc_radial",
+                    "model_type": "distance_cpcc_radial_depth_branch",
+                    "init_checkpoint": init_payload,
+                    "branch_teacher": branch_teacher_payload,
                 }
             )
 

@@ -21,7 +21,8 @@ from disease90_common import (
 from disease90_metrics import (
     compute_disease90_metrics,
     compute_radius_structure_metrics,
-    depth_first_rank_key,
+    gate_deficit_rank_key,
+    gate_deficits,
     load_metadata_and_relations,
     passes_acceptance_floors,
 )
@@ -56,6 +57,8 @@ def preliminary_rank_key(record: dict[str, object]) -> tuple[float, ...]:
     if reconstruction_map != reconstruction_map:
         reconstruction_map = float("-inf")
     return (
+        float(record["positive_adjacent_depth_quantile_gap_count"]),
+        float(record["minimum_adjacent_quantile_gap"]),
         1.0 if record["monotonic_depth_means"] else 0.0,
         float(record["minimum_adjacent_gap"]),
         float(record["depth_radius_spearman"]),
@@ -66,7 +69,7 @@ def preliminary_rank_key(record: dict[str, object]) -> tuple[float, ...]:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Offline rescore disease-90 checkpoints using depth-first rules")
+    parser = argparse.ArgumentParser(description="Offline rescore disease-90 checkpoints using gate-deficit rules")
     parser.add_argument("--checkpoint-prefix", type=Path, default=DEFAULT_CHECKPOINT)
     parser.add_argument("--train-log", type=Path, required=True)
     parser.add_argument("--metadata-tsv", type=Path, default=DEFAULT_METADATA_TSV)
@@ -75,10 +78,15 @@ def main() -> None:
     parser.add_argument("--out-md", type=Path, default=DEFAULT_EVAL_MD)
     parser.add_argument("--best-checkpoint", type=Path, default=Path(f"{DEFAULT_CHECKPOINT}.offline_best"))
     parser.add_argument("--top-k-full-eval", type=int, default=10)
+    parser.add_argument("--full-eval-all", action="store_true")
     parser.add_argument("--floor-reconstruction-map", type=float, default=0.30)
-    parser.add_argument("--floor-parent-mean-rank", type=float, default=1.30)
-    parser.add_argument("--floor-sibling-ratio", type=float, default=0.35)
-    parser.add_argument("--floor-branch-ratio", type=float, default=0.50)
+    parser.add_argument("--floor-parent-mean-rank", type=float, default=1.20)
+    parser.add_argument("--floor-ancestor-map", type=float, default=0.95)
+    parser.add_argument("--floor-sibling-ratio", type=float, default=0.30)
+    parser.add_argument("--floor-branch-ratio", type=float, default=0.35)
+    parser.add_argument("--floor-min-adjacent-gap", type=float, default=0.0)
+    parser.add_argument("--floor-positive-quantile-gaps", type=int, default=3)
+    parser.add_argument("--ceiling-radial-violation", type=float, default=0.10)
     args = parse_args_with_defaults(parser)
 
     metadata_rows, relations = load_metadata_and_relations(args.metadata_tsv, args.relations_csv)
@@ -112,6 +120,10 @@ def main() -> None:
                 "depth_radius_spearman": float(radius_structure["depth_radius"]["spearman"]),
                 "depth_radius_pearson": float(radius_structure["depth_radius"]["pearson"]),
                 "minimum_adjacent_gap": float(radius_structure["minimum_adjacent_gap"]),
+                "minimum_adjacent_quantile_gap": float(radius_structure["minimum_adjacent_quantile_gap"]),
+                "positive_adjacent_depth_quantile_gap_count": int(
+                    radius_structure["positive_adjacent_depth_quantile_gap_count"]
+                ),
                 "monotonic_depth_means": bool(radius_structure["monotonic_depth_means"]),
                 "parent_child_radial_violation_rate": float(radius_structure["parent_child_radial_violation_rate"]),
                 "leaf_mean_radius": float(radius_structure["leaf_mean_radius"]),
@@ -123,7 +135,7 @@ def main() -> None:
         )
 
     preliminary_records.sort(key=preliminary_rank_key, reverse=True)
-    top_candidates = preliminary_records[: max(args.top_k_full_eval, 1)]
+    top_candidates = preliminary_records if args.full_eval_all else preliminary_records[: max(args.top_k_full_eval, 1)]
     required_candidates = {
         str(args.checkpoint_prefix),
         str(Path(f"{args.checkpoint_prefix}.best")),
@@ -141,15 +153,31 @@ def main() -> None:
             metrics,
             floor_reconstruction_map=args.floor_reconstruction_map,
             floor_parent_mean_rank=args.floor_parent_mean_rank,
+            floor_ancestor_map=args.floor_ancestor_map,
             floor_sibling_ratio=args.floor_sibling_ratio,
             floor_branch_ratio=args.floor_branch_ratio,
+            floor_min_adjacent_gap=args.floor_min_adjacent_gap,
+            floor_positive_quantile_gaps=args.floor_positive_quantile_gaps,
+            ceiling_radial_violation=args.ceiling_radial_violation,
         )
-        metrics["rank_key"] = depth_first_rank_key(metrics)
+        metrics["gate_deficits"] = gate_deficits(
+            metrics,
+            floor_reconstruction_map=args.floor_reconstruction_map,
+            floor_parent_mean_rank=args.floor_parent_mean_rank,
+            floor_ancestor_map=args.floor_ancestor_map,
+            floor_sibling_ratio=args.floor_sibling_ratio,
+            floor_branch_ratio=args.floor_branch_ratio,
+            floor_min_adjacent_gap=args.floor_min_adjacent_gap,
+            floor_positive_quantile_gaps=args.floor_positive_quantile_gaps,
+            ceiling_radial_violation=args.ceiling_radial_violation,
+        )
+        metrics["gate_deficit_score"] = float(metrics["gate_deficits"]["total"])
+        metrics["rank_key"] = gate_deficit_rank_key(metrics)
         full_candidates.append(metrics)
 
     feasible = [candidate for candidate in full_candidates if candidate["acceptance_pass"]]
     selected_pool = feasible if feasible else full_candidates
-    selected = sorted(selected_pool, key=depth_first_rank_key, reverse=True)[0]
+    selected = sorted(selected_pool, key=gate_deficit_rank_key, reverse=True)[0]
     selected_checkpoint = Path(selected["checkpoint"])
 
     args.best_checkpoint.parent.mkdir(parents=True, exist_ok=True)
@@ -171,8 +199,12 @@ def main() -> None:
         "acceptance_floors": {
             "reconstruction_map": args.floor_reconstruction_map,
             "parent_mean_rank": args.floor_parent_mean_rank,
+            "ancestor_map": args.floor_ancestor_map,
             "sibling_ratio": args.floor_sibling_ratio,
             "branch_ratio": args.floor_branch_ratio,
+            "minimum_adjacent_gap": args.floor_min_adjacent_gap,
+            "positive_quantile_gaps": args.floor_positive_quantile_gaps,
+            "radial_violation": args.ceiling_radial_violation,
         },
     }
     write_json(args.out_json, summary)
@@ -184,13 +216,20 @@ def main() -> None:
         f"- Selected checkpoint: {selected_checkpoint.name}",
         f"- Selected epoch: {selected['checkpoint_epoch']}",
         f"- Acceptance floors satisfied: {selected['acceptance_pass']}",
+        f"- Gate deficit score: {selected['gate_deficit_score']:.4f}",
         f"- Reconstruction MAP: {selected['reconstruction']['map_rank']:.4f}",
         f"- Parent mean rank: {selected['parent_ranking']['mean_rank']:.4f}",
         f"- Depth/radius Spearman: {selected['depth_radius']['spearman']:.4f}",
         f"- Minimum adjacent depth gap: {radius_structure['minimum_adjacent_gap']:.6f}",
+        f"- Minimum adjacent depth quantile gap: {radius_structure['minimum_adjacent_quantile_gap']:.6f}",
+        f"- Positive adjacent depth quantile gaps: {radius_structure['positive_adjacent_depth_quantile_gap_count']}",
         f"- Parent-child radial violation rate: {radius_structure['parent_child_radial_violation_rate']:.4f}",
         f"- Leaf mean radius: {radius_structure['leaf_mean_radius']:.6f}",
         f"- Leaf/internal radius ratio: {radius_structure['leaf_internal_radius_ratio']:.4f}",
+        f"- Within/across branch ratio: {selected['ratios']['within_branch_to_across_branch_mean']:.4f}",
+        f"- Same-depth within/across branch ratio: {selected['ratios']['same_depth_within_branch_to_across_branch_mean']:.4f}",
+        f"- Angular within/across branch ratio: {selected['ratios']['angular_within_branch_to_across_branch_mean']:.4f}",
+        f"- Branch silhouette: {selected['branch_geometry']['branch_silhouette']:.4f}",
         "",
         "Mean radius by depth:",
     ]

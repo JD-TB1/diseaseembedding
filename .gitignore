@@ -27,6 +27,11 @@ experiments/**/logs/*.log
 experiments/poincare_hypstructure/tuning/radius_separation/runs/
 experiments/poincare_hypstructure/tuning/radius_separation/stage0/current_hybrid/
 experiments/poincare_hypstructure/tuning/radius_separation/stage0/poincare_only_direct/
+experiments/poincare_hypstructure/tuning/geometry_separation/runs/
+experiments/poincare_hypstructure/tuning/geometry_separation/stage0/current_hybrid/
+experiments/poincare_hypstructure/tuning/geometry_separation/stage0/poincare_only_direct/
+experiments/poincare_hypstructure/tuning/branch_repair/runs/
+experiments/poincare_hypstructure/tuning/**/*_driver.log
 experiments/visualizations/
 
 visualizations/*.html
