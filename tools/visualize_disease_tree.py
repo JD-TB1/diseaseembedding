@@ -125,6 +125,40 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="For Graphviz output, collapse omitted sibling subtrees into dashed ellipsis nodes.",
     )
+    parser.add_argument(
+        "--compact-labels",
+        action="store_true",
+        help="For Graphviz output, shorten node labels for flatter poster-friendly figures.",
+    )
+    parser.add_argument(
+        "--hide-legend",
+        action="store_true",
+        help="For route-colored Graphviz output, omit the route legend.",
+    )
+    parser.add_argument(
+        "--nodesep",
+        type=float,
+        default=0.35,
+        help="Graphviz node separation for static output.",
+    )
+    parser.add_argument(
+        "--ranksep",
+        type=float,
+        default=0.55,
+        help="Graphviz rank separation for static output.",
+    )
+    parser.add_argument(
+        "--node-font-size",
+        type=int,
+        default=10,
+        help="Font size for Graphviz node labels.",
+    )
+    parser.add_argument(
+        "--full-label-node-id",
+        action="append",
+        default=[],
+        help="Repeat to render selected node ids with full meaning text even in compact mode.",
+    )
     return parser.parse_args()
 
 
@@ -701,6 +735,12 @@ def render_graphviz(
     collapse_omitted: bool,
     output_path: Path,
     graphviz_node_limit: int,
+    compact_labels: bool,
+    hide_legend: bool,
+    nodesep: float,
+    ranksep: float,
+    node_font_size: int,
+    full_label_node_ids: set[str],
 ) -> None:
     if len(ordered_nodes) > graphviz_node_limit:
         raise ValueError(
@@ -716,9 +756,9 @@ def render_graphviz(
     subtree_sizes = subtree_size_map(root_id, children, allowed)
     graph_lines = [
         "digraph disease_tree {",
-        "  graph [overlap=false, splines=true, pad=0.4, nodesep=0.35, ranksep=0.55, bgcolor=\"white\", labelloc=\"t\"];",
+        f"  graph [overlap=false, splines=true, pad=0.18, nodesep={nodesep}, ranksep={ranksep}, bgcolor=\"white\", labelloc=\"t\"];",
         f"  label=\"{dot_escape(title)}\";",
-        "  node [shape=box, style=\"rounded,filled\", color=\"#4f5d75\", penwidth=0.8, fontname=\"Helvetica\", fontsize=10, margin=\"0.08,0.05\"];",
+        f"  node [shape=box, style=\"rounded,filled\", color=\"#4f5d75\", penwidth=0.8, fontname=\"Helvetica\", fontsize={node_font_size}, margin=\"0.06,0.035\"];",
         "  edge [color=\"#b8c4d6\", penwidth=0.7, arrowsize=0.5];",
     ]
     if layout == "leftright":
@@ -731,11 +771,12 @@ def render_graphviz(
     for node_id in display_nodes:
         row = records[node_id]
         depth = depth_map[node_id]
-        meaning = truncate(row["meaning"], max_meaning_chars)
+        meaning = row["meaning"] if node_id in full_label_node_ids else truncate(row["meaning"], max_meaning_chars)
         label_lines = [row["coding"] or row["node_id"]]
         if meaning:
             label_lines.append(meaning)
-        label_lines.append(f"id={row['node_id']} | d={depth}")
+        if not compact_labels:
+            label_lines.append(f"id={row['node_id']} | d={depth}")
         fill = depth_color(depth, max_depth) if color_by == "depth" else node_route_colors[node_id]
         graph_lines.append(
             f"  \"{dot_escape(node_id)}\" [label=\"{dot_escape(chr(10).join(label_lines))}\", fillcolor=\"{fill}\"];"
@@ -764,9 +805,14 @@ def render_graphviz(
             if len(omitted_child_ids) > 3:
                 sample_labels += ", …"
             ellipsis_id = f"ellipsis__{parent_id}"
-            ellipsis_label = f"...\\n{hidden_branch_count} hidden branches\\n{hidden_node_count} hidden nodes"
-            if sample_labels:
-                ellipsis_label += f"\\n{sample_labels}"
+            if compact_labels:
+                ellipsis_label = f"... | {hidden_branch_count} hidden branches | {hidden_node_count} nodes"
+                if sample_labels:
+                    ellipsis_label += f" | {sample_labels}"
+            else:
+                ellipsis_label = f"...\n{hidden_branch_count} hidden branches\n{hidden_node_count} hidden nodes"
+                if sample_labels:
+                    ellipsis_label += f"\n{sample_labels}"
             graph_lines.append(
                 f"  \"{dot_escape(ellipsis_id)}\" [shape=ellipse, style=\"dashed,filled\", fillcolor=\"#f1f3f6\", "
                 f"color=\"#9aa4b2\", label=\"{dot_escape(ellipsis_label)}\", fontsize=9];"
@@ -778,7 +824,7 @@ def render_graphviz(
     if root_id == "0":
         graph_lines.append("  {rank=source; \"0\";}")
 
-    if color_by == "route":
+    if color_by == "route" and not hide_legend:
         route_items = [anchor_id for anchor_id in route_color_map if anchor_id != root_id]
         if len(route_items) <= 16:
             graph_lines.append("  subgraph cluster_legend {")
@@ -881,6 +927,12 @@ def main() -> int:
             collapse_omitted=args.collapse_omitted,
             output_path=args.output,
             graphviz_node_limit=args.graphviz_node_limit,
+            compact_labels=args.compact_labels,
+            hide_legend=args.hide_legend,
+            nodesep=args.nodesep,
+            ranksep=args.ranksep,
+            node_font_size=args.node_font_size,
+            full_label_node_ids=set(args.full_label_node_id),
         )
 
     print(f"Wrote {args.mode} visualization to {args.output}")

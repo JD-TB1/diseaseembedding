@@ -1,127 +1,113 @@
-# Disease Embedding
+# Disease Embedding Workspace
 
-This repository contains a reproducible workspace for learning and analyzing hyperbolic embeddings of a disease hierarchy derived from `datacode-19.tsv`.
+This repository is the maintained stage-1 workspace for the broader proteomic disease-prediction project.
 
-The project started by reconstructing the original Facebook `poincare-embeddings` training pipeline, then branched into two experiment tracks:
+Its purpose is to learn hyperbolic embeddings of disease labels from the ICD-10-style hierarchy in `data/datacode-19.tsv`, evaluate how well those embeddings preserve hierarchy and branch structure, and produce reproducible outputs that can be used by downstream work such as embedding-guided reinforcement-learning feature selection.
 
-- `experiments/poincare_only/`
-  - Pure Poincare embedding experiments on the disease-90 subtree.
-  - Includes baseline runs comparing closure, direct, and hybrid relation sets.
-- `experiments/poincare_hypstructure/`
-  - Extended experiments that combine the original Poincare relation loss with HypStructure-inspired CPCC regularization and a radial ordering term.
-  - Includes visualization, evaluation, and radius-separation tuning utilities.
+The current active method is:
+
+- direct-edge disease graph on the disease-90 subtree
+- original Poincare relation-reconstruction loss
+- HypStructure-inspired CPCC regularization
+- radial parent-child ordering loss
+
+This repository does **not** contain the full RL feature-selection pipeline. It owns the embedding stage and the evaluation/tuning machinery around it.
+
+## Start Here
+
+Read these in order after cloning:
+
+1. `docs/current_stage.md`
+2. `docs/algorithm.md`
+3. `docs/reproduce.md`
+4. `docs/repo_map.md`
+5. `experiments/README.md`
+
+## What Is Canonical
+
+The committed outputs are intentionally small. They are the orientation artifacts for new contributors, not a full experiment dump.
+
+Canonical baseline references:
+
+- `experiments/poincare_only/results/disease90/comparison_summary.md`
+- `experiments/poincare_only/results/disease90/direct_eval_summary.md`
+- `experiments/poincare_only/results/disease90/direct_eval_metrics.json`
+
+Canonical active-method references:
+
+- `experiments/poincare_hypstructure/results/disease90/eval_summary.md`
+- `experiments/poincare_hypstructure/results/disease90/eval_metrics.json`
+- `experiments/poincare_hypstructure/results/disease90/train_config.json`
+- `experiments/poincare_hypstructure/results/disease90/plots/`
+
+Canonical tuning references:
+
+- `experiments/poincare_hypstructure/tuning/radius_separation/stage0/baseline_calibration.md`
+- `experiments/poincare_hypstructure/tuning/radius_separation/summaries/stage1_summary.md`
+
+Canonical hierarchy visualizations:
+
+- `visualizations/disease_subtree_90_focus_paths.svg`
+- `visualizations/disease_subtree_1150_leftright_by_route.svg`
+- `visualizations/disease_subtree_90_radial_by_route.svg`
+
+Large generated outputs such as checkpoints, per-run tuning artifacts, HTML exports, poster bundles, and logs are intentionally excluded from version control. Regenerate them from the scripts when needed.
 
 ## Repository Layout
 
 - `data/`
-  - Input disease hierarchy data.
+  - Source disease hierarchy TSV used by all maintained experiment tracks.
 - `references/`
-  - Copied third-party code used as the reference implementation.
-- `experiments/`
-  - Primary working area for all maintained experiment pipelines and outputs.
-- `archive/`
-  - Preserved older workspaces and transitional files kept for provenance.
-- `tools/`
-  - General-purpose utilities, including TSV tree visualization.
-- `visualizations/`
-  - Generated whole-forest and subtree views.
-
-## Data
-
-The current experiments focus on the subtree rooted at `node_id=90` from:
-
-- `data/datacode-19.tsv`
-
-This subtree corresponds to `Chapter IX` of the ICD-style disease forest and is used to study how well hyperbolic embeddings preserve:
-
-- hierarchical depth
-- branch separation
-- local subtree geometry
-
-## Experiment Tracks
-
-### 1. Pure Poincare Baseline
-
-Path:
-
+  - Local copy of the Facebook `poincare-embeddings` implementation used as the low-level manifold/training backend.
 - `experiments/poincare_only/`
-
-Purpose:
-
-- reproduce the original Poincare-style embedding workflow on the disease tree
-- compare `closure`, `direct`, and `hybrid` edge constructions
-- provide a frozen baseline for later comparison
-
-Key outputs:
-
-- `experiments/poincare_only/results/disease90/comparison_summary.md`
-- `experiments/poincare_only/results/disease90/direct_eval_metrics.json`
-- `experiments/poincare_only/results/disease90/plots_direct/`
-
-### 2. Poincare + HypStructure Hybrid
-
-Path:
-
+  - Frozen pure-Poincare baseline track.
 - `experiments/poincare_hypstructure/`
+  - Active development track: Poincare + CPCC + radial ordering.
+- `tools/`
+  - General utilities, especially tree visualization from TSV.
+- `visualizations/`
+  - Curated reusable hierarchy views only.
+- `archive/`
+  - Slimmed historical provenance. Do not start new work here.
+- `docs/`
+  - Handoff documentation for labmates.
 
-Purpose:
+## Quick Commands
 
-- keep the original Poincare relation-reconstruction objective
-- add a CPCC structural regularizer inspired by HypStructure
-- add a radial ordering loss to improve radius separation by depth
-
-Key outputs:
-
-- `experiments/poincare_hypstructure/results/disease90/eval_summary.md`
-- `experiments/poincare_hypstructure/results/disease90/plots/`
-- `experiments/poincare_hypstructure/tuning/radius_separation/`
-
-## Reference Implementation
-
-The copied original Facebook implementation is kept under:
-
-- `references/poincare-embeddings/`
-
-This directory is treated as a reference dependency for the local experiment scripts. The maintained disease-specific pipelines live in `experiments/`, not in the copied reference tree.
-
-## Environment
-
-The project was developed and run in the `reasoning` conda environment.
-
-The copied Poincare reference contains its own `environment.yml` and `setup.py`, but the disease-specific experiments are orchestrated from the scripts in `experiments/`.
-
-If the compiled Cython extensions for the copied Poincare reference are missing after cloning, rebuild them from:
-
-- `references/poincare-embeddings/`
-
-using:
+Build the reference extensions once after cloning:
 
 ```bash
+cd references/poincare-embeddings
 conda run -n reasoning python setup.py build_ext --inplace
 ```
 
-## Recommended Entry Points
+Run the frozen direct-edge baseline:
 
-For pure Poincare experiments:
+```bash
+conda run -n reasoning python experiments/poincare_only/scripts/run_disease90_pipeline.py \
+  --relation-mode direct \
+  --fresh
+```
 
-- `experiments/poincare_only/scripts/run_disease90_pipeline.py`
+Run the active hybrid method:
 
-For hybrid-loss experiments:
+```bash
+conda run -n reasoning python experiments/poincare_hypstructure/scripts/run_disease90_pipeline.py \
+  --relation-mode direct \
+  --fresh
+```
 
-- `experiments/poincare_hypstructure/scripts/run_disease90_pipeline.py`
-- `experiments/poincare_hypstructure/scripts/run_radius_tuning_campaign.py`
+Continue the radius-separation tuning campaign:
 
-## Suggested Reading Order
+```bash
+conda run -n reasoning python experiments/poincare_hypstructure/scripts/run_radius_tuning_campaign.py \
+  --stages stage1 stage2 stage3 stage4 stage5 \
+  --skip-existing
+```
 
-1. `README.md`
-2. `experiments/README.md`
-3. `experiments/poincare_only/README.md`
-4. `experiments/poincare_hypstructure/README.md`
-5. `references/README.md`
+## Contributor Guidance
 
-## Notes for Labmates
-
-- Treat `experiments/poincare_only/` as the baseline reference.
-- Treat `experiments/poincare_hypstructure/` as the active method-development area.
-- Treat `archive/` as preserved history, not the preferred place to start.
-- If you rerun experiments, use the scripts inside the experiment subdirectories rather than the archived legacy workspace.
+- Start from `experiments/poincare_hypstructure/` unless you are explicitly working on the baseline.
+- Treat `experiments/poincare_only/` as a reference point, not the main development area.
+- Treat `archive/` as historical context only.
+- If you generate new checkpoints or poster assets, they should stay local unless the output is promoted into the curated canonical set.

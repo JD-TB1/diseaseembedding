@@ -1,61 +1,86 @@
 # Poincare + HypStructure Hybrid
 
-This experiment track extends the original Poincare embedding pipeline with additional structural losses motivated by the HypStructure project.
+This is the active method-development track.
+
+It combines the original Poincare relation loss with two additional structure losses:
+
+- CPCC global hierarchy alignment
+- radial parent-child ordering
+
+The active data mode is:
+
+- `direct`
 
 ## Goal
 
-Improve hierarchical level separation in the Poincare ball, especially radius ordering by depth, while keeping the branch clustering learned by the original Poincare relation loss.
+Learn a disease embedding that preserves:
 
-## Objective Components
+- parent/ancestor reconstruction
+- branch separation
+- radial hierarchy ordering
 
-This track keeps the original Poincare relation-reconstruction term and adds:
+without reverting to a large artifact dump or a closure-edge training graph.
 
-- CPCC-style structural regularization
-- radial parent-child ordering loss
+## Objective
 
-The intended tradeoff is:
+```text
+L_total = L_edge + alpha * L_CPCC + beta * L_radial
+```
 
-- keep strong branch clusters
-- improve shell separation by tree depth
+See `../../docs/algorithm.md` for the full explanation.
 
-## Directory Layout
+## What Is Canonical Here
 
-- `scripts/`
-  - Hybrid training, evaluation, visualization, and tuning utilities.
-- `results/disease90/`
-  - Main hybrid run artifacts.
-- `metadata/`
-  - Disease-90 metadata and relation summaries used by this experiment track.
-- `logs/`
-  - Training and evaluation logs.
-- `tuning/`
-  - Radius-separation hyperparameter sweep outputs and summaries.
+Main committed references:
 
-## Main Entry Points
+- `results/disease90/eval_summary.md`
+- `results/disease90/eval_metrics.json`
+- `results/disease90/train_config.json`
+- `results/disease90/plots/branch_separation_summary.png`
+- `results/disease90/plots/depth_vs_radius.png`
+- `results/disease90/plots/poincare_disk_branch_labeled_centroids.png`
+- `results/disease90/plots/poincare_disk_branch_labeled_route.png`
+- `results/disease90/plots/sibling_distance_summary.png`
+
+Committed tuning orientation files:
+
+- `tuning/radius_separation/stage0/baseline_calibration.md`
+- `tuning/radius_separation/summaries/stage1_summary.md`
+
+Generated checkpoints, logs, exported embedding tables, and full per-run tuning directories are intentionally excluded from version control.
+
+## Entry Points
 
 - `scripts/run_disease90_pipeline.py`
-  - Standard end-to-end hybrid run.
-- `scripts/run_radius_tuning_campaign.py`
-  - Multi-stage hyperparameter sweep focused on depth-by-radius separation.
+  - main end-to-end hybrid pipeline
+- `scripts/train_disease90.py`
+  - direct trainer if you need to run training in isolation
+- `scripts/evaluate_disease90.py`
+  - structural evaluation summary
 - `scripts/rescore_disease90_run.py`
-  - Offline checkpoint rescoring with radius-specific metrics.
+  - offline checkpoint rescoring for tuning
+- `scripts/run_radius_tuning_campaign.py`
+  - staged radius-separation sweep
 
-## Evaluation Focus
+Maintained figure generators:
 
-In addition to reconstruction-style metrics, this track emphasizes:
+- `scripts/render_poster_panels.py`
+- `scripts/render_rl_roc_panel.py`
 
-- depth-radius Spearman/Pearson correlation
-- mean radius by depth
-- adjacent depth gaps
-- parent-child radial violation rate
-- leaf/internal radius ratio
-- sibling cohesion
-- within-branch vs across-branch separation
+These scripts are maintained because they encode the current presentation logic, but the files they generate are ignored by git.
 
-## Recommended Comparison Target
+## Recommended Command
 
-Compare this directory primarily against:
+```bash
+conda run -n reasoning python experiments/poincare_hypstructure/scripts/run_disease90_pipeline.py \
+  --relation-mode direct \
+  --fresh
+```
+
+## Comparison Target
+
+Judge this track first against:
 
 - `../poincare_only/results/disease90/direct_eval_metrics.json`
 
-That pure-Poincare direct-edge baseline is the most relevant reference when judging whether the added structural losses improve radial hierarchy without destroying cluster structure.
+That direct-edge pure-Poincare baseline is the fair reference for deciding whether CPCC and radial ordering improve the embedding.

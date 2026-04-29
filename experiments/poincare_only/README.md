@@ -1,65 +1,64 @@
 # Pure Poincare Baseline
 
-This experiment track preserves the disease-90 baseline built around the original Poincare embedding objective.
+This directory is the frozen baseline track.
 
-## Goal
+It preserves the disease-90 experiments that use the original Poincare objective without the added CPCC or radial-ordering losses.
 
-Establish a clean comparison point before adding any HypStructure-inspired regularization.
+## What This Track Answers
 
-This track is used to compare how the original Poincare loss behaves under different relation graphs:
+- How does the original Poincare objective behave on the disease-90 subtree?
+- What changes when the relation graph uses `closure`, `direct`, or `hybrid` edges?
+- What is the cleanest baseline to compare against the active hybrid method?
 
-- `closure`
-- `direct`
-- `hybrid`
+## Recommended Baseline
 
-## Directory Layout
+The baseline that matters most for the active project is the **direct-edge** run.
+
+Canonical committed references:
+
+- `results/disease90/direct_eval_summary.md`
+- `results/disease90/direct_eval_metrics.json`
+- `results/disease90/comparison_summary.md`
+
+The direct-edge baseline is the most relevant comparison because it preserves the original objective while avoiding closure-edge supervision that tends to distort depth/radius behavior.
+
+## What Is Still Committed Here
 
 - `scripts/`
-  - Disease-90 pipeline scripts for:
-    - relation-file construction
-    - training
-    - export
-    - visualization
-    - evaluation
-- `results/disease90/`
-  - Produced artifacts for the disease-90 subtree.
+  - baseline pipeline and helpers
 - `metadata/`
-  - Node tables and dataset summaries for the subtree.
-- `logs/`
-  - Training and evaluation logs for the baseline runs.
+  - disease-90 node tables and dataset summaries
+- `results/disease90/*.json`
+  - committed metric snapshots
+- `results/disease90/*.md`
+  - committed summaries
+- `results/disease90/train_config*.json`
+  - canonical hyperparameter settings
+- `results/disease90/disease90_relations_*.csv`
+  - relation-set definitions used by the baseline comparison
 
-## Main Entry Point
+Large checkpoints, embedding tables, logs, and bulk plot outputs were intentionally removed from version control.
+
+## Entry Point
+
+Use:
 
 - `scripts/run_disease90_pipeline.py`
 
-This script orchestrates:
+Recommended command:
 
-1. subtree extraction
-2. relation-file generation
-3. training through the copied Poincare reference
-4. embedding export
-5. visualization
-6. evaluation
+```bash
+conda run -n reasoning python experiments/poincare_only/scripts/run_disease90_pipeline.py \
+  --relation-mode direct \
+  --fresh
+```
 
-## Key Results
+## Maintenance Status
 
-- `results/disease90/eval_metrics.json`
-  - Closure-edge pure-Poincare baseline.
-- `results/disease90/direct_eval_metrics.json`
-  - Direct-edge pure-Poincare baseline.
-- `results/disease90/hybrid_eval_metrics.json`
-  - Mixed-edge pure-Poincare baseline.
-- `results/disease90/comparison_summary.md`
-  - Side-by-side comparison across the three relation constructions.
+Treat this directory as read-mostly.
 
-## Interpretation
+New work here should usually be limited to:
 
-In this repository, the direct-edge Poincare baseline became the main comparison point for later hybrid-loss work, because it improved radial hierarchy ordering relative to closure while preserving strong branch structure.
-
-## When To Use This Directory
-
-Use `poincare_only/` when you want:
-
-- the cleanest baseline against the original objective
-- relation-set comparisons without extra losses
-- a frozen reference for ablations against the hybrid model
+- reproducing the baseline
+- reading metric differences across relation modes
+- making fair baseline comparisons against the active hybrid track

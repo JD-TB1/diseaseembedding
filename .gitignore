@@ -1,8 +1,11 @@
 .DS_Store
 __pycache__/
+**/__pycache__/
 *.py[cod]
 .pytest_cache/
+**/.pytest_cache/
 .mypy_cache/
+**/.mypy_cache/
 .ipynb_checkpoints/
 
 build/
@@ -10,6 +13,27 @@ build/
 *.so
 
 **/mplconfig/
+**/logs/mplconfig/
 fontconfig/
 
+*.pth
+*.pth.best
+*.offline_best.pth
 *.pth.[0-9]*
+**/embeddings.tsv
+**/embedding_stats.json
+**/train.log
+experiments/**/logs/*.log
+experiments/poincare_hypstructure/tuning/radius_separation/runs/
+experiments/poincare_hypstructure/tuning/radius_separation/stage0/current_hybrid/
+experiments/poincare_hypstructure/tuning/radius_separation/stage0/poincare_only_direct/
+experiments/visualizations/
+
+visualizations/*.html
+visualizations/poster_assets/
+visualizations/*_poster.png
+visualizations/*_poster.svg
+visualizations/poster_layout_schematic.png
+visualizations/poster_layout_schematic.svg
+visualizations/workflow_embedding_rl_*.png
+visualizations/workflow_embedding_rl_*.svg

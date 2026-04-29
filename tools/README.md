@@ -8,6 +8,7 @@ This directory contains general-purpose utilities that are not tied to a single 
   - Build reusable visualizations of the disease TSV as either:
     - interactive collapsible HTML
     - static Graphviz node-link diagrams
+  - Supports focused-path views and poster-friendly label/layout controls.
 
 ## Typical Use
 
@@ -58,3 +59,18 @@ Useful focus options:
 - `--focus-node-id <node>` repeated several times to keep specific root-to-node paths
 - `--auto-focus-by-route N` to choose up to `N` representative deepest leaf paths from distinct first-level routes
 - `--collapse-omitted` to replace all non-kept sibling subtrees with dashed ellipsis nodes
+
+Useful poster-oriented Graphviz options:
+
+- `--compact-labels`
+  - shorter labels for flatter figures
+- `--hide-legend`
+  - omit the route legend
+- `--nodesep`
+  - adjust horizontal spacing
+- `--ranksep`
+  - adjust vertical spacing
+- `--node-font-size`
+  - control label size
+- `--full-label-node-id <node>`
+  - keep selected nodes on full text even when `--compact-labels` is enabled

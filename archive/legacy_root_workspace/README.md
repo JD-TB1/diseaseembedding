@@ -1,27 +1,32 @@
 # Legacy Root Workspace
 
-This directory preserves the original top-level disease embedding workspace that existed before the repository was reorganized around experiment-specific directories.
+This directory preserves the pre-reorganization script layout that existed before the repository was split into experiment-specific tracks.
 
-## What It Contains
+## What Remains
 
 - `scripts/`
-  - Earlier disease-90 pipeline scripts from the pre-experiment-layout phase.
-- `results/`
-  - Outputs generated from the older top-level workflow.
-- `metadata/`
-  - Disease-90 metadata used by that workflow.
-- `logs/`
-  - Corresponding training and evaluation logs.
+  - legacy disease-90 pipeline scripts from the old top-level workflow
+- this README
+
+## What Was Removed
+
+The archive was intentionally slimmed down. Removed from version control:
+
+- logs
+- copied metadata already preserved in maintained experiment tracks
+- generated result trees
+- duplicated plots
+- checkpoints
 
 ## Why It Is Kept
 
-This workspace is kept so earlier intermediate work is not lost after the repository cleanup.
+It preserves script provenance and naming history for anyone who needs to understand how the current experiment tracks evolved.
 
-## Recommended Practice
+## How To Use It
 
-Do not start new runs from this directory unless you specifically need to reproduce the older layout.
+Do not start new work here.
 
-For maintained pipelines, use:
+Use the maintained tracks instead:
 
 - `../../experiments/poincare_only/`
 - `../../experiments/poincare_hypstructure/`

@@ -1,48 +1,60 @@
 # Experiments
 
-This directory is the primary working area of the repository.
+This directory is the main working area of the repository.
 
-Each subdirectory is an experiment track with its own:
+Each experiment track owns its own:
 
 - `scripts/`
-- `results/`
 - `metadata/`
-- `logs/`
+- `results/`
 
-This separation keeps baselines, hybrid objectives, and tuning runs isolated from each other.
+Generated logs, checkpoints, and bulk run artifacts are intentionally not treated as part of the committed interface.
 
-## Experiment Tracks
+## Tracks
 
 ### `poincare_only/`
 
-Purpose:
+Role:
 
-- pure Poincare embedding baseline
-- comparison of relation-set constructions (`closure`, `direct`, `hybrid`)
-- stable reference point for all later modifications
+- frozen baseline
+- pure Poincare objective only
+- relation-set comparison across `closure`, `direct`, and `hybrid`
 
-Use this track when you want to answer:
+Use this track when you need:
 
-- How well does the original Poincare objective work on the disease-90 subtree?
-- What changes when the relation graph uses direct edges instead of closure?
+- the cleanest reference against the original objective
+- the committed direct-edge baseline
+- relation-construction comparisons without added regularizers
 
 ### `poincare_hypstructure/`
 
-Purpose:
+Role:
 
-- hybrid objective that combines:
-  - original Poincare relation loss
-  - HypStructure-inspired CPCC regularization
-  - radial ordering regularization
-- radius-separation tuning and structural evaluation
+- active method-development track
+- original Poincare edge loss plus CPCC and radial ordering
+- structural evaluation and radius-separation tuning
 
-Use this track when you want to answer:
+Use this track when you need:
 
-- Can we improve depth-by-radius ordering without losing branch structure?
-- Which hyperparameter settings best separate depth shells?
+- the current working method
+- radius-aware evaluation
+- the staged hyperparameter tuning campaign
+- poster-specific panel/ROC generators
 
-## Recommended Workflow
+## How To Work
 
-1. Start with `poincare_only/` to understand the baseline.
-2. Move to `poincare_hypstructure/` for the hybrid objective and tuning.
-3. Use the archived root workspace only if you need historical provenance.
+1. Read `../docs/current_stage.md`.
+2. Reproduce the direct baseline in `poincare_only/`.
+3. Move to `poincare_hypstructure/` for any current development.
+4. Ignore `archive/` unless you need historical script provenance.
+
+## Output Policy
+
+Committed outputs here are curated orientation artifacts:
+
+- summaries
+- metrics JSON files
+- a small set of representative plots
+- train configuration snapshots
+
+Per-run checkpoints, logs, HTML exports, poster bundles, and large tuning run directories should remain local and ignored unless they are deliberately promoted into the canonical set.
