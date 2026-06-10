@@ -1,0 +1,38 @@
+{
+  "C_count": 559,
+  "G_count": 396,
+  "block_ancestor_count": 26,
+  "chapter_ancestor_count": 2,
+  "closure_edge_count": 3716,
+  "depth_counts": {
+    "0": 1,
+    "1": 2,
+    "2": 26,
+    "3": 158,
+    "4": 797
+  },
+  "direct_edge_count": 983,
+  "long_edge_stride": null,
+  "natural_roots": [
+    {
+      "coding": "Chapter II",
+      "meaning": "Chapter II Neoplasms",
+      "node_id": "20"
+    },
+    {
+      "coding": "Chapter VI",
+      "meaning": "Chapter VI Diseases of the nervous system",
+      "node_id": "60"
+    }
+  ],
+  "real_node_count": 983,
+  "relation_mode": "direct",
+  "source_data": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/data/datacode-19.tsv",
+  "synthetic_node_count": 1,
+  "synthetic_root_id": "CG_ROOT",
+  "target_code_count": 955,
+  "target_code_pattern": "^[CG][0-9]",
+  "top_branch_count": 2,
+  "training_edge_count": 983,
+  "training_node_count": 984
+}

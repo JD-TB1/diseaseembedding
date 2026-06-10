@@ -151,6 +151,31 @@ preservation, same-depth branch contrastive loss, and lower learning rates for
 contrastive weight and enables same-depth hard-negative mining. Stage D reruns
 the top five candidates for 500 epochs.
 
+## C/G Labmate Embeddings
+
+The C/G export uses the active hybrid trainer on a target subforest built from
+ICD code regex `^[CG][0-9]`. The builder adds only required Chapter II, Chapter
+VI, and block ancestors plus a synthetic `CG_ROOT`; D-code neoplasm rows are not
+target rows.
+
+Recommended runtime in the current local environment:
+
+```bash
+/opt/homebrew/Caskroom/miniforge/base/envs/logic-bank-benchmark/bin/python \
+  experiments/poincare_hypstructure/scripts/run_cg_pipeline.py
+```
+
+The runner trains a C/G current-hybrid baseline, then runs the Stage D
+branch-repair recipe initialized from that C/G baseline. The labmate-facing
+outputs are:
+
+- `experiments/poincare_hypstructure/results/disease_cg/labmate/cg_embeddings_codes_only.tsv`
+- `experiments/poincare_hypstructure/results/disease_cg/labmate/cg_embeddings_all_nodes.tsv`
+- `experiments/poincare_hypstructure/results/disease_cg/labmate/README.md`
+- `experiments/poincare_hypstructure/results/disease_cg/labmate/manifest.json`
+
+Labmates should use `cg_embeddings_codes_only.tsv` for downstream training.
+
 ## Tree Visualizations
 
 Reusable tree-view generation lives under `tools/`.

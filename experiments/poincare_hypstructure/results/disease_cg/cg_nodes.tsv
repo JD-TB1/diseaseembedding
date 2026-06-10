@@ -1,0 +1,985 @@
+node_id	coding	meaning	parent_id	depth	top_branch_id	top_branch_code	selectable	is_target_code
+CG_ROOT	CG_ROOT	Synthetic root for ICD C/G target subforest	0	0	CG_ROOT	CG_ROOT	N	N
+20	Chapter II	Chapter II Neoplasms	CG_ROOT	1	20	Chapter II	N	N
+60	Chapter VI	Chapter VI Diseases of the nervous system	CG_ROOT	1	60	Chapter VI	N	N
+440	Block C00-C14	C00-C14 Malignant neoplasms of lip, oral cavity and pharynx	20	2	20	Chapter II	N	N
+450	Block C15-C26	C15-C26 Malignant neoplasms of digestive organs	20	2	20	Chapter II	N	N
+460	Block C30-C39	C30-C39 Malignant neoplasms of respiratory and intrathoracic organs	20	2	20	Chapter II	N	N
+470	Block C40-C41	C40-C41 Malignant neoplasms of bone and articular cartilage	20	2	20	Chapter II	N	N
+480	Block C43-C44	C43-C44 Melanoma and other malignant neoplasms of skin	20	2	20	Chapter II	N	N
+490	Block C45-C49	C45-C49 Malignant neoplasms of mesothelial and soft tissue	20	2	20	Chapter II	N	N
+500	Block C50-C50	C50-C50 Malignant neoplasm of breast	20	2	20	Chapter II	N	N
+510	Block C51-C58	C51-C58 Malignant neoplasms of female genital organs	20	2	20	Chapter II	N	N
+520	Block C60-C63	C60-C63 Malignant neoplasms of male genital organs	20	2	20	Chapter II	N	N
+530	Block C64-C68	C64-C68 Malignant neoplasms of urinary tract	20	2	20	Chapter II	N	N
+540	Block C69-C72	C69-C72 Malignant neoplasms of eye, brain and other parts of central nervous system	20	2	20	Chapter II	N	N
+550	Block C73-C75	C73-C75 Malignant neoplasms of thyroid and other endocrine glands	20	2	20	Chapter II	N	N
+560	Block C76-C80	C76-C80 Malignant neoplasms of ill-defined, secondary and unspecified sites	20	2	20	Chapter II	N	N
+570	Block C81-C96	C81-C96 Malignant neoplasms, stated or presumed to be primary, of lymphoid, haematopoietic and related tissue	20	2	20	Chapter II	N	N
+580	Block C97-C97	C97-C97 Malignant neoplasms of independent (primary) multiple sites	20	2	20	Chapter II	N	N
+870	Block G00-G09	G00-G09 Inflammatory diseases of the central nervous system	60	2	60	Chapter VI	N	N
+880	Block G10-G14	G10-G14 Systemic atrophies primarily affecting the central nervous system	60	2	60	Chapter VI	N	N
+890	Block G20-G26	G20-G26 Extrapyramidal and movement disorders	60	2	60	Chapter VI	N	N
+900	Block G30-G32	G30-G32 Other degenerative diseases of the nervous system	60	2	60	Chapter VI	N	N
+910	Block G35-G37	G35-G37 Demyelinating diseases of the central nervous system	60	2	60	Chapter VI	N	N
+920	Block G40-G47	G40-G47 Episodic and paroxysmal disorders	60	2	60	Chapter VI	N	N
+930	Block G50-G59	G50-G59 Nerve, nerve root and plexus disorders	60	2	60	Chapter VI	N	N
+940	Block G60-G64	G60-G64 Polyneuropathies and other disorders of the peripheral nervous system	60	2	60	Chapter VI	N	N
+950	Block G70-G73	G70-G73 Diseases of myoneural junction and muscle	60	2	60	Chapter VI	N	N
+960	Block G80-G83	G80-G83 Cerebral palsy and other paralytic syndromes	60	2	60	Chapter VI	N	N
+970	Block G90-G99	G90-G99 Other disorders of the nervous system	60	2	60	Chapter VI	N	N
+12070	C00	C00 Malignant neoplasm of lip	440	3	20	Chapter II	Y	Y
+12170	C01	C01 Malignant neoplasm of base of tongue	440	3	20	Chapter II	Y	Y
+12180	C02	C02 Malignant neoplasm of other and unspecified parts of tongue	440	3	20	Chapter II	Y	Y
+12260	C03	C03 Malignant neoplasm of gum	440	3	20	Chapter II	Y	Y
+12300	C04	C04 Malignant neoplasm of floor of mouth	440	3	20	Chapter II	Y	Y
+12350	C05	C05 Malignant neoplasm of palate	440	3	20	Chapter II	Y	Y
+12410	C06	C06 Malignant neoplasm of other and unspecified parts of mouth	440	3	20	Chapter II	Y	Y
+12470	C07	C07 Malignant neoplasm of parotid gland	440	3	20	Chapter II	Y	Y
+12480	C08	C08 Malignant neoplasm of other and unspecified major salivary glands	440	3	20	Chapter II	Y	Y
+12530	C09	C09 Malignant neoplasm of tonsil	440	3	20	Chapter II	Y	Y
+12580	C10	C10 Malignant neoplasm of oropharynx	440	3	20	Chapter II	Y	Y
+12660	C11	C11 Malignant neoplasm of nasopharynx	440	3	20	Chapter II	Y	Y
+12730	C12	C12 Malignant neoplasm of pyriform sinus	440	3	20	Chapter II	Y	Y
+12740	C13	C13 Malignant neoplasm of hypopharynx	440	3	20	Chapter II	Y	Y
+12800	C14	C14 Malignant neoplasm of other and ill-defined sites in the lip, oral cavity and pharynx	440	3	20	Chapter II	Y	Y
+12840	C15	C15 Malignant neoplasm of oesophagus	450	3	20	Chapter II	Y	Y
+12930	C16	C16 Malignant neoplasm of stomach	450	3	20	Chapter II	Y	Y
+13030	C17	C17 Malignant neoplasm of small intestine	450	3	20	Chapter II	Y	Y
+13100	C18	C18 Malignant neoplasm of colon	450	3	20	Chapter II	Y	Y
+13210	C19	C19 Malignant neoplasm of rectosigmoid junction	450	3	20	Chapter II	Y	Y
+13220	C20	C20 Malignant neoplasm of rectum	450	3	20	Chapter II	Y	Y
+13230	C21	C21 Malignant neoplasm of anus and anal canal	450	3	20	Chapter II	Y	Y
+13280	C22	C22 Malignant neoplasm of liver and intrahepatic bile ducts	450	3	20	Chapter II	Y	Y
+13360	C23	C23 Malignant neoplasm of gallbladder	450	3	20	Chapter II	Y	Y
+13370	C24	C24 Malignant neoplasm of other and unspecified parts of biliary tract	450	3	20	Chapter II	Y	Y
+13420	C25	C25 Malignant neoplasm of pancreas	450	3	20	Chapter II	Y	Y
+13510	C26	C26 Malignant neoplasm of other and ill-defined digestive organs	450	3	20	Chapter II	Y	Y
+13560	C30	C30 Malignant neoplasm of nasal cavity and middle ear	460	3	20	Chapter II	Y	Y
+13590	C31	C31 Malignant neoplasm of accessory sinuses	460	3	20	Chapter II	Y	Y
+13660	C32	C32 Malignant neoplasm of larynx	460	3	20	Chapter II	Y	Y
+13730	C33	C33 Malignant neoplasm of trachea	460	3	20	Chapter II	Y	Y
+13740	C34	C34 Malignant neoplasm of bronchus and lung	460	3	20	Chapter II	Y	Y
+13810	C37	C37 Malignant neoplasm of thymus	460	3	20	Chapter II	Y	Y
+13820	C38	C38 Malignant neoplasm of heart, mediastinum and pleura	460	3	20	Chapter II	Y	Y
+13890	C39	C39 Malignant neoplasm of other and ill-defined sites in the respiratory system and intrathoracic organs	460	3	20	Chapter II	Y	Y
+13930	C40	C40 Malignant neoplasm of bone and articular cartilage of limbs	470	3	20	Chapter II	Y	Y
+14000	C41	C41 Malignant neoplasm of bone and articular cartilage of other and unspecified sites	470	3	20	Chapter II	Y	Y
+14080	C42	C42 hematopoietic and reticuloendothelial systems (ICD-O-3 specific)	470	3	20	Chapter II	Y	Y
+14140	C43	C43 Malignant melanoma of skin	480	3	20	Chapter II	Y	Y
+14250	C44	C44 Other malignant neoplasms of skin	480	3	20	Chapter II	Y	Y
+14360	C45	C45 Mesothelioma	490	3	20	Chapter II	Y	Y
+14420	C46	C46 Kaposi's sarcoma	490	3	20	Chapter II	Y	Y
+14500	C47	C47 Malignant neoplasm of peripheral nerves and autonomic nervous system	490	3	20	Chapter II	Y	Y
+14600	C48	C48 Malignant neoplasm of retroperitoneum and peritoneum	490	3	20	Chapter II	Y	Y
+14650	C49	C49 Malignant neoplasm of other connective and soft tissue	490	3	20	Chapter II	Y	Y
+14750	C50	C50 Malignant neoplasm of breast	500	3	20	Chapter II	Y	Y
+14850	C51	C51 Malignant neoplasm of vulva	510	3	20	Chapter II	Y	Y
+14910	C52	C52 Malignant neoplasm of vagina	510	3	20	Chapter II	Y	Y
+14920	C53	C53 Malignant neoplasm of cervix uteri	510	3	20	Chapter II	Y	Y
+14970	C54	C54 Malignant neoplasm of corpus uteri	510	3	20	Chapter II	Y	Y
+15040	C55	C55 Malignant neoplasm of uterus, part unspecified	510	3	20	Chapter II	Y	Y
+15050	C56	C56 Malignant neoplasm of ovary	510	3	20	Chapter II	Y	Y
+15060	C57	C57 Malignant neoplasm of other and unspecified female genital organs	510	3	20	Chapter II	Y	Y
+15150	C58	C58 Malignant neoplasm of placenta	510	3	20	Chapter II	Y	Y
+15160	C60	C60 Malignant neoplasm of penis	520	3	20	Chapter II	Y	Y
+15220	C61	C61 Malignant neoplasm of prostate	520	3	20	Chapter II	Y	Y
+15230	C62	C62 Malignant neoplasm of testis	520	3	20	Chapter II	Y	Y
+15270	C63	C63 Malignant neoplasm of other and unspecified male genital organs	520	3	20	Chapter II	Y	Y
+15340	C64	C64 Malignant neoplasm of kidney, except renal pelvis	530	3	20	Chapter II	Y	Y
+15350	C65	C65 Malignant neoplasm of renal pelvis	530	3	20	Chapter II	Y	Y
+15360	C66	C66 Malignant neoplasm of ureter	530	3	20	Chapter II	Y	Y
+15370	C67	C67 Malignant neoplasm of bladder	530	3	20	Chapter II	Y	Y
+15480	C68	C68 Malignant neoplasm of other and unspecified urinary organs	530	3	20	Chapter II	Y	Y
+15530	C69	C69 Malignant neoplasm of eye and adnexa	540	3	20	Chapter II	Y	Y
+15630	C70	C70 Malignant neoplasm of meninges	540	3	20	Chapter II	Y	Y
+15670	C71	C71 Malignant neoplasm of brain	540	3	20	Chapter II	Y	Y
+15780	C72	C72 Malignant neoplasm of spinal cord, cranial nerves and other parts of central nervous system	540	3	20	Chapter II	Y	Y
+15870	C73	C73 Malignant neoplasm of thyroid gland	550	3	20	Chapter II	Y	Y
+15880	C74	C74 Malignant neoplasm of adrenal gland	550	3	20	Chapter II	Y	Y
+15920	C75	C75 Malignant neoplasm of other endocrine glands and related structures	550	3	20	Chapter II	Y	Y
+16010	C76	C76 Malignant neoplasm of other and ill-defined sites	560	3	20	Chapter II	Y	Y
+16100	C77	C77 Secondary and unspecified malignant neoplasm of lymph nodes	560	3	20	Chapter II	Y	Y
+16190	C78	C78 Secondary malignant neoplasm of respiratory and digestive organs	560	3	20	Chapter II	Y	Y
+16290	C79	C79 Secondary malignant neoplasm of other sites	560	3	20	Chapter II	Y	Y
+16400	C80	C80 Malignant neoplasm without specification of site	560	3	20	Chapter II	Y	Y
+16430	C81	C81 Hodgkin's disease	570	3	20	Chapter II	Y	Y
+16510	C82	C82 Follicular [nodular] non-Hodgkin's lymphoma	570	3	20	Chapter II	Y	Y
+16610	C83	C83 Diffuse non-Hodgkin's lymphoma	570	3	20	Chapter II	Y	Y
+16720	C84	C84 Peripheral and cutaneous T-cell lymphomas	570	3	20	Chapter II	Y	Y
+16830	C85	C85 Other and unspecified types of non-Hodgkin's lymphoma	570	3	20	Chapter II	Y	Y
+16890	C86	C86 Other specified types of T/NK-cell lymphoma	570	3	20	Chapter II	Y	Y
+16970	C88	C88 Malignant immunoproliferative diseases	570	3	20	Chapter II	Y	Y
+17050	C90	C90 Multiple myeloma and malignant plasma cell neoplasms	570	3	20	Chapter II	Y	Y
+17100	C91	C91 Lymphoid leukaemia	570	3	20	Chapter II	Y	Y
+17210	C92	C92 Myeloid leukaemia	570	3	20	Chapter II	Y	Y
+17320	C93	C93 Monocytic leukaemia	570	3	20	Chapter II	Y	Y
+17390	C94	C94 Other leukaemias of specified cell type	570	3	20	Chapter II	Y	Y
+17480	C95	C95 Leukaemia of unspecified cell type	570	3	20	Chapter II	Y	Y
+17540	C96	C96 Other and unspecified malignant neoplasms of lymphoid, haematopoietic and related tissue	570	3	20	Chapter II	Y	Y
+17650	C97	C97 Malignant neoplasms of independent (primary) multiple sites	580	3	20	Chapter II	Y	Y
+31760	G00	G00 Bacterial meningitis, not elsewhere classified	870	3	60	Chapter VI	Y	Y
+31830	G01	G01 Meningitis in bacterial diseases classified elsewhere	870	3	60	Chapter VI	Y	Y
+31840	G02	G02 Meningitis in other infectious and parasitic diseases classified elsewhere	870	3	60	Chapter VI	Y	Y
+31880	G03	G03 Meningitis due to other and unspecified causes	870	3	60	Chapter VI	Y	Y
+31940	G04	G04 Encephalitis, myelitis and encephalomyelitis	870	3	60	Chapter VI	Y	Y
+32000	G05	G05 Encephalitis, myelitis and encephalomyelitis in diseases classified elsewhere	870	3	60	Chapter VI	Y	Y
+32050	G06	G06 Intracranial and intraspinal abscess and granuloma	870	3	60	Chapter VI	Y	Y
+32090	G07	G07 Intracranial and intraspinal abscess and granuloma in diseases classified elsewhere	870	3	60	Chapter VI	Y	Y
+32100	G08	G08 Intracranial and intraspinal phlebitis and thrombophlebitis	870	3	60	Chapter VI	Y	Y
+32110	G09	G09 Sequelae of inflammatory diseases of central nervous system	870	3	60	Chapter VI	Y	Y
+32120	G10	G10 Huntington's disease	880	3	60	Chapter VI	Y	Y
+32130	G11	G11 Hereditary ataxia	880	3	60	Chapter VI	Y	Y
+32210	G12	G12 Spinal muscular atrophy and related syndromes	880	3	60	Chapter VI	Y	Y
+32270	G13	G13 Systemic atrophies primarily affecting central nervous system in diseases classified elsewhere	880	3	60	Chapter VI	Y	Y
+32320	G14	G14 Postpolio syndrome	880	3	60	Chapter VI	Y	Y
+32330	G20	G20 Parkinson's disease	890	3	60	Chapter VI	Y	Y
+32340	G21	G21 Secondary Parkinsonism	890	3	60	Chapter VI	Y	Y
+32420	G22	G22 Parkinsonism in diseases classified elsewhere	890	3	60	Chapter VI	Y	Y
+32430	G23	G23 Other degenerative diseases of basal ganglia	890	3	60	Chapter VI	Y	Y
+32500	G24	G24 Dystonia	890	3	60	Chapter VI	Y	Y
+32590	G25	G25 Other extrapyramidal and movement disorders	890	3	60	Chapter VI	Y	Y
+32690	G26	G26 Extrapyramidal and movement disorders in diseases classified elsewhere	890	3	60	Chapter VI	Y	Y
+32700	G30	G30 Alzheimer's disease	900	3	60	Chapter VI	Y	Y
+32750	G31	G31 Other degenerative diseases of nervous system, not elsewhere classified	900	3	60	Chapter VI	Y	Y
+32810	G32	G32 Other degenerative disorders of nervous system in diseases classified elsewhere	900	3	60	Chapter VI	Y	Y
+32840	G35	G35 Multiple sclerosis	910	3	60	Chapter VI	Y	Y
+32850	G36	G36 Other acute disseminated demyelination	910	3	60	Chapter VI	Y	Y
+32900	G37	G37 Other demyelinating diseases of central nervous system	910	3	60	Chapter VI	Y	Y
+32990	G40	G40 Epilepsy	920	3	60	Chapter VI	Y	Y
+33100	G41	G41 Status epilepticus	920	3	60	Chapter VI	Y	Y
+33160	G43	G43 Migraine	920	3	60	Chapter VI	Y	Y
+33230	G44	G44 Other headache syndromes	920	3	60	Chapter VI	Y	Y
+33300	G45	G45 Transient cerebral ischaemic attacks and related syndromes	920	3	60	Chapter VI	Y	Y
+33380	G46	G46 Vascular syndromes of brain in cerebrovascular diseases	920	3	60	Chapter VI	Y	Y
+33480	G47	G47 Sleep disorders	920	3	60	Chapter VI	Y	Y
+33560	G50	G50 Disorders of trigeminal nerve	930	3	60	Chapter VI	Y	Y
+33610	G51	G51 Facial nerve disorders	930	3	60	Chapter VI	Y	Y
+33690	G52	G52 Disorders of other cranial nerves	930	3	60	Chapter VI	Y	Y
+33770	G53	G53 Cranial nerve disorders in diseases classified elsewhere	930	3	60	Chapter VI	Y	Y
+33830	G54	G54 Nerve root and plexus disorders	930	3	60	Chapter VI	Y	Y
+33940	G55	G55 Nerve root and plexus compressions in diseases classified elsewhere	930	3	60	Chapter VI	Y	Y
+34000	G56	G56 Mononeuropathies of upper limb	930	3	60	Chapter VI	Y	Y
+34080	G57	G57 Mononeuropathies of lower limb	930	3	60	Chapter VI	Y	Y
+34180	G58	G58 Other mononeuropathies	930	3	60	Chapter VI	Y	Y
+34230	G59	G59 Mononeuropathy in diseases classified elsewhere	930	3	60	Chapter VI	Y	Y
+34260	G60	G60 Hereditary and idiopathic neuropathy	940	3	60	Chapter VI	Y	Y
+34330	G61	G61 Inflammatory polyneuropathy	940	3	60	Chapter VI	Y	Y
+34380	G62	G62 Other polyneuropathies	940	3	60	Chapter VI	Y	Y
+34440	G63	G63 Polyneuropathy in diseases classified elsewhere	940	3	60	Chapter VI	Y	Y
+34530	G64	G64 Other disorders of peripheral nervous system	940	3	60	Chapter VI	Y	Y
+34540	G70	G70 Myasthenia gravis and other myoneural disorders	950	3	60	Chapter VI	Y	Y
+34600	G71	G71 Primary disorders of muscles	950	3	60	Chapter VI	Y	Y
+34670	G72	G72 Other myopathies	950	3	60	Chapter VI	Y	Y
+34750	G73	G73 Disorders of myoneural junction and muscle in diseases classified elsewhere	950	3	60	Chapter VI	Y	Y
+34840	G80	G80 Infantile cerebral palsy	960	3	60	Chapter VI	Y	Y
+34920	G81	G81 Hemiplegia	960	3	60	Chapter VI	Y	Y
+34960	G82	G82 Paraplegia and tetraplegia	960	3	60	Chapter VI	Y	Y
+35030	G83	G83 Other paralytic syndromes	960	3	60	Chapter VI	Y	Y
+35120	G90	G90 Disorders of autonomic nervous system	970	3	60	Chapter VI	Y	Y
+35200	G91	G91 Hydrocephalus	970	3	60	Chapter VI	Y	Y
+35270	G92	G92 Toxic encephalopathy	970	3	60	Chapter VI	Y	Y
+35280	G93	G93 Other disorders of brain	970	3	60	Chapter VI	Y	Y
+35390	G94	G94 Other disorders of brain in diseases classified elsewhere	970	3	60	Chapter VI	Y	Y
+35440	G95	G95 Other diseases of spinal cord	970	3	60	Chapter VI	Y	Y
+35500	G96	G96 Other disorders of central nervous system	970	3	60	Chapter VI	Y	Y
+35550	G97	G97 Postprocedural disorders of nervous system, not elsewhere classified	970	3	60	Chapter VI	Y	Y
+35610	G98	G98 Other disorders of nervous system, not elsewhere classified	970	3	60	Chapter VI	Y	Y
+35620	G99	G99 Other disorders of nervous system in diseases classified elsewhere	970	3	60	Chapter VI	Y	Y
+12080	C000	C00.0 External upper lip	12070	4	20	Chapter II	Y	Y
+12090	C001	C00.1 External lower lip	12070	4	20	Chapter II	Y	Y
+12100	C002	C00.2 External lip, unspecified	12070	4	20	Chapter II	Y	Y
+12110	C003	C00.3 Upper lip, inner aspect	12070	4	20	Chapter II	Y	Y
+12120	C004	C00.4 Lower lip, inner aspect	12070	4	20	Chapter II	Y	Y
+12130	C005	C00.5 Lip, unspecified, inner aspect	12070	4	20	Chapter II	Y	Y
+12140	C006	C00.6 Commissure of lip	12070	4	20	Chapter II	Y	Y
+12150	C008	C00.8 Overlapping lesion of lip	12070	4	20	Chapter II	Y	Y
+12160	C009	C00.9 Lip, unspecified	12070	4	20	Chapter II	Y	Y
+12190	C020	C02.0 Dorsal surface of tongue	12180	4	20	Chapter II	Y	Y
+12200	C021	C02.1 Border of tongue	12180	4	20	Chapter II	Y	Y
+12210	C022	C02.2 Ventral surface of tongue	12180	4	20	Chapter II	Y	Y
+12220	C023	C02.3 Anterior two-thirds of tongue, part unspecified	12180	4	20	Chapter II	Y	Y
+12230	C024	C02.4 Lingual tonsil	12180	4	20	Chapter II	Y	Y
+12240	C028	C02.8 Overlapping lesion of tongue	12180	4	20	Chapter II	Y	Y
+12250	C029	C02.9 Tongue, unspecified	12180	4	20	Chapter II	Y	Y
+12270	C030	C03.0 Upper gum	12260	4	20	Chapter II	Y	Y
+12280	C031	C03.1 Lower gum	12260	4	20	Chapter II	Y	Y
+12290	C039	C03.9 Gum, unspecified	12260	4	20	Chapter II	Y	Y
+12310	C040	C04.0 Anterior floor of mouth	12300	4	20	Chapter II	Y	Y
+12320	C041	C04.1 Lateral floor of mouth	12300	4	20	Chapter II	Y	Y
+12330	C048	C04.8 Overlapping lesion of floor of mouth	12300	4	20	Chapter II	Y	Y
+12340	C049	C04.9 Floor of mouth, unspecified	12300	4	20	Chapter II	Y	Y
+12360	C050	C05.0 Hard palate	12350	4	20	Chapter II	Y	Y
+12370	C051	C05.1 Soft palate	12350	4	20	Chapter II	Y	Y
+12380	C052	C05.2 Uvula	12350	4	20	Chapter II	Y	Y
+12390	C058	C05.8 Overlapping lesion of palate	12350	4	20	Chapter II	Y	Y
+12400	C059	C05.9 Palate, unspecified	12350	4	20	Chapter II	Y	Y
+12420	C060	C06.0 Cheek mucosa	12410	4	20	Chapter II	Y	Y
+12430	C061	C06.1 Vestibule of mouth	12410	4	20	Chapter II	Y	Y
+12440	C062	C06.2 Retromolar area	12410	4	20	Chapter II	Y	Y
+12450	C068	C06.8 Overlapping lesion of other and unspecified parts of mouth	12410	4	20	Chapter II	Y	Y
+12460	C069	C06.9 Mouth, unspecified	12410	4	20	Chapter II	Y	Y
+12490	C080	C08.0 Submandibular gland	12480	4	20	Chapter II	Y	Y
+12500	C081	C08.1 Sublingual gland	12480	4	20	Chapter II	Y	Y
+12510	C088	C08.8 Overlapping lesion of major salivary glands	12480	4	20	Chapter II	Y	Y
+12520	C089	C08.9 Major salivary gland, unspecified	12480	4	20	Chapter II	Y	Y
+12540	C090	C09.0 Tonsillar fossa	12530	4	20	Chapter II	Y	Y
+12550	C091	C09.1 Tonsillar pillar (anterior) (posterior)	12530	4	20	Chapter II	Y	Y
+12560	C098	C09.8 Overlapping lesion of tonsil	12530	4	20	Chapter II	Y	Y
+12570	C099	C09.9 Tonsil, unspecified	12530	4	20	Chapter II	Y	Y
+12590	C100	C10.0 Vallecula	12580	4	20	Chapter II	Y	Y
+12600	C101	C10.1 Anterior surface of epiglottis	12580	4	20	Chapter II	Y	Y
+12610	C102	C10.2 Lateral wall of oropharynx	12580	4	20	Chapter II	Y	Y
+12620	C103	C10.3 Posterior wall of oropharynx	12580	4	20	Chapter II	Y	Y
+12630	C104	C10.4 Branchial cleft	12580	4	20	Chapter II	Y	Y
+12640	C108	C10.8 Overlapping lesion of oropharynx	12580	4	20	Chapter II	Y	Y
+12650	C109	C10.9 Oropharynx, unspecified	12580	4	20	Chapter II	Y	Y
+12670	C110	C11.0 Superior wall of nasopharynx	12660	4	20	Chapter II	Y	Y
+12680	C111	C11.1 Posterior wall of nasopharynx	12660	4	20	Chapter II	Y	Y
+12690	C112	C11.2 Lateral wall of nasopharynx	12660	4	20	Chapter II	Y	Y
+12700	C113	C11.3 Anterior wall of nasopharynx	12660	4	20	Chapter II	Y	Y
+12710	C118	C11.8 Overlapping lesion of nasopharynx	12660	4	20	Chapter II	Y	Y
+12720	C119	C11.9 Nasopharynx, unspecified	12660	4	20	Chapter II	Y	Y
+12750	C130	C13.0 Postcricoid region	12740	4	20	Chapter II	Y	Y
+12760	C131	C13.1 Aryepiglottic fold, hypopharyngeal aspect	12740	4	20	Chapter II	Y	Y
+12770	C132	C13.2 Posterior wall of hypopharynx	12740	4	20	Chapter II	Y	Y
+12780	C138	C13.8 Overlapping lesion of hypopharynx	12740	4	20	Chapter II	Y	Y
+12790	C139	C13.9 Hypopharynx, unspecified	12740	4	20	Chapter II	Y	Y
+12810	C140	C14.0 Pharynx, unspecified	12800	4	20	Chapter II	Y	Y
+12820	C142	C14.2 Waldeyer's ring	12800	4	20	Chapter II	Y	Y
+12830	C148	C14.8 Overlapping lesion of lip, oral cavity and pharynx	12800	4	20	Chapter II	Y	Y
+12850	C150	C15.0 Cervical part of oesophagus	12840	4	20	Chapter II	Y	Y
+12860	C151	C15.1 Thoracic part of oesophagus	12840	4	20	Chapter II	Y	Y
+12870	C152	C15.2 Abdominal part of oesophagus	12840	4	20	Chapter II	Y	Y
+12880	C153	C15.3 Upper third of oesophagus	12840	4	20	Chapter II	Y	Y
+12890	C154	C15.4 Middle third of oesophagus	12840	4	20	Chapter II	Y	Y
+12900	C155	C15.5 Lower third of oesophagus	12840	4	20	Chapter II	Y	Y
+12910	C158	C15.8 Overlapping lesion of oesophagus	12840	4	20	Chapter II	Y	Y
+12920	C159	C15.9 Oesophagus, unspecified	12840	4	20	Chapter II	Y	Y
+12940	C160	C16.0 Cardia	12930	4	20	Chapter II	Y	Y
+12950	C161	C16.1 Fundus of stomach	12930	4	20	Chapter II	Y	Y
+12960	C162	C16.2 Body of stomach	12930	4	20	Chapter II	Y	Y
+12970	C163	C16.3 Pyloric antrum	12930	4	20	Chapter II	Y	Y
+12980	C164	C16.4 Pylorus	12930	4	20	Chapter II	Y	Y
+12990	C165	C16.5 Lesser curvature of stomach, unspecified	12930	4	20	Chapter II	Y	Y
+13000	C166	C16.6 Greater curvature of stomach, unspecified	12930	4	20	Chapter II	Y	Y
+13010	C168	C16.8 Overlapping lesion of stomach	12930	4	20	Chapter II	Y	Y
+13020	C169	C16.9 Stomach, unspecified	12930	4	20	Chapter II	Y	Y
+13040	C170	C17.0 Duodenum	13030	4	20	Chapter II	Y	Y
+13050	C171	C17.1 Jejunum	13030	4	20	Chapter II	Y	Y
+13060	C172	C17.2 Ileum	13030	4	20	Chapter II	Y	Y
+13070	C173	C17.3 Meckel's diverticulum	13030	4	20	Chapter II	Y	Y
+13080	C178	C17.8 Overlapping lesion of small intestine	13030	4	20	Chapter II	Y	Y
+13090	C179	C17.9 Small intestine, unspecified	13030	4	20	Chapter II	Y	Y
+13110	C180	C18.0 Caecum	13100	4	20	Chapter II	Y	Y
+13120	C181	C18.1 Appendix	13100	4	20	Chapter II	Y	Y
+13130	C182	C18.2 Ascending colon	13100	4	20	Chapter II	Y	Y
+13140	C183	C18.3 Hepatic flexure	13100	4	20	Chapter II	Y	Y
+13150	C184	C18.4 Transverse colon	13100	4	20	Chapter II	Y	Y
+13160	C185	C18.5 Splenic flexure	13100	4	20	Chapter II	Y	Y
+13170	C186	C18.6 Descending colon	13100	4	20	Chapter II	Y	Y
+13180	C187	C18.7 Sigmoid colon	13100	4	20	Chapter II	Y	Y
+13190	C188	C18.8 Overlapping lesion of colon	13100	4	20	Chapter II	Y	Y
+13200	C189	C18.9 Colon, unspecified	13100	4	20	Chapter II	Y	Y
+13240	C210	C21.0 Anus, unspecified	13230	4	20	Chapter II	Y	Y
+13250	C211	C21.1 Anal canal	13230	4	20	Chapter II	Y	Y
+13260	C212	C21.2 Cloacogenic zone	13230	4	20	Chapter II	Y	Y
+13270	C218	C21.8 Overlapping lesion of rectum, anus and anal canal	13230	4	20	Chapter II	Y	Y
+13290	C220	C22.0 Liver cell carcinoma	13280	4	20	Chapter II	Y	Y
+13300	C221	C22.1 Intrahepatic bile duct carcinoma	13280	4	20	Chapter II	Y	Y
+13310	C222	C22.2 Hepatoblastoma	13280	4	20	Chapter II	Y	Y
+13320	C223	C22.3 Angiosarcoma of liver	13280	4	20	Chapter II	Y	Y
+13330	C224	C22.4 Other sarcomas of liver	13280	4	20	Chapter II	Y	Y
+13340	C227	C22.7 Other specified carcinomas of liver	13280	4	20	Chapter II	Y	Y
+13350	C229	C22.9 Liver, unspecified	13280	4	20	Chapter II	Y	Y
+13380	C240	C24.0 Extrahepatic bile duct	13370	4	20	Chapter II	Y	Y
+13390	C241	C24.1 Ampulla of Vater	13370	4	20	Chapter II	Y	Y
+13400	C248	C24.8 Overlapping lesion of biliary tract	13370	4	20	Chapter II	Y	Y
+13410	C249	C24.9 Biliary tract, unspecified	13370	4	20	Chapter II	Y	Y
+13430	C250	C25.0 Head of pancreas	13420	4	20	Chapter II	Y	Y
+13440	C251	C25.1 Body of pancreas	13420	4	20	Chapter II	Y	Y
+13450	C252	C25.2 Tail of pancreas	13420	4	20	Chapter II	Y	Y
+13460	C253	C25.3 Pancreatic duct	13420	4	20	Chapter II	Y	Y
+13470	C254	C25.4 Endocrine pancreas	13420	4	20	Chapter II	Y	Y
+13480	C257	C25.7 Other parts of pancreas	13420	4	20	Chapter II	Y	Y
+13490	C258	C25.8 Overlapping lesion of pancreas	13420	4	20	Chapter II	Y	Y
+13500	C259	C25.9 Pancreas, unspecified	13420	4	20	Chapter II	Y	Y
+13520	C260	C26.0 Intestinal tract, part unspecified	13510	4	20	Chapter II	Y	Y
+13530	C261	C26.1 Spleen	13510	4	20	Chapter II	Y	Y
+13540	C268	C26.8 Overlapping lesion of digestive system	13510	4	20	Chapter II	Y	Y
+13550	C269	C26.9 Ill-defined sites within the digestive system	13510	4	20	Chapter II	Y	Y
+13570	C300	C30.0 Nasal cavity	13560	4	20	Chapter II	Y	Y
+13580	C301	C30.1 Middle ear	13560	4	20	Chapter II	Y	Y
+13600	C310	C31.0 Maxillary sinus	13590	4	20	Chapter II	Y	Y
+13610	C311	C31.1 Ethmoidal sinus	13590	4	20	Chapter II	Y	Y
+13620	C312	C31.2 Frontal sinus	13590	4	20	Chapter II	Y	Y
+13630	C313	C31.3 Sphenoidal sinus	13590	4	20	Chapter II	Y	Y
+13640	C318	C31.8 Overlapping lesion of accessory sinuses	13590	4	20	Chapter II	Y	Y
+13650	C319	C31.9 Accessory sinus, unspecified	13590	4	20	Chapter II	Y	Y
+13670	C320	C32.0 Glottis	13660	4	20	Chapter II	Y	Y
+13680	C321	C32.1 Supraglottis	13660	4	20	Chapter II	Y	Y
+13690	C322	C32.2 Subglottis	13660	4	20	Chapter II	Y	Y
+13700	C323	C32.3 Laryngeal cartilage	13660	4	20	Chapter II	Y	Y
+13710	C328	C32.8 Overlapping lesion of larynx	13660	4	20	Chapter II	Y	Y
+13720	C329	C32.9 Larynx, unspecified	13660	4	20	Chapter II	Y	Y
+13750	C340	C34.0 Main bronchus	13740	4	20	Chapter II	Y	Y
+13760	C341	C34.1 Upper lobe, bronchus or lung	13740	4	20	Chapter II	Y	Y
+13770	C342	C34.2 Middle lobe, bronchus or lung	13740	4	20	Chapter II	Y	Y
+13780	C343	C34.3 Lower lobe, bronchus or lung	13740	4	20	Chapter II	Y	Y
+13790	C348	C34.8 Overlapping lesion of bronchus and lung	13740	4	20	Chapter II	Y	Y
+13800	C349	C34.9 Bronchus or lung, unspecified	13740	4	20	Chapter II	Y	Y
+13830	C380	C38.0 Heart	13820	4	20	Chapter II	Y	Y
+13840	C381	C38.1 Anterior mediastinum	13820	4	20	Chapter II	Y	Y
+13850	C382	C38.2 Posterior mediastinum	13820	4	20	Chapter II	Y	Y
+13860	C383	C38.3 Mediastinum, part unspecified	13820	4	20	Chapter II	Y	Y
+13870	C384	C38.4 Pleura	13820	4	20	Chapter II	Y	Y
+13880	C388	C38.8 Overlapping lesion of heart, mediastinum and pleura	13820	4	20	Chapter II	Y	Y
+13900	C390	C39.0 Upper respiratory tract, part unspecified	13890	4	20	Chapter II	Y	Y
+13910	C398	C39.8 Overlapping lesion of respiratory and intrathoracic organs	13890	4	20	Chapter II	Y	Y
+13920	C399	C39.9 Ill-defined sites within the respiratory system	13890	4	20	Chapter II	Y	Y
+13940	C400	C40.0 Scapula and long bones of upper limb	13930	4	20	Chapter II	Y	Y
+13950	C401	C40.1 Short bones of upper limb	13930	4	20	Chapter II	Y	Y
+13960	C402	C40.2 Long bones of lower limb	13930	4	20	Chapter II	Y	Y
+13970	C403	C40.3 Short bones of lower limb	13930	4	20	Chapter II	Y	Y
+13980	C408	C40.8 Overlapping lesion of bone and articular cartilage of limbs	13930	4	20	Chapter II	Y	Y
+13990	C409	C40.9 Bone and articular cartilage of limb, unspecified	13930	4	20	Chapter II	Y	Y
+14010	C410	C41.0 Bones of skull and face	14000	4	20	Chapter II	Y	Y
+14020	C411	C41.1 Mandible	14000	4	20	Chapter II	Y	Y
+14030	C412	C41.2 Vertebral column	14000	4	20	Chapter II	Y	Y
+14040	C413	C41.3 Ribs, sternum and clavicle	14000	4	20	Chapter II	Y	Y
+14050	C414	C41.4 Pelvic bones, sacrum and coccyx	14000	4	20	Chapter II	Y	Y
+14060	C418	C41.8 Overlapping lesion of bone and articular cartilage	14000	4	20	Chapter II	Y	Y
+14070	C419	C41.9 Bone and articular cartilage, unspecified	14000	4	20	Chapter II	Y	Y
+14090	C420	C42.0 hematopoietic and reticuloendothelial systems: blood (ICD-O-3 specific)	14080	4	20	Chapter II	Y	Y
+14100	C421	C42.1 hematopoietic and reticuloendothelial systems: bone marrow (ICD-O-3 specific)	14080	4	20	Chapter II	Y	Y
+14110	C422	C42.2 hematopoietic and reticuloendothelial systems: spleen (ICD-O-3 specific)	14080	4	20	Chapter II	Y	Y
+14120	C423	C42.3 hematopoietic and reticuloendothelial systems: Reticuloendothelial system, NOS (ICD-O-3 specific)	14080	4	20	Chapter II	Y	Y
+14130	C424	C42.4 hematopoietic and reticuloendothelial systems: Hematopoietic system, NOS  (ICD-O-3 specific)	14080	4	20	Chapter II	Y	Y
+14150	C430	C43.0 Malignant melanoma of lip	14140	4	20	Chapter II	Y	Y
+14160	C431	C43.1 Malignant melanoma of eyelid, including canthus	14140	4	20	Chapter II	Y	Y
+14170	C432	C43.2 Malignant melanoma of ear and external auricular canal	14140	4	20	Chapter II	Y	Y
+14180	C433	C43.3 Malignant melanoma of other and unspecified parts of face	14140	4	20	Chapter II	Y	Y
+14190	C434	C43.4 Malignant melanoma of scalp and neck	14140	4	20	Chapter II	Y	Y
+14200	C435	C43.5 Malignant melanoma of trunk	14140	4	20	Chapter II	Y	Y
+14210	C436	C43.6 Malignant melanoma of upper limb, including shoulder	14140	4	20	Chapter II	Y	Y
+14220	C437	C43.7 Malignant melanoma of lower limb, including hip	14140	4	20	Chapter II	Y	Y
+14230	C438	C43.8 Overlapping malignant melanoma of skin	14140	4	20	Chapter II	Y	Y
+14240	C439	C43.9 Malignant melanoma of skin, unspecified	14140	4	20	Chapter II	Y	Y
+14260	C440	C44.0 Skin of lip	14250	4	20	Chapter II	Y	Y
+14270	C441	C44.1 Skin of eyelid, including canthus	14250	4	20	Chapter II	Y	Y
+14280	C442	C44.2 Skin of ear and external auricular canal	14250	4	20	Chapter II	Y	Y
+14290	C443	C44.3 Skin of other and unspecified parts of face	14250	4	20	Chapter II	Y	Y
+14300	C444	C44.4 Skin of scalp and neck	14250	4	20	Chapter II	Y	Y
+14310	C445	C44.5 Skin of trunk	14250	4	20	Chapter II	Y	Y
+14320	C446	C44.6 Skin of upper limb, including shoulder	14250	4	20	Chapter II	Y	Y
+14330	C447	C44.7 Skin of lower limb, including hip	14250	4	20	Chapter II	Y	Y
+14340	C448	C44.8 Overlapping lesion of skin	14250	4	20	Chapter II	Y	Y
+14350	C449	C44.9 Malignant neoplasm of skin, unspecified	14250	4	20	Chapter II	Y	Y
+14370	C450	C45.0 Mesothelioma of pleura	14360	4	20	Chapter II	Y	Y
+14380	C451	C45.1 Mesothelioma of peritoneum	14360	4	20	Chapter II	Y	Y
+14390	C452	C45.2 Mesothelioma of pericardium	14360	4	20	Chapter II	Y	Y
+14400	C457	C45.7 Mesothelioma of other sites	14360	4	20	Chapter II	Y	Y
+14410	C459	C45.9 Mesothelioma, unspecified	14360	4	20	Chapter II	Y	Y
+14430	C460	C46.0 Kaposi's sarcoma of skin	14420	4	20	Chapter II	Y	Y
+14440	C461	C46.1 Kaposi's sarcoma of soft tissue	14420	4	20	Chapter II	Y	Y
+14450	C462	C46.2 Kaposi's sarcoma of palate	14420	4	20	Chapter II	Y	Y
+14460	C463	C46.3 Kaposi's sarcoma of lymph nodes	14420	4	20	Chapter II	Y	Y
+14470	C467	C46.7 Kaposi's sarcoma of other sites	14420	4	20	Chapter II	Y	Y
+14480	C468	C46.8 Kaposi's sarcoma of multiple organs	14420	4	20	Chapter II	Y	Y
+14490	C469	C46.9 Kaposi's sarcoma, unspecified	14420	4	20	Chapter II	Y	Y
+14510	C470	C47.0 Peripheral nerves of head, face and neck	14500	4	20	Chapter II	Y	Y
+14520	C471	C47.1 Peripheral nerves of upper limb, including shoulder	14500	4	20	Chapter II	Y	Y
+14530	C472	C47.2 Peripheral nerves of lower limb, including hip	14500	4	20	Chapter II	Y	Y
+14540	C473	C47.3 Peripheral nerves of thorax	14500	4	20	Chapter II	Y	Y
+14550	C474	C47.4 Peripheral nerves of abdomen	14500	4	20	Chapter II	Y	Y
+14560	C475	C47.5 Peripheral nerves of pelvis	14500	4	20	Chapter II	Y	Y
+14570	C476	C47.6 Peripheral nerves of trunk, unspecified	14500	4	20	Chapter II	Y	Y
+14580	C478	C47.8 Overlapping lesion of peripheral nerves and autonomic nervous system	14500	4	20	Chapter II	Y	Y
+14590	C479	C47.9 Peripheral nerves and autonomic nervous system, unspecified	14500	4	20	Chapter II	Y	Y
+14610	C480	C48.0 Retroperitoneum	14600	4	20	Chapter II	Y	Y
+14620	C481	C48.1 Specified parts of peritoneum	14600	4	20	Chapter II	Y	Y
+14630	C482	C48.2 Peritoneum, unspecified	14600	4	20	Chapter II	Y	Y
+14640	C488	C48.8 Overlapping lesion of retroperitoneum and peritoneum	14600	4	20	Chapter II	Y	Y
+14660	C490	C49.0 Connective and soft tissue of head, face and neck	14650	4	20	Chapter II	Y	Y
+14670	C491	C49.1 Connective and soft tissue of upper limb, including shoulder	14650	4	20	Chapter II	Y	Y
+14680	C492	C49.2 Connective and soft tissue of lower limb, including hip	14650	4	20	Chapter II	Y	Y
+14690	C493	C49.3 Connective and soft tissue of thorax	14650	4	20	Chapter II	Y	Y
+14700	C494	C49.4 Connective and soft tissue of abdomen	14650	4	20	Chapter II	Y	Y
+14710	C495	C49.5 Connective and soft tissue of pelvis	14650	4	20	Chapter II	Y	Y
+14720	C496	C49.6 Connective and soft tissue of trunk, unspecified	14650	4	20	Chapter II	Y	Y
+14730	C498	C49.8 Overlapping lesion of connective and soft tissue	14650	4	20	Chapter II	Y	Y
+14740	C499	C49.9 Connective and soft tissue, unspecified	14650	4	20	Chapter II	Y	Y
+14760	C500	C50.0 Nipple and areola	14750	4	20	Chapter II	Y	Y
+14770	C501	C50.1 Central portion of breast	14750	4	20	Chapter II	Y	Y
+14780	C502	C50.2 Upper-inner quadrant of breast	14750	4	20	Chapter II	Y	Y
+14790	C503	C50.3 Lower-inner quadrant of breast	14750	4	20	Chapter II	Y	Y
+14800	C504	C50.4 Upper-outer quadrant of breast	14750	4	20	Chapter II	Y	Y
+14810	C505	C50.5 Lower-outer quadrant of breast	14750	4	20	Chapter II	Y	Y
+14820	C506	C50.6 Axillary tail of breast	14750	4	20	Chapter II	Y	Y
+14830	C508	C50.8 Overlapping lesion of breast	14750	4	20	Chapter II	Y	Y
+14840	C509	C50.9 Breast, unspecified	14750	4	20	Chapter II	Y	Y
+14860	C510	C51.0 Labium majus	14850	4	20	Chapter II	Y	Y
+14870	C511	C51.1 Labium minus	14850	4	20	Chapter II	Y	Y
+14880	C512	C51.2 Clitoris	14850	4	20	Chapter II	Y	Y
+14890	C518	C51.8 Overlapping lesion of vulva	14850	4	20	Chapter II	Y	Y
+14900	C519	C51.9 Vulva, unspecified	14850	4	20	Chapter II	Y	Y
+14930	C530	C53.0 Endocervix	14920	4	20	Chapter II	Y	Y
+14940	C531	C53.1 Exocervix	14920	4	20	Chapter II	Y	Y
+14950	C538	C53.8 Overlapping lesion of cervix uteri	14920	4	20	Chapter II	Y	Y
+14960	C539	C53.9 Cervix uteri, unspecified	14920	4	20	Chapter II	Y	Y
+14980	C540	C54.0 Isthmus uteri	14970	4	20	Chapter II	Y	Y
+14990	C541	C54.1 Endometrium	14970	4	20	Chapter II	Y	Y
+15000	C542	C54.2 Myometrium	14970	4	20	Chapter II	Y	Y
+15010	C543	C54.3 Fundus uteri	14970	4	20	Chapter II	Y	Y
+15020	C548	C54.8 Overlapping lesion of corpus uteri	14970	4	20	Chapter II	Y	Y
+15030	C549	C54.9 Corpus uteri, unspecified	14970	4	20	Chapter II	Y	Y
+15070	C570	C57.0 Fallopian tube	15060	4	20	Chapter II	Y	Y
+15080	C571	C57.1 Broad ligament	15060	4	20	Chapter II	Y	Y
+15090	C572	C57.2 Round ligament	15060	4	20	Chapter II	Y	Y
+15100	C573	C57.3 Parametrium	15060	4	20	Chapter II	Y	Y
+15110	C574	C57.4 Uterine adnexa, unspecified	15060	4	20	Chapter II	Y	Y
+15120	C577	C57.7 Other specified female genital organs	15060	4	20	Chapter II	Y	Y
+15130	C578	C57.8 Overlapping lesion of female genital organs	15060	4	20	Chapter II	Y	Y
+15140	C579	C57.9 Female genital organ, unspecified	15060	4	20	Chapter II	Y	Y
+15170	C600	C60.0 Prepuce	15160	4	20	Chapter II	Y	Y
+15180	C601	C60.1 Glans penis	15160	4	20	Chapter II	Y	Y
+15190	C602	C60.2 Body of penis	15160	4	20	Chapter II	Y	Y
+15200	C608	C60.8 Overlapping lesion of penis	15160	4	20	Chapter II	Y	Y
+15210	C609	C60.9 Penis, unspecified	15160	4	20	Chapter II	Y	Y
+15240	C620	C62.0 Undescended testis	15230	4	20	Chapter II	Y	Y
+15250	C621	C62.1 Descended testis	15230	4	20	Chapter II	Y	Y
+15260	C629	C62.9 Testis, unspecified	15230	4	20	Chapter II	Y	Y
+15280	C630	C63.0 Epididymis	15270	4	20	Chapter II	Y	Y
+15290	C631	C63.1 Spermatic cord	15270	4	20	Chapter II	Y	Y
+15300	C632	C63.2 Scrotum	15270	4	20	Chapter II	Y	Y
+15310	C637	C63.7 Other specified male genital organs	15270	4	20	Chapter II	Y	Y
+15320	C638	C63.8 Overlapping lesion of male genital organs	15270	4	20	Chapter II	Y	Y
+15330	C639	C63.9 Male genital organ, unspecified	15270	4	20	Chapter II	Y	Y
+15380	C670	C67.0 Trigone of bladder	15370	4	20	Chapter II	Y	Y
+15390	C671	C67.1 Dome of bladder	15370	4	20	Chapter II	Y	Y
+15400	C672	C67.2 Lateral wall of bladder	15370	4	20	Chapter II	Y	Y
+15410	C673	C67.3 Anterior wall of bladder	15370	4	20	Chapter II	Y	Y
+15420	C674	C67.4 Posterior wall of bladder	15370	4	20	Chapter II	Y	Y
+15430	C675	C67.5 Bladder neck	15370	4	20	Chapter II	Y	Y
+15440	C676	C67.6 Ureteric orifice	15370	4	20	Chapter II	Y	Y
+15450	C677	C67.7 Urachus	15370	4	20	Chapter II	Y	Y
+15460	C678	C67.8 Overlapping lesion of bladder	15370	4	20	Chapter II	Y	Y
+15470	C679	C67.9 Bladder, unspecified	15370	4	20	Chapter II	Y	Y
+15490	C680	C68.0 Urethra	15480	4	20	Chapter II	Y	Y
+15500	C681	C68.1 Paraurethral glands	15480	4	20	Chapter II	Y	Y
+15510	C688	C68.8 Overlapping lesion of urinary organs	15480	4	20	Chapter II	Y	Y
+15520	C689	C68.9 Urinary organ, unspecified	15480	4	20	Chapter II	Y	Y
+15540	C690	C69.0 Conjunctiva	15530	4	20	Chapter II	Y	Y
+15550	C691	C69.1 Cornea	15530	4	20	Chapter II	Y	Y
+15560	C692	C69.2 Retina	15530	4	20	Chapter II	Y	Y
+15570	C693	C69.3 Choroid	15530	4	20	Chapter II	Y	Y
+15580	C694	C69.4 Ciliary body	15530	4	20	Chapter II	Y	Y
+15590	C695	C69.5 Lachrymal gland and duct	15530	4	20	Chapter II	Y	Y
+15600	C696	C69.6 Orbit	15530	4	20	Chapter II	Y	Y
+15610	C698	C69.8 Overlapping lesion of eye and adnexa	15530	4	20	Chapter II	Y	Y
+15620	C699	C69.9 Eye, unspecified	15530	4	20	Chapter II	Y	Y
+15640	C700	C70.0 Cerebral meninges	15630	4	20	Chapter II	Y	Y
+15650	C701	C70.1 Spinal meninges	15630	4	20	Chapter II	Y	Y
+15660	C709	C70.9 Meninges, unspecified	15630	4	20	Chapter II	Y	Y
+15680	C710	C71.0 Cerebrum, except lobes and ventricles	15670	4	20	Chapter II	Y	Y
+15690	C711	C71.1 Frontal lobe	15670	4	20	Chapter II	Y	Y
+15700	C712	C71.2 Temporal lobe	15670	4	20	Chapter II	Y	Y
+15710	C713	C71.3 Parietal lobe	15670	4	20	Chapter II	Y	Y
+15720	C714	C71.4 Occipital lobe	15670	4	20	Chapter II	Y	Y
+15730	C715	C71.5 Cerebral ventricle	15670	4	20	Chapter II	Y	Y
+15740	C716	C71.6 Cerebellum	15670	4	20	Chapter II	Y	Y
+15750	C717	C71.7 Brain stem	15670	4	20	Chapter II	Y	Y
+15760	C718	C71.8 Overlapping lesion of brain	15670	4	20	Chapter II	Y	Y
+15770	C719	C71.9 Brain, unspecified	15670	4	20	Chapter II	Y	Y
+15790	C720	C72.0 Spinal cord	15780	4	20	Chapter II	Y	Y
+15800	C721	C72.1 Cauda equina	15780	4	20	Chapter II	Y	Y
+15810	C722	C72.2 Olfactory nerve	15780	4	20	Chapter II	Y	Y
+15820	C723	C72.3 Optic nerve	15780	4	20	Chapter II	Y	Y
+15830	C724	C72.4 Acoustic nerve	15780	4	20	Chapter II	Y	Y
+15840	C725	C72.5 Other and unspecified cranial nerves	15780	4	20	Chapter II	Y	Y
+15850	C728	C72.8 Overlapping lesion of brain and other parts of central nervous system	15780	4	20	Chapter II	Y	Y
+15860	C729	C72.9 Central nervous system, unspecified	15780	4	20	Chapter II	Y	Y
+15890	C740	C74.0 Cortex of adrenal gland	15880	4	20	Chapter II	Y	Y
+15900	C741	C74.1 Medulla of adrenal gland	15880	4	20	Chapter II	Y	Y
+15910	C749	C74.9 Adrenal gland, unspecified	15880	4	20	Chapter II	Y	Y
+15930	C750	C75.0 Parathyroid gland	15920	4	20	Chapter II	Y	Y
+15940	C751	C75.1 Pituitary gland	15920	4	20	Chapter II	Y	Y
+15950	C752	C75.2 Craniopharyngeal duct	15920	4	20	Chapter II	Y	Y
+15960	C753	C75.3 Pineal gland	15920	4	20	Chapter II	Y	Y
+15970	C754	C75.4 Carotid body	15920	4	20	Chapter II	Y	Y
+15980	C755	C75.5 Aortic body and other paraganglia	15920	4	20	Chapter II	Y	Y
+15990	C758	C75.8 Pluriglandular involvement, unspecified	15920	4	20	Chapter II	Y	Y
+16000	C759	C75.9 Endocrine gland, unspecified	15920	4	20	Chapter II	Y	Y
+16020	C760	C76.0 Head, face and neck	16010	4	20	Chapter II	Y	Y
+16030	C761	C76.1 Thorax	16010	4	20	Chapter II	Y	Y
+16040	C762	C76.2 Abdomen	16010	4	20	Chapter II	Y	Y
+16050	C763	C76.3 Pelvis	16010	4	20	Chapter II	Y	Y
+16060	C764	C76.4 Upper limb	16010	4	20	Chapter II	Y	Y
+16070	C765	C76.5 Lower limb	16010	4	20	Chapter II	Y	Y
+16080	C767	C76.7 Other ill-defined sites	16010	4	20	Chapter II	Y	Y
+16090	C768	C76.8 Overlapping lesion of other and ill-defined sites	16010	4	20	Chapter II	Y	Y
+16110	C770	C77.0 Lymph nodes of head, face and neck	16100	4	20	Chapter II	Y	Y
+16120	C771	C77.1 Intrathoracic lymph nodes	16100	4	20	Chapter II	Y	Y
+16130	C772	C77.2 Intra-abdominal lymph nodes	16100	4	20	Chapter II	Y	Y
+16140	C773	C77.3 Axillary and upper limb lymph nodes	16100	4	20	Chapter II	Y	Y
+16150	C774	C77.4 Inguinal and lower limb lymph nodes	16100	4	20	Chapter II	Y	Y
+16160	C775	C77.5 Intrapelvic lymph nodes	16100	4	20	Chapter II	Y	Y
+16170	C778	C77.8 Lymph nodes of multiple regions	16100	4	20	Chapter II	Y	Y
+16180	C779	C77.9 Lymph node, unspecified	16100	4	20	Chapter II	Y	Y
+16200	C780	C78.0 Secondary malignant neoplasm of lung	16190	4	20	Chapter II	Y	Y
+16210	C781	C78.1 Secondary malignant neoplasm of mediastinum	16190	4	20	Chapter II	Y	Y
+16220	C782	C78.2 Secondary malignant neoplasm of pleura	16190	4	20	Chapter II	Y	Y
+16230	C783	C78.3 Secondary malignant neoplasm of other and unspecified respiratory organs	16190	4	20	Chapter II	Y	Y
+16240	C784	C78.4 Secondary malignant neoplasm of small intestine	16190	4	20	Chapter II	Y	Y
+16250	C785	C78.5 Secondary malignant neoplasm of large intestine and rectum	16190	4	20	Chapter II	Y	Y
+16260	C786	C78.6 Secondary malignant neoplasm of retroperitoneum and peritoneum	16190	4	20	Chapter II	Y	Y
+16270	C787	C78.7 Secondary malignant neoplasm of liver	16190	4	20	Chapter II	Y	Y
+16280	C788	C78.8 Secondary malignant neoplasm of other and unspecified digestive organs	16190	4	20	Chapter II	Y	Y
+16300	C790	C79.0 Secondary malignant neoplasm of kidney and renal pelvis	16290	4	20	Chapter II	Y	Y
+16310	C791	C79.1 Secondary malignant neoplasm of bladder and other and unspecified urinary organs	16290	4	20	Chapter II	Y	Y
+16320	C792	C79.2 Secondary malignant neoplasm of skin	16290	4	20	Chapter II	Y	Y
+16330	C793	C79.3 Secondary malignant neoplasm of brain and cerebral meninges	16290	4	20	Chapter II	Y	Y
+16340	C794	C79.4 Secondary malignant neoplasm of other and unspecified parts of nervous system	16290	4	20	Chapter II	Y	Y
+16350	C795	C79.5 Secondary malignant neoplasm of bone and bone marrow	16290	4	20	Chapter II	Y	Y
+16360	C796	C79.6 Secondary malignant neoplasm of ovary	16290	4	20	Chapter II	Y	Y
+16370	C797	C79.7 Secondary malignant neoplasm of adrenal gland	16290	4	20	Chapter II	Y	Y
+16380	C798	C79.8 Secondary malignant neoplasm of other specified sites	16290	4	20	Chapter II	Y	Y
+16390	C799	C79.9 Secondary malignant neoplasm, unspecified site	16290	4	20	Chapter II	Y	Y
+16410	C800	C80.0 Malignant neoplasm, primary site unknown, so stated	16400	4	20	Chapter II	Y	Y
+16420	C809	C80.9 Malignant neoplasm, unspecified	16400	4	20	Chapter II	Y	Y
+16440	C810	C81.0 Lymphocytic predominance	16430	4	20	Chapter II	Y	Y
+16450	C811	C81.1 Nodular sclerosis	16430	4	20	Chapter II	Y	Y
+16460	C812	C81.2 Mixed cellularity	16430	4	20	Chapter II	Y	Y
+16470	C813	C81.3 Lymphocytic depletion	16430	4	20	Chapter II	Y	Y
+16480	C814	C81.4 Lymphocyte-rich classical Hodgkin lymphoma	16430	4	20	Chapter II	Y	Y
+16490	C817	C81.7 Other Hodgkin's disease	16430	4	20	Chapter II	Y	Y
+16500	C819	C81.9 Hodgkin's disease, unspecified	16430	4	20	Chapter II	Y	Y
+16520	C820	C82.0 Small cleaved cell, follicular	16510	4	20	Chapter II	Y	Y
+16530	C821	C82.1 Mixed small cleaved and large cell, follicular	16510	4	20	Chapter II	Y	Y
+16540	C822	C82.2 Large cell, follicular	16510	4	20	Chapter II	Y	Y
+16550	C823	C82.3 Follicular lymphoma grade IIIa	16510	4	20	Chapter II	Y	Y
+16560	C824	C82.4 Follicular lymphoma grade IIIb	16510	4	20	Chapter II	Y	Y
+16570	C825	C82.5 Diffuse follicle centre lymphoma	16510	4	20	Chapter II	Y	Y
+16580	C826	C82.6 Cutaneous follicle centre lymphoma	16510	4	20	Chapter II	Y	Y
+16590	C827	C82.7 Other types of follicular non-Hodgkin's lymphoma	16510	4	20	Chapter II	Y	Y
+16600	C829	C82.9 Follicular non-Hodgkin's lymphoma, unspecified	16510	4	20	Chapter II	Y	Y
+16620	C830	C83.0 Small cell (diffuse)	16610	4	20	Chapter II	Y	Y
+16630	C831	C83.1 Small cleaved cell (diffuse)	16610	4	20	Chapter II	Y	Y
+16640	C832	C83.2 Mixed small and large cell (diffuse)	16610	4	20	Chapter II	Y	Y
+16650	C833	C83.3 Large cell (diffuse)	16610	4	20	Chapter II	Y	Y
+16660	C834	C83.4 Immunoblastic (diffuse)	16610	4	20	Chapter II	Y	Y
+16670	C835	C83.5 Lymphoblastic (diffuse)	16610	4	20	Chapter II	Y	Y
+16680	C836	C83.6 Undifferentiated (diffuse)	16610	4	20	Chapter II	Y	Y
+16690	C837	C83.7 Burkitt's tumour	16610	4	20	Chapter II	Y	Y
+16700	C838	C83.8 Other types of diffuse non-Hodgkin's lymphoma	16610	4	20	Chapter II	Y	Y
+16710	C839	C83.9 Diffuse non-Hodgkin's lymphoma, unspecified	16610	4	20	Chapter II	Y	Y
+16730	C840	C84.0 Mycosis fungoides	16720	4	20	Chapter II	Y	Y
+16740	C841	C84.1 Sezary's diease	16720	4	20	Chapter II	Y	Y
+16750	C842	C84.2 T-zone lymphoma	16720	4	20	Chapter II	Y	Y
+16760	C843	C84.3 Lymphoepithelioid lymphoma	16720	4	20	Chapter II	Y	Y
+16770	C844	C84.4 Peripheral T-cell lymphoma	16720	4	20	Chapter II	Y	Y
+16780	C845	C84.5 Other and unspecified T-cell lymphomas	16720	4	20	Chapter II	Y	Y
+16790	C846	C84.6 Anaplastic large cell lymphoma, ALK-positive	16720	4	20	Chapter II	Y	Y
+16800	C847	C84.7 Anaplastic large cell lymphoma, ALK-negative	16720	4	20	Chapter II	Y	Y
+16810	C848	C84.8 Cutaneous T-cell lymphoma, unspecified	16720	4	20	Chapter II	Y	Y
+16820	C849	C84.9 Mature T/NK-cell lymphoma, unspecified	16720	4	20	Chapter II	Y	Y
+16840	C850	C85.0 Lymphosarcoma	16830	4	20	Chapter II	Y	Y
+16850	C851	C85.1 B-cell lymphoma, unspecified	16830	4	20	Chapter II	Y	Y
+16860	C852	C85.2 Mediastinal (thymic) large B-cell lymphoma	16830	4	20	Chapter II	Y	Y
+16870	C857	C85.7 Other specified types of non-Hodgkin's lymphoma	16830	4	20	Chapter II	Y	Y
+16880	C859	C85.9 Non-Hodgkin's lymphoma, unspecified type	16830	4	20	Chapter II	Y	Y
+16900	C860	C86.0 Extranodal NK/T-cell lymphoma, nasal type	16890	4	20	Chapter II	Y	Y
+16910	C861	C86.1 Hepatosplenic T-cell lymphoma	16890	4	20	Chapter II	Y	Y
+16920	C862	C86.2 Enteropathy-type (intestinal) T-cell lymphoma	16890	4	20	Chapter II	Y	Y
+16930	C863	C86.3 Subcutaneous panniculitis-like T-cell lymphoma	16890	4	20	Chapter II	Y	Y
+16940	C864	C86.4 Blastic NK-cell lymphoma	16890	4	20	Chapter II	Y	Y
+16950	C865	C86.5 Angioimmunoblastic T-cell lymphoma	16890	4	20	Chapter II	Y	Y
+16960	C866	C86.6 Primary cutaneous CD30-positive T-cell proliferations	16890	4	20	Chapter II	Y	Y
+16980	C880	C88.0 Waldenstrom's macroglobulinaemia	16970	4	20	Chapter II	Y	Y
+16990	C881	C88.1 Alpha heavy chain disease	16970	4	20	Chapter II	Y	Y
+17000	C882	C88.2 Gamma heavy chain disease	16970	4	20	Chapter II	Y	Y
+17010	C883	C88.3 Immunoproliferative small intestinal disease	16970	4	20	Chapter II	Y	Y
+17020	C884	C88.4 Extranodal marginal zone B-cell lymphoma of mucosa-associated lymphoid tissue [MALT-lymphoma]	16970	4	20	Chapter II	Y	Y
+17030	C887	C88.7 Other malignant immunoproliferative diseases	16970	4	20	Chapter II	Y	Y
+17040	C889	C88.9 Malignant immunoproliferative disease, unspecified	16970	4	20	Chapter II	Y	Y
+17060	C900	C90.0 Multiple myeloma	17050	4	20	Chapter II	Y	Y
+17070	C901	C90.1 Plasma cell leukaemia	17050	4	20	Chapter II	Y	Y
+17080	C902	C90.2 Plasmacytoma, extramedullary	17050	4	20	Chapter II	Y	Y
+17090	C903	C90.3 Solitary plasmacytoma	17050	4	20	Chapter II	Y	Y
+17110	C910	C91.0 Acute lymphoblastic leukaemia	17100	4	20	Chapter II	Y	Y
+17120	C911	C91.1 Chronic lymphocytic leukaemia	17100	4	20	Chapter II	Y	Y
+17130	C912	C91.2 Subacute lymphocytic leukaemia	17100	4	20	Chapter II	Y	Y
+17140	C913	C91.3 Prolymphocytic leukaemia	17100	4	20	Chapter II	Y	Y
+17150	C914	C91.4 Hairy-cell leukaemia	17100	4	20	Chapter II	Y	Y
+17160	C915	C91.5 Adult T-cell leukaemia	17100	4	20	Chapter II	Y	Y
+17170	C916	C91.6 Prolymphocytic leukaemia of T-cell type	17100	4	20	Chapter II	Y	Y
+17180	C917	C91.7 Other lymphoid leukaemia	17100	4	20	Chapter II	Y	Y
+17190	C918	C91.8 Mature B-cell leukaemia Burkitt-type	17100	4	20	Chapter II	Y	Y
+17200	C919	C91.9 Lymphoid leukaemia, unspecified	17100	4	20	Chapter II	Y	Y
+17220	C920	C92.0 Acute myeloid leukaemia	17210	4	20	Chapter II	Y	Y
+17230	C921	C92.1 Chronic myeloid leukaemia	17210	4	20	Chapter II	Y	Y
+17240	C922	C92.2 Subacute myeloid leukaemia	17210	4	20	Chapter II	Y	Y
+17250	C923	C92.3 Myeloid sarcoma	17210	4	20	Chapter II	Y	Y
+17260	C924	C92.4 Acute promyelocytic leukaemia	17210	4	20	Chapter II	Y	Y
+17270	C925	C92.5 Acute myelomonocytic leukaemia	17210	4	20	Chapter II	Y	Y
+17280	C926	C92.6 Acute myeloid leukaemia with 11q23-abnormality	17210	4	20	Chapter II	Y	Y
+17290	C927	C92.7 Other myeloid leukaemia	17210	4	20	Chapter II	Y	Y
+17300	C928	C92.8 Acute myeloid leukaemia with multilineage dysplasia	17210	4	20	Chapter II	Y	Y
+17310	C929	C92.9 Myeloid leukaemia, unspecified	17210	4	20	Chapter II	Y	Y
+17330	C930	C93.0 Acute monocytic leukaemia	17320	4	20	Chapter II	Y	Y
+17340	C931	C93.1 Chronic monocytic leukaemia	17320	4	20	Chapter II	Y	Y
+17350	C932	C93.2 Subacute monocytic leukaemia	17320	4	20	Chapter II	Y	Y
+17360	C933	C93.3 Juvenile myelomonocytic leukaemia	17320	4	20	Chapter II	Y	Y
+17370	C937	C93.7 Other monocytic leukaemia	17320	4	20	Chapter II	Y	Y
+17380	C939	C93.9 Monocytic leukaemia, unspecified	17320	4	20	Chapter II	Y	Y
+17400	C940	C94.0 Acute erythraemia and erythroleukaemia	17390	4	20	Chapter II	Y	Y
+17410	C941	C94.1 Chronic erythraemia	17390	4	20	Chapter II	Y	Y
+17420	C942	C94.2 Acute megakaryoblastic leukaemia	17390	4	20	Chapter II	Y	Y
+17430	C943	C94.3 Mast cell leukaemia	17390	4	20	Chapter II	Y	Y
+17440	C944	C94.4 Acute panmyelosis	17390	4	20	Chapter II	Y	Y
+17450	C945	C94.5 Acute myelofibrosis	17390	4	20	Chapter II	Y	Y
+17460	C946	C94.6 Myelodysplastic and myeloproliferative disease, not elsewhere classified	17390	4	20	Chapter II	Y	Y
+17470	C947	C94.7 Other specified leukaemias	17390	4	20	Chapter II	Y	Y
+17490	C950	C95.0 Acute leukaemia of unspecified cell type	17480	4	20	Chapter II	Y	Y
+17500	C951	C95.1 Chronic leukaemia of unspecified cell type	17480	4	20	Chapter II	Y	Y
+17510	C952	C95.2 Subacute leukaemia of unspecified cell type	17480	4	20	Chapter II	Y	Y
+17520	C957	C95.7 Other leukaemia of unspecified cell type	17480	4	20	Chapter II	Y	Y
+17530	C959	C95.9 Leukaemia, unspecified	17480	4	20	Chapter II	Y	Y
+17550	C960	C96.0 Letterer-Siwe disease	17540	4	20	Chapter II	Y	Y
+17560	C961	C96.1 Malignant histiocytosis	17540	4	20	Chapter II	Y	Y
+17570	C962	C96.2 Malignant mast cell tumour	17540	4	20	Chapter II	Y	Y
+17580	C963	C96.3 True histiocytic lymphoma	17540	4	20	Chapter II	Y	Y
+17590	C964	C96.4 Sarcoma of dendritic cells (accessory cells)	17540	4	20	Chapter II	Y	Y
+17600	C965	C96.5 Multifocal and unisystemic Langerhans-cell histiocytosis	17540	4	20	Chapter II	Y	Y
+17610	C966	C96.6 Unifocal Langerhans-cell histiocytosis	17540	4	20	Chapter II	Y	Y
+17620	C967	C96.7 Other specified malignant neoplasms of lymphoid, haematopoietic and related tissue	17540	4	20	Chapter II	Y	Y
+17630	C968	C96.8 Histiocytic sarcoma	17540	4	20	Chapter II	Y	Y
+17640	C969	C96.9 Malignant neoplasms of lymphoid, haematopoietic and related tissue, unspecified	17540	4	20	Chapter II	Y	Y
+31770	G000	G00.0 Haemophilus meningitis	31760	4	60	Chapter VI	Y	Y
+31780	G001	G00.1 Pneumococcal meningitis	31760	4	60	Chapter VI	Y	Y
+31790	G002	G00.2 Streptococcal meningitis	31760	4	60	Chapter VI	Y	Y
+31800	G003	G00.3 Staphylococcal meningitis	31760	4	60	Chapter VI	Y	Y
+31810	G008	G00.8 Other bacterial meningitis	31760	4	60	Chapter VI	Y	Y
+31820	G009	G00.9 Bacterial meningitis, unspecified	31760	4	60	Chapter VI	Y	Y
+31850	G020	G02.0 Meningitis in viral diseases classified elsewhere	31840	4	60	Chapter VI	Y	Y
+31860	G021	G02.1 Meningitis in mycoses	31840	4	60	Chapter VI	Y	Y
+31870	G028	G02.8 Meningitis in other specified infectious and parasitic diseases classified elsewhere	31840	4	60	Chapter VI	Y	Y
+31890	G030	G03.0 Nonpyogenic meningitis	31880	4	60	Chapter VI	Y	Y
+31900	G031	G03.1 Chronic meningitis	31880	4	60	Chapter VI	Y	Y
+31910	G032	G03.2 Benign recurrent meningitis [Mollaret]	31880	4	60	Chapter VI	Y	Y
+31920	G038	G03.8 Meningitis due to other specified causes	31880	4	60	Chapter VI	Y	Y
+31930	G039	G03.9 Meningitis, unspecified	31880	4	60	Chapter VI	Y	Y
+31950	G040	G04.0 Acute disseminated encephalitis	31940	4	60	Chapter VI	Y	Y
+31960	G041	G04.1 Tropical spastic paraplegia	31940	4	60	Chapter VI	Y	Y
+31970	G042	G04.2 Bacterial meningoencephalitis and meningomyelitis, not elsewhere classified	31940	4	60	Chapter VI	Y	Y
+31980	G048	G04.8 Other encephalitis, myelitis and encephalomyelitis	31940	4	60	Chapter VI	Y	Y
+31990	G049	G04.9 Encephalitis, myelitis and encephalomyelitis, unspecified	31940	4	60	Chapter VI	Y	Y
+32010	G050	G05.0 Encephalitis, myelitis and encephalomyelitis in bacterial diseases classified elsewhere	32000	4	60	Chapter VI	Y	Y
+32020	G051	G05.1 Encephalitis, myelitis and encephalomyelitis in viral diseases classified elsewhere	32000	4	60	Chapter VI	Y	Y
+32030	G052	G05.2 Encephalitis, myelitis and encephalomyelitis in other infectious and parasitic diseases classified elsewhere	32000	4	60	Chapter VI	Y	Y
+32040	G058	G05.8 Encephalitis, myelitis and encephalomyelitis in other diseases classified elsewhere	32000	4	60	Chapter VI	Y	Y
+32060	G060	G06.0 Intracranial abscess and granuloma	32050	4	60	Chapter VI	Y	Y
+32070	G061	G06.1 Intraspinal abscess and granuloma	32050	4	60	Chapter VI	Y	Y
+32080	G062	G06.2 Extradural and subdural abscess, unspecified	32050	4	60	Chapter VI	Y	Y
+32140	G110	G11.0 Congenital nonprogressive ataxia	32130	4	60	Chapter VI	Y	Y
+32150	G111	G11.1 Early-onset cerebellar ataxia	32130	4	60	Chapter VI	Y	Y
+32160	G112	G11.2 Late-onset cerebellar ataxia	32130	4	60	Chapter VI	Y	Y
+32170	G113	G11.3 Cerebellar ataxia with defective DNA repair	32130	4	60	Chapter VI	Y	Y
+32180	G114	G11.4 Hereditary spastic paraplegia	32130	4	60	Chapter VI	Y	Y
+32190	G118	G11.8 Other hereditary ataxias	32130	4	60	Chapter VI	Y	Y
+32200	G119	G11.9 Hereditary ataxia, unspecified	32130	4	60	Chapter VI	Y	Y
+32220	G120	G12.0 Infantile spinal muscular atrophy, type I [Werdnig-Hoffman]	32210	4	60	Chapter VI	Y	Y
+32230	G121	G12.1 Other inherited spinal muscular atrophy	32210	4	60	Chapter VI	Y	Y
+32240	G122	G12.2 Motor neuron disease	32210	4	60	Chapter VI	Y	Y
+32250	G128	G12.8 Other spinal muscular atrophies and related syndromes	32210	4	60	Chapter VI	Y	Y
+32260	G129	G12.9 Spinal muscular atrophy, unspecified	32210	4	60	Chapter VI	Y	Y
+32280	G130	G13.0 Paraneoplastic neuromyopathy and neuropathy	32270	4	60	Chapter VI	Y	Y
+32290	G131	G13.1 Other systemic atrophy primarily affecting central nervous system in neoplastic disease	32270	4	60	Chapter VI	Y	Y
+32300	G132	G13.2 Systemic atrophy primarily affecting central nervous system in myxoedema	32270	4	60	Chapter VI	Y	Y
+32310	G138	G13.8 Systemic atrophy primarily affecting central nervous system in other diseases classified elsewhere	32270	4	60	Chapter VI	Y	Y
+32350	G210	G21.0 Malignant neuroleptic syndrome	32340	4	60	Chapter VI	Y	Y
+32360	G211	G21.1 Other drug-induced secondary Parkinsonism	32340	4	60	Chapter VI	Y	Y
+32370	G212	G21.2 Secondary Parkinsonism due to other external agents	32340	4	60	Chapter VI	Y	Y
+32380	G213	G21.3 Postencephalitic Parkinsonism	32340	4	60	Chapter VI	Y	Y
+32390	G214	G21.4 Vascular parkinsonism	32340	4	60	Chapter VI	Y	Y
+32400	G218	G21.8 Other secondary Parkinsonism	32340	4	60	Chapter VI	Y	Y
+32410	G219	G21.9 Secondary Parkinsonism, unspecified	32340	4	60	Chapter VI	Y	Y
+32440	G230	G23.0 Hallervorden-Spatz disease	32430	4	60	Chapter VI	Y	Y
+32450	G231	G23.1 Progressive supranuclear ophthalmoplegia [Steele-Richardson-Olszewski]	32430	4	60	Chapter VI	Y	Y
+32460	G232	G23.2 Striatonigral degeneration	32430	4	60	Chapter VI	Y	Y
+32470	G233	G23.3 Multiple system atrophy, cerebellar type	32430	4	60	Chapter VI	Y	Y
+32480	G238	G23.8 Other specified degenerative diseases of basal ganglia	32430	4	60	Chapter VI	Y	Y
+32490	G239	G23.9 Degenerative disease of basal ganglia, unspecified	32430	4	60	Chapter VI	Y	Y
+32510	G240	G24.0 Drug-induced dystonia	32500	4	60	Chapter VI	Y	Y
+32520	G241	G24.1 Idiopathic familial dystonia	32500	4	60	Chapter VI	Y	Y
+32530	G242	G24.2 Idiopathic nonfamilial dystonia	32500	4	60	Chapter VI	Y	Y
+32540	G243	G24.3 Spasmodic torticollis	32500	4	60	Chapter VI	Y	Y
+32550	G244	G24.4 Idiopathic orofacial dystonia	32500	4	60	Chapter VI	Y	Y
+32560	G245	G24.5 Blepharospasm	32500	4	60	Chapter VI	Y	Y
+32570	G248	G24.8 Other dystonia	32500	4	60	Chapter VI	Y	Y
+32580	G249	G24.9 Dystonia, unspecified	32500	4	60	Chapter VI	Y	Y
+32600	G250	G25.0 Essential tremor	32590	4	60	Chapter VI	Y	Y
+32610	G251	G25.1 Drug-induced tremor	32590	4	60	Chapter VI	Y	Y
+32620	G252	G25.2 Other specified forms of tremor	32590	4	60	Chapter VI	Y	Y
+32630	G253	G25.3 Myoclonus	32590	4	60	Chapter VI	Y	Y
+32640	G254	G25.4 Drug-induced chorea	32590	4	60	Chapter VI	Y	Y
+32650	G255	G25.5 Other chorea	32590	4	60	Chapter VI	Y	Y
+32660	G256	G25.6 Drug-induced tics and other tics of organic origin	32590	4	60	Chapter VI	Y	Y
+32670	G258	G25.8 Other specified extrapyramidal and movement disorders	32590	4	60	Chapter VI	Y	Y
+32680	G259	G25.9 Extrapyramidal and movement disorder, unspecified	32590	4	60	Chapter VI	Y	Y
+32710	G300	G30.0 Alzheimer's disease with early onset	32700	4	60	Chapter VI	Y	Y
+32720	G301	G30.1 Alzheimer's disease with late onset	32700	4	60	Chapter VI	Y	Y
+32730	G308	G30.8 Other Alzheimer's disease	32700	4	60	Chapter VI	Y	Y
+32740	G309	G30.9 Alzheimer's disease, unspecified	32700	4	60	Chapter VI	Y	Y
+32760	G310	G31.0 Circumscribed brain atrophy	32750	4	60	Chapter VI	Y	Y
+32770	G311	G31.1 Senile degeneration of brain, not elsewhere classified	32750	4	60	Chapter VI	Y	Y
+32780	G312	G31.2 Degeneration of nervous system due to alcohol	32750	4	60	Chapter VI	Y	Y
+32790	G318	G31.8 Other specified degenerative diseases of nervous system	32750	4	60	Chapter VI	Y	Y
+32800	G319	G31.9 Degenerative disease of nervous system, unspecified	32750	4	60	Chapter VI	Y	Y
+32820	G320	G32.0 Subacute combined degeneration of spinal cord in diseases classified elsewhere	32810	4	60	Chapter VI	Y	Y
+32830	G328	G32.8 Other specified degenerative disorders of nervous system in diseases classified elsewhere	32810	4	60	Chapter VI	Y	Y
+32860	G360	G36.0 Neuromyelitis optica [Devic]	32850	4	60	Chapter VI	Y	Y
+32870	G361	G36.1 Acute and subacute haemorrhagic leukoencephalitis [Hurst]	32850	4	60	Chapter VI	Y	Y
+32880	G368	G36.8 Other specified acute disseminated demyelination	32850	4	60	Chapter VI	Y	Y
+32890	G369	G36.9 Acute disseminated demyelination, unspecified	32850	4	60	Chapter VI	Y	Y
+32910	G370	G37.0 Diffuse sclerosis	32900	4	60	Chapter VI	Y	Y
+32920	G371	G37.1 Central demyelination of corpus callosum	32900	4	60	Chapter VI	Y	Y
+32930	G372	G37.2 Central pontine myelinolysis	32900	4	60	Chapter VI	Y	Y
+32940	G373	G37.3 Acute transverse myelitis in demyelinating disease of central nervous system	32900	4	60	Chapter VI	Y	Y
+32950	G374	G37.4 Subacute necrotising myelitis	32900	4	60	Chapter VI	Y	Y
+32960	G375	G37.5 Concentric sclerosis [Balo]	32900	4	60	Chapter VI	Y	Y
+32970	G378	G37.8 Other specified demyelinating diseases of central nervous system	32900	4	60	Chapter VI	Y	Y
+32980	G379	G37.9 Demyelinating disease of central nervous system, unspecified	32900	4	60	Chapter VI	Y	Y
+33000	G400	G40.0 Localisation-related (focal) (partial) idiopathic epilepsy and epileptic syndromes with seizures of localised onset	32990	4	60	Chapter VI	Y	Y
+33010	G401	G40.1 Localisation-related (focal) (partial) symptomatic epilepsy and epileptic syndromes with simple partial seizures	32990	4	60	Chapter VI	Y	Y
+33020	G402	G40.2 Localisation-related (focal) (partial) symptomatic epilepsy and epileptic syndromes with complex partial seizures	32990	4	60	Chapter VI	Y	Y
+33030	G403	G40.3 Generalised idiopathic epilepsy and epileptic syndromes	32990	4	60	Chapter VI	Y	Y
+33040	G404	G40.4 Other generalised epilepsy and epileptic syndromes	32990	4	60	Chapter VI	Y	Y
+33050	G405	G40.5 Special epileptic syndromes	32990	4	60	Chapter VI	Y	Y
+33060	G406	G40.6 Grand mal seizures, unspecified (with or without petit mal)	32990	4	60	Chapter VI	Y	Y
+33070	G407	G40.7 Petit mal, unspecified, without grand mal seizures	32990	4	60	Chapter VI	Y	Y
+33080	G408	G40.8 Other epilepsy	32990	4	60	Chapter VI	Y	Y
+33090	G409	G40.9 Epilepsy, unspecified	32990	4	60	Chapter VI	Y	Y
+33110	G410	G41.0 Grand mal status epilepticus	33100	4	60	Chapter VI	Y	Y
+33120	G411	G41.1 Petit mal status epilepticus	33100	4	60	Chapter VI	Y	Y
+33130	G412	G41.2 Complex partial status epilepticus	33100	4	60	Chapter VI	Y	Y
+33140	G418	G41.8 Other status epilepticus	33100	4	60	Chapter VI	Y	Y
+33150	G419	G41.9 Status epilepticus, unspecified	33100	4	60	Chapter VI	Y	Y
+33170	G430	G43.0 Migraine without aura [common migraine]	33160	4	60	Chapter VI	Y	Y
+33180	G431	G43.1 Migraine with aura [classical migraine]	33160	4	60	Chapter VI	Y	Y
+33190	G432	G43.2 Status migrainosus	33160	4	60	Chapter VI	Y	Y
+33200	G433	G43.3 Complicated migraine	33160	4	60	Chapter VI	Y	Y
+33210	G438	G43.8 Other migraine	33160	4	60	Chapter VI	Y	Y
+33220	G439	G43.9 Migraine, unspecified	33160	4	60	Chapter VI	Y	Y
+33240	G440	G44.0 Cluster headache syndrome	33230	4	60	Chapter VI	Y	Y
+33250	G441	G44.1 Vascular headache, not elsewhere classified	33230	4	60	Chapter VI	Y	Y
+33260	G442	G44.2 Tension-type headache	33230	4	60	Chapter VI	Y	Y
+33270	G443	G44.3 Chronic posttraumatic headache	33230	4	60	Chapter VI	Y	Y
+33280	G444	G44.4 Drug-induced headache, not elsewhere classified	33230	4	60	Chapter VI	Y	Y
+33290	G448	G44.8 Other specified headache syndromes	33230	4	60	Chapter VI	Y	Y
+33310	G450	G45.0 Vertebro-basilar artery syndrome	33300	4	60	Chapter VI	Y	Y
+33320	G451	G45.1 Carotid artery syndrome (hemispheric)	33300	4	60	Chapter VI	Y	Y
+33330	G452	G45.2 Multiple and bilateral precerebral artery syndromes	33300	4	60	Chapter VI	Y	Y
+33340	G453	G45.3 Amaurosis fugax	33300	4	60	Chapter VI	Y	Y
+33350	G454	G45.4 Transient global amnesia	33300	4	60	Chapter VI	Y	Y
+33360	G458	G45.8 Other transient cerebral ischaemic attacks and related syndromes	33300	4	60	Chapter VI	Y	Y
+33370	G459	G45.9 Transient cerebral ischaemic attack, unspecified	33300	4	60	Chapter VI	Y	Y
+33390	G460	G46.0 Middle cerebral artery syndrome	33380	4	60	Chapter VI	Y	Y
+33400	G461	G46.1 Anterior cerebral artery syndrome	33380	4	60	Chapter VI	Y	Y
+33410	G462	G46.2 Posterior cerebral artery syndrome	33380	4	60	Chapter VI	Y	Y
+33420	G463	G46.3 Brain stem stroke syndrome	33380	4	60	Chapter VI	Y	Y
+33430	G464	G46.4 Cerebellar stroke syndrome	33380	4	60	Chapter VI	Y	Y
+33440	G465	G46.5 Pure motor lacunar syndrome	33380	4	60	Chapter VI	Y	Y
+33450	G466	G46.6 Pure sensory lacunar syndrome	33380	4	60	Chapter VI	Y	Y
+33460	G467	G46.7 Other lacunar syndromes	33380	4	60	Chapter VI	Y	Y
+33470	G468	G46.8 Other vascular syndromes of brain in cerebrovascular diseases	33380	4	60	Chapter VI	Y	Y
+33490	G470	G47.0 Disorders of initiating and maintaining sleep [insomnias]	33480	4	60	Chapter VI	Y	Y
+33500	G471	G47.1 Disorders of excessive somnolence [hypersomnias]	33480	4	60	Chapter VI	Y	Y
+33510	G472	G47.2 Disorders of the sleep-wake schedule	33480	4	60	Chapter VI	Y	Y
+33520	G473	G47.3 Sleep apnoea	33480	4	60	Chapter VI	Y	Y
+33530	G474	G47.4 Narcolepsy and cataplexy	33480	4	60	Chapter VI	Y	Y
+33540	G478	G47.8 Other sleep disorders	33480	4	60	Chapter VI	Y	Y
+33550	G479	G47.9 Sleep disorder, unspecified	33480	4	60	Chapter VI	Y	Y
+33570	G500	G50.0 Trigeminal neuralgia	33560	4	60	Chapter VI	Y	Y
+33580	G501	G50.1 Atypical facial pain	33560	4	60	Chapter VI	Y	Y
+33590	G508	G50.8 Other disorders of trigeminal nerve	33560	4	60	Chapter VI	Y	Y
+33600	G509	G50.9 Disorder of trigeminal nerve, unspecified	33560	4	60	Chapter VI	Y	Y
+33620	G510	G51.0 Bell's palsy	33610	4	60	Chapter VI	Y	Y
+33630	G511	G51.1 Geniculate ganglionitis	33610	4	60	Chapter VI	Y	Y
+33640	G512	G51.2 Melkersson's syndrome	33610	4	60	Chapter VI	Y	Y
+33650	G513	G51.3 Clonic hemifacial spasm	33610	4	60	Chapter VI	Y	Y
+33660	G514	G51.4 Facial myokymia	33610	4	60	Chapter VI	Y	Y
+33670	G518	G51.8 Other disorders of facial nerve	33610	4	60	Chapter VI	Y	Y
+33680	G519	G51.9 Disorder of facial nerve, unspecified	33610	4	60	Chapter VI	Y	Y
+33700	G520	G52.0 Disorders of olfactory nerve	33690	4	60	Chapter VI	Y	Y
+33710	G521	G52.1 Disorders of glossopharyngeal nerve	33690	4	60	Chapter VI	Y	Y
+33720	G522	G52.2 Disorders of vagus nerve	33690	4	60	Chapter VI	Y	Y
+33730	G523	G52.3 Disorders of hypoglossal nerve	33690	4	60	Chapter VI	Y	Y
+33740	G527	G52.7 Disorders of multiple cranial nerves	33690	4	60	Chapter VI	Y	Y
+33750	G528	G52.8 Disorders of other specified cranial nerves	33690	4	60	Chapter VI	Y	Y
+33760	G529	G52.9 Cranial nerve disorder, unspecified	33690	4	60	Chapter VI	Y	Y
+33780	G530	G53.0 Postzoster neuralgia	33770	4	60	Chapter VI	Y	Y
+33790	G531	G53.1 Multiple cranial nerve palsies in infectious and parasitic diseases classified elsewhere	33770	4	60	Chapter VI	Y	Y
+33800	G532	G53.2 Multiple cranial nerve palsies in sarcoidosis	33770	4	60	Chapter VI	Y	Y
+33810	G533	G53.3 Multiple cranial nerve palsies in neoplastic disease	33770	4	60	Chapter VI	Y	Y
+33820	G538	G53.8 Other cranial nerve disorders in other diseases classified elsewhere	33770	4	60	Chapter VI	Y	Y
+33840	G540	G54.0 Brachial plexus disorders	33830	4	60	Chapter VI	Y	Y
+33850	G541	G54.1 Lumbosacral plexus disorders	33830	4	60	Chapter VI	Y	Y
+33860	G542	G54.2 Cervical root disorders, not elsewhere classified	33830	4	60	Chapter VI	Y	Y
+33870	G543	G54.3 Thoracic root disorders, not elsewhere classified	33830	4	60	Chapter VI	Y	Y
+33880	G544	G54.4 Lumbosacral root disorders, not elsewhere classified	33830	4	60	Chapter VI	Y	Y
+33890	G545	G54.5 Neuralgic amyotrophy	33830	4	60	Chapter VI	Y	Y
+33900	G546	G54.6 Phantom limb syndrome with pain	33830	4	60	Chapter VI	Y	Y
+33910	G547	G54.7 Phantom limb syndrome without pain	33830	4	60	Chapter VI	Y	Y
+33920	G548	G54.8 Other nerve root and plexus disorders	33830	4	60	Chapter VI	Y	Y
+33930	G549	G54.9 Nerve root and plexus disorder, unspecified	33830	4	60	Chapter VI	Y	Y
+33950	G550	G55.0 Nerve root and plexus compressions in neoplastic disease	33940	4	60	Chapter VI	Y	Y
+33960	G551	G55.1 Nerve root and plexus compressions in intervertebral disk disorders	33940	4	60	Chapter VI	Y	Y
+33970	G552	G55.2 Nerve root and plexus compressions in spondylosis	33940	4	60	Chapter VI	Y	Y
+33980	G553	G55.3 Nerve root and plexus compressions in other dorsopathies	33940	4	60	Chapter VI	Y	Y
+33990	G558	G55.8 Nerve root and plexus compressions in other diseases classified elsewhere	33940	4	60	Chapter VI	Y	Y
+34010	G560	G56.0 Carpal tunnel syndrome	34000	4	60	Chapter VI	Y	Y
+34020	G561	G56.1 Other lesions of median nerve	34000	4	60	Chapter VI	Y	Y
+34030	G562	G56.2 Lesion of ulnar nerve	34000	4	60	Chapter VI	Y	Y
+34040	G563	G56.3 Lesion of radial nerve	34000	4	60	Chapter VI	Y	Y
+34050	G564	G56.4 Causalgia	34000	4	60	Chapter VI	Y	Y
+34060	G568	G56.8 Other mononeuropathies of upper limb	34000	4	60	Chapter VI	Y	Y
+34070	G569	G56.9 Mononeuropathy of upper limb, unspecified	34000	4	60	Chapter VI	Y	Y
+34090	G570	G57.0 Lesion of sciatic nerve	34080	4	60	Chapter VI	Y	Y
+34100	G571	G57.1 Meralgia paraesthetica	34080	4	60	Chapter VI	Y	Y
+34110	G572	G57.2 Lesion of femoral nerve	34080	4	60	Chapter VI	Y	Y
+34120	G573	G57.3 Lesion of lateral popliteal nerve	34080	4	60	Chapter VI	Y	Y
+34130	G574	G57.4 Lesion of medial popliteal nerve	34080	4	60	Chapter VI	Y	Y
+34140	G575	G57.5 Tarsal tunnel syndrome	34080	4	60	Chapter VI	Y	Y
+34150	G576	G57.6 Lesion of plantar nerve	34080	4	60	Chapter VI	Y	Y
+34160	G578	G57.8 Other mononeuropathies of lower limb	34080	4	60	Chapter VI	Y	Y
+34170	G579	G57.9 Mononeuropathy of lower limb, unspecified	34080	4	60	Chapter VI	Y	Y
+34190	G580	G58.0 Intercostal neuropathy	34180	4	60	Chapter VI	Y	Y
+34200	G587	G58.7 Mononeuritis multiplex	34180	4	60	Chapter VI	Y	Y
+34210	G588	G58.8 Other specified mononeuropathies	34180	4	60	Chapter VI	Y	Y
+34220	G589	G58.9 Mononeuropathy, unspecified	34180	4	60	Chapter VI	Y	Y
+34240	G590	G59.0 Diabetic mononeuropathy	34230	4	60	Chapter VI	Y	Y
+34250	G598	G59.8 Other mononeuropathies in diseases classified elsewhere	34230	4	60	Chapter VI	Y	Y
+34270	G600	G60.0 Hereditary motor and sensory neuropathy	34260	4	60	Chapter VI	Y	Y
+34280	G601	G60.1 Refsum's disease	34260	4	60	Chapter VI	Y	Y
+34290	G602	G60.2 Neuropathy in association with hereditary ataxia	34260	4	60	Chapter VI	Y	Y
+34300	G603	G60.3 Idiopathic progressive neuropathy	34260	4	60	Chapter VI	Y	Y
+34310	G608	G60.8 Other hereditary and idiopathic neuropathies	34260	4	60	Chapter VI	Y	Y
+34320	G609	G60.9 Hereditary and idiopathic neuropathy, unspecified	34260	4	60	Chapter VI	Y	Y
+34340	G610	G61.0 Guillain-Barre syndrome	34330	4	60	Chapter VI	Y	Y
+34350	G611	G61.1 Serum neuropathy	34330	4	60	Chapter VI	Y	Y
+34360	G618	G61.8 Other inflammatory polyneuropathies	34330	4	60	Chapter VI	Y	Y
+34370	G619	G61.9 Inflammatory polyneuropathy, unspecified	34330	4	60	Chapter VI	Y	Y
+34390	G620	G62.0 Drug-induced polyneuropathy	34380	4	60	Chapter VI	Y	Y
+34400	G621	G62.1 Alcoholic polyneuropathy	34380	4	60	Chapter VI	Y	Y
+34410	G622	G62.2 Polyneuropathy due to other toxic agents	34380	4	60	Chapter VI	Y	Y
+34420	G628	G62.8 Other specified polyneuropathies	34380	4	60	Chapter VI	Y	Y
+34430	G629	G62.9 Polyneuropathy, unspecified	34380	4	60	Chapter VI	Y	Y
+34450	G630	G63.0 Polyneuropathy in infectious and parasitic diseases classified elsewhere	34440	4	60	Chapter VI	Y	Y
+34460	G631	G63.1 Polyneuropathy in neoplastic disease	34440	4	60	Chapter VI	Y	Y
+34470	G632	G63.2 Diabetic polyneuropathy	34440	4	60	Chapter VI	Y	Y
+34480	G633	G63.3 Polyneuropathy in other endocrine and metabolic diseases	34440	4	60	Chapter VI	Y	Y
+34490	G634	G63.4 Polyneuropathy in nutritional deficiency	34440	4	60	Chapter VI	Y	Y
+34500	G635	G63.5 Polyneuropathy in systemic connective tissue disorders	34440	4	60	Chapter VI	Y	Y
+34510	G636	G63.6 Polyneuropathy in other musculoskeletal disorders	34440	4	60	Chapter VI	Y	Y
+34520	G638	G63.8 Polyneuropathy in other diseases classified elsewhere	34440	4	60	Chapter VI	Y	Y
+34550	G700	G70.0 Myasthenia gravis	34540	4	60	Chapter VI	Y	Y
+34560	G701	G70.1 Toxic myoneural disorders	34540	4	60	Chapter VI	Y	Y
+34570	G702	G70.2 Congenital and developmental myasthenia	34540	4	60	Chapter VI	Y	Y
+34580	G708	G70.8 Other specified myoneural disorders	34540	4	60	Chapter VI	Y	Y
+34590	G709	G70.9 Myoneural disorder, unspecified	34540	4	60	Chapter VI	Y	Y
+34610	G710	G71.0 Muscular dystrophy	34600	4	60	Chapter VI	Y	Y
+34620	G711	G71.1 Myotonic disorders	34600	4	60	Chapter VI	Y	Y
+34630	G712	G71.2 Congenital myopathies	34600	4	60	Chapter VI	Y	Y
+34640	G713	G71.3 Mitochondrial myopathy, not elsewhere classified	34600	4	60	Chapter VI	Y	Y
+34650	G718	G71.8 Other primary disorders of muscles	34600	4	60	Chapter VI	Y	Y
+34660	G719	G71.9 Primary disorder of muscle, unspecified	34600	4	60	Chapter VI	Y	Y
+34680	G720	G72.0 Drug-induced myopathy	34670	4	60	Chapter VI	Y	Y
+34690	G721	G72.1 Alcoholic myopathy	34670	4	60	Chapter VI	Y	Y
+34700	G722	G72.2 Myopathy due to other toxic agents	34670	4	60	Chapter VI	Y	Y
+34710	G723	G72.3 Periodic paralysis	34670	4	60	Chapter VI	Y	Y
+34720	G724	G72.4 Inflammatory myopathy, not elsewhere classified	34670	4	60	Chapter VI	Y	Y
+34730	G728	G72.8 Other specified myopathies	34670	4	60	Chapter VI	Y	Y
+34740	G729	G72.9 Myopathy, unspecified	34670	4	60	Chapter VI	Y	Y
+34760	G730	G73.0 Myasthenic syndromes in endocrine diseases	34750	4	60	Chapter VI	Y	Y
+34770	G731	G73.1 Eaton-Lambert syndrome	34750	4	60	Chapter VI	Y	Y
+34780	G732	G73.2 Other myasthenic syndromes in neoplastic disease	34750	4	60	Chapter VI	Y	Y
+34790	G733	G73.3 Myasthenic syndromes in other diseases classified elsewhere	34750	4	60	Chapter VI	Y	Y
+34800	G734	G73.4 Myopathy in infectious and parasitic diseases classified elsewhere	34750	4	60	Chapter VI	Y	Y
+34810	G735	G73.5 Myopathy in endocrine diseases	34750	4	60	Chapter VI	Y	Y
+34820	G736	G73.6 Myopathy in metabolic diseases	34750	4	60	Chapter VI	Y	Y
+34830	G737	G73.7 Myopathy other diseases classified elsewhere	34750	4	60	Chapter VI	Y	Y
+34850	G800	G80.0 Spastic cerebral palsy	34840	4	60	Chapter VI	Y	Y
+34860	G801	G80.1 Spastic diplegia	34840	4	60	Chapter VI	Y	Y
+34870	G802	G80.2 Infantile hemiplegia	34840	4	60	Chapter VI	Y	Y
+34880	G803	G80.3 Dyskinetic cerebral palsy	34840	4	60	Chapter VI	Y	Y
+34890	G804	G80.4 Ataxic cerebral palsy	34840	4	60	Chapter VI	Y	Y
+34900	G808	G80.8 Other infantile cerebral palsy	34840	4	60	Chapter VI	Y	Y
+34910	G809	G80.9 Infantile cerebral palsy, unspecified	34840	4	60	Chapter VI	Y	Y
+34930	G810	G81.0 Flaccid hemiplegia	34920	4	60	Chapter VI	Y	Y
+34940	G811	G81.1 Spastic hemiplegia	34920	4	60	Chapter VI	Y	Y
+34950	G819	G81.9 Hemiplegia, unspecified	34920	4	60	Chapter VI	Y	Y
+34970	G820	G82.0 Flaccid paraplegia	34960	4	60	Chapter VI	Y	Y
+34980	G821	G82.1 Spastic paraplegia	34960	4	60	Chapter VI	Y	Y
+34990	G822	G82.2 Paraplegia, unspecified	34960	4	60	Chapter VI	Y	Y
+35000	G823	G82.3 Flaccid tetraplegia	34960	4	60	Chapter VI	Y	Y
+35010	G824	G82.4 Spastic tetraplegia	34960	4	60	Chapter VI	Y	Y
+35020	G825	G82.5 Tetraplegia, unspecified	34960	4	60	Chapter VI	Y	Y
+35040	G830	G83.0 Diplegia of upper limbs	35030	4	60	Chapter VI	Y	Y
+35050	G831	G83.1 Monoplegia of lower limb	35030	4	60	Chapter VI	Y	Y
+35060	G832	G83.2 Monoplegia of upper limb	35030	4	60	Chapter VI	Y	Y
+35070	G833	G83.3 Monoplegia, unspecified	35030	4	60	Chapter VI	Y	Y
+35080	G834	G83.4 Cauda equina syndrome	35030	4	60	Chapter VI	Y	Y
+35090	G835	G83.5 Locked-in syndrome	35030	4	60	Chapter VI	Y	Y
+191600	G836	G83.6 Upper motor neuron facial paralysis	35030	4	60	Chapter VI	Y	Y
+35100	G838	G83.8 Other specified paralytic syndromes	35030	4	60	Chapter VI	Y	Y
+35110	G839	G83.9 Paralytic syndrome, unspecified	35030	4	60	Chapter VI	Y	Y
+35130	G900	G90.0 Idiopathic peripheral autonomic neuropathy	35120	4	60	Chapter VI	Y	Y
+35140	G901	G90.1 Familial dysautonomia [Riley-Day]	35120	4	60	Chapter VI	Y	Y
+35150	G902	G90.2 Horner's syndrome	35120	4	60	Chapter VI	Y	Y
+35160	G903	G90.3 Multisystem degeneration	35120	4	60	Chapter VI	Y	Y
+35170	G904	G90.4 Autonomic dysreflexia	35120	4	60	Chapter VI	Y	Y
+191610	G905	G90.5 Complex regional pain syndrome type I	35120	4	60	Chapter VI	Y	Y
+191620	G906	G90.6 Complex regional pain syndrome type II	35120	4	60	Chapter VI	Y	Y
+191630	G907	G90.7 Complex regional pain syndrome, other and unspecified type	35120	4	60	Chapter VI	Y	Y
+35180	G908	G90.8 Other disorders of autonomic nervous system	35120	4	60	Chapter VI	Y	Y
+35190	G909	G90.9 Disorder of autonomic nervous system, unspecified	35120	4	60	Chapter VI	Y	Y
+35210	G910	G91.0 Communicating hydrocephalus	35200	4	60	Chapter VI	Y	Y
+35220	G911	G91.1 Obstructive hydrocephalus	35200	4	60	Chapter VI	Y	Y
+35230	G912	G91.2 Normal-pressure hydrocephalus	35200	4	60	Chapter VI	Y	Y
+35240	G913	G91.3 Posttraumatic hydrocephalus, unspecified	35200	4	60	Chapter VI	Y	Y
+35250	G918	G91.8 Other hydrocephalus	35200	4	60	Chapter VI	Y	Y
+35260	G919	G91.9 Hydrocephalus, unspecified	35200	4	60	Chapter VI	Y	Y
+35290	G930	G93.0 Cerebral cysts	35280	4	60	Chapter VI	Y	Y
+35300	G931	G93.1 Anoxic brain damage, not elsewhere classified	35280	4	60	Chapter VI	Y	Y
+35310	G932	G93.2 Benign intracranial hypertension	35280	4	60	Chapter VI	Y	Y
+35320	G933	G93.3 Postviral fatigue syndrome	35280	4	60	Chapter VI	Y	Y
+35330	G934	G93.4 Encephalopathy, unspecified	35280	4	60	Chapter VI	Y	Y
+35340	G935	G93.5 Compression of brain	35280	4	60	Chapter VI	Y	Y
+35350	G936	G93.6 Cerebral oedema	35280	4	60	Chapter VI	Y	Y
+35360	G937	G93.7 Reye's syndrome	35280	4	60	Chapter VI	Y	Y
+35370	G938	G93.8 Other specified disorders of brain	35280	4	60	Chapter VI	Y	Y
+35380	G939	G93.9 Disorder of brain, unspecified	35280	4	60	Chapter VI	Y	Y
+35400	G940	G94.0 Hydrocephalus in infectious and parasitic diseases classified elsewhere	35390	4	60	Chapter VI	Y	Y
+35410	G941	G94.1 Hydrocephalus in neoplastic disease	35390	4	60	Chapter VI	Y	Y
+35420	G942	G94.2 Hydrocephalus in other diseases classified elsewhere	35390	4	60	Chapter VI	Y	Y
+191640	G943	G94.3 Encephalopathy in diseases classified elsewhere	35390	4	60	Chapter VI	Y	Y
+35430	G948	G94.8 Other specified disorders of brain in diseases classified elsewhere	35390	4	60	Chapter VI	Y	Y
+35450	G950	G95.0 Syringomyelia and syringobulbia	35440	4	60	Chapter VI	Y	Y
+35460	G951	G95.1 Vascular myelopathies	35440	4	60	Chapter VI	Y	Y
+35470	G952	G95.2 Cord compression, unspecified	35440	4	60	Chapter VI	Y	Y
+35480	G958	G95.8 Other specified diseases of spinal cord	35440	4	60	Chapter VI	Y	Y
+35490	G959	G95.9 Disease of spinal cord, unspecified	35440	4	60	Chapter VI	Y	Y
+35510	G960	G96.0 Cerebrospinal fluid leak	35500	4	60	Chapter VI	Y	Y
+35520	G961	G96.1 Disorders of meninges, not elsewhere classified	35500	4	60	Chapter VI	Y	Y
+35530	G968	G96.8 Other specified disorders of central nervous system	35500	4	60	Chapter VI	Y	Y
+35540	G969	G96.9 Disorder of central nervous system, unspecified	35500	4	60	Chapter VI	Y	Y
+35560	G970	G97.0 Cerebrospinal fluid leak from spinal puncture	35550	4	60	Chapter VI	Y	Y
+35570	G971	G97.1 Other reaction to spinal and lumbar puncture	35550	4	60	Chapter VI	Y	Y
+35580	G972	G97.2 Intracranial hypotension following ventricular shunting	35550	4	60	Chapter VI	Y	Y
+35590	G978	G97.8 Other postprocedural disorders of nervous system	35550	4	60	Chapter VI	Y	Y
+35600	G979	G97.9 Postprocedural disorder of nervous system, unspecified	35550	4	60	Chapter VI	Y	Y
+35630	G990	G99.0 Autonomic neuropathy in endocrine and metabolic diseases	35620	4	60	Chapter VI	Y	Y
+35640	G991	G99.1 Other disorders of autonomic nervous system in other diseases classified elsewhere	35620	4	60	Chapter VI	Y	Y
+35650	G992	G99.2 Myelopathy in diseases classified elsewhere	35620	4	60	Chapter VI	Y	Y
+35660	G998	G99.8 Other specified disorders of nervous system in diseases classified elsewhere	35620	4	60	Chapter VI	Y	Y

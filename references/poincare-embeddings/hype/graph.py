@@ -11,16 +11,38 @@ import numpy as np
 from numpy.random import choice
 import torch as th
 from torch.utils.data import Dataset as DS
-from sklearn.metrics import average_precision_score
+try:
+    from sklearn.metrics import average_precision_score
+except ModuleNotFoundError:
+    def average_precision_score(labels, scores):
+        labels = np.asarray(labels)
+        scores = np.asarray(scores)
+        order = np.argsort(scores)[::-1]
+        sorted_labels = labels[order]
+        positives = int(sorted_labels.sum())
+        if positives == 0:
+            return 0.0
+        hits = 0
+        precision_sum = 0.0
+        for index, label in enumerate(sorted_labels, start=1):
+            if label:
+                hits += 1
+                precision_sum += hits / index
+        return precision_sum / positives
 from multiprocessing.pool import ThreadPool
 from functools import partial
-import h5py
+try:
+    import h5py
+except ModuleNotFoundError:
+    h5py = None
 from tqdm import tqdm
 from hype.path_manager import path_manager
 
 
 def load_adjacency_matrix(path, format='hdf5', symmetrize=False, objects=None):
     if format == 'hdf5':
+        if h5py is None:
+            raise ModuleNotFoundError("h5py is required for hdf5 adjacency input")
         with path_manager.open(path, 'rb') as fin:
             with h5py.File(fin, 'r') as hf:
                 return {
@@ -31,7 +53,7 @@ def load_adjacency_matrix(path, format='hdf5', symmetrize=False, objects=None):
                     'objects': hf['objects'].value
                 }
     elif format == 'csv':
-        df = pandas.read_csv(path, usecols=['id1', 'id2', 'weight'], engine='c')
+        df = pandas.read_csv(path, usecols=['id1', 'id2', 'weight'], dtype={'id1': str, 'id2': str}, engine='c')
 
         if symmetrize:
             rev = df.copy().rename(columns={'id1' : 'id2', 'id2' : 'id1'})
@@ -76,7 +98,7 @@ def load_adjacency_matrix(path, format='hdf5', symmetrize=False, objects=None):
 
 
 def load_edge_list(path, symmetrize=False):
-    df = pandas.read_csv(path, usecols=['id1', 'id2', 'weight'], engine='c')
+    df = pandas.read_csv(path, usecols=['id1', 'id2', 'weight'], dtype={'id1': str, 'id2': str}, engine='c')
     df.dropna(inplace=True)
     if symmetrize:
         rev = df.copy().rename(columns={'id1' : 'id2', 'id2' : 'id1'})

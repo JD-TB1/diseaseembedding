@@ -22,6 +22,7 @@ def main() -> None:
     parser.add_argument("--relations-csv", type=Path, default=DEFAULT_RELATIONS_CSV)
     parser.add_argument("--out-json", type=Path, default=DEFAULT_EVAL_JSON)
     parser.add_argument("--out-md", type=Path, default=DEFAULT_EVAL_MD)
+    parser.add_argument("--title-label", default="Disease-90 embedding")
     args = parse_args_with_defaults(parser)
 
     metadata_rows, relations = load_metadata_and_relations(args.metadata_tsv, args.relations_csv)
@@ -30,7 +31,7 @@ def main() -> None:
 
     radius_structure = metrics["radius_structure"]
     lines = [
-        "# Disease-90 embedding evaluation",
+        f"# {args.title_label} evaluation",
         "",
         f"- Reconstruction mean rank: {metrics['reconstruction']['mean_rank']:.4f}",
         f"- Reconstruction MAP: {metrics['reconstruction']['map_rank']:.4f}",

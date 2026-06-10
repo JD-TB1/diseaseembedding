@@ -74,6 +74,10 @@ Generated checkpoints, logs, exported embedding tables, and full per-run tuning 
   - staged branch/depth geometry sweep
 - `scripts/run_branch_repair_campaign.py`
   - current-hybrid repair sweep using gate-deficit selection
+- `scripts/build_cg_subforest.py`
+  - builds the ICD C/G target subforest with synthetic `CG_ROOT`
+- `scripts/run_cg_pipeline.py`
+  - trains and exports labmate-ready C/G embeddings
 
 Maintained figure generators:
 
@@ -137,3 +141,13 @@ Judge this track first against:
 - `../poincare_only/results/disease90/direct_eval_metrics.json`
 
 That direct-edge pure-Poincare baseline is the fair reference for deciding whether CPCC and radial ordering improve the embedding.
+
+## C/G Export Target
+
+The downstream feature-selection handoff uses:
+
+- `results/disease_cg/labmate/cg_embeddings_codes_only.tsv`
+
+That file contains only ICD C/G disease-code rows. `cg_embeddings_all_nodes.tsv`
+keeps the synthetic root and hierarchy ancestors for context, but is not the
+default downstream training input.

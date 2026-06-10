@@ -59,6 +59,9 @@ def main() -> None:
     parser.add_argument("--checkpoint", type=Path, default=Path(f"{DEFAULT_CHECKPOINT}.best"))
     parser.add_argument("--metadata-tsv", type=Path, default=DEFAULT_METADATA_TSV)
     parser.add_argument("--plots-dir", type=Path, default=PLOTS_DIR)
+    parser.add_argument("--title-label", default="Disease-90 Poincare+HypStructure")
+    parser.add_argument("--root-node-id", default="90")
+    parser.add_argument("--root-label", default="Chapter IX")
     parser.add_argument(
         "--label-route-node-ids",
         nargs="+",
@@ -98,7 +101,7 @@ def main() -> None:
         )
     scatter = ax.scatter(embedding_2d[:, 0], embedding_2d[:, 1], c=depths, s=16, cmap="viridis")
     plt.colorbar(scatter, ax=ax, fraction=0.046, pad=0.04, label="depth")
-    ax.set_title("Disease-90 Poincare+HypStructure disk colored by depth")
+    ax.set_title(f"{args.title_label} disk colored by depth")
     ax.set_aspect("equal")
     ax.axis("off")
     fig.savefig(args.plots_dir / "poincare_disk_depth.png", dpi=300, bbox_inches="tight")
@@ -121,7 +124,7 @@ def main() -> None:
         )
     scatter = ax.scatter(embedding_2d[:, 0], embedding_2d[:, 1], c=branch_values, s=16, cmap="tab20")
     plt.colorbar(scatter, ax=ax, fraction=0.046, pad=0.04, label="top branch")
-    ax.set_title("Disease-90 Poincare+HypStructure disk colored by top branch")
+    ax.set_title(f"{args.title_label} disk colored by top branch")
     ax.set_aspect("equal")
     ax.axis("off")
     fig.savefig(args.plots_dir / "poincare_disk_branch.png", dpi=300, bbox_inches="tight")
@@ -129,7 +132,7 @@ def main() -> None:
 
     branch_centroids = []
     for branch_id in branch_ids:
-        if branch_id == "90":
+        if int(metadata_map[branch_id]["depth"]) == 0:
             continue
         branch_indices = [index for index, node_id in enumerate(objects) if metadata_map[node_id]["top_branch_id"] == branch_id]
         centroid = embedding_2d[branch_indices].mean(axis=0)
@@ -212,8 +215,8 @@ def main() -> None:
             arrowprops={"arrowstyle": "-", "color": color, "lw": 1.0},
             zorder=6,
         )
-    if "90" in node_to_index:
-        root_index = node_to_index["90"]
+    if args.root_node_id in node_to_index:
+        root_index = node_to_index[args.root_node_id]
         ax.scatter(
             [embedding_2d[root_index, 0]],
             [embedding_2d[root_index, 1]],
@@ -224,7 +227,7 @@ def main() -> None:
             zorder=7,
         )
         ax.annotate(
-            "Chapter IX",
+            args.root_label,
             xy=(embedding_2d[root_index, 0], embedding_2d[root_index, 1]),
             xytext=(embedding_2d[root_index, 0] + 0.18 * x_span, embedding_2d[root_index, 1] - 0.02 * y_span),
             textcoords="data",
@@ -234,7 +237,7 @@ def main() -> None:
             arrowprops={"arrowstyle": "-", "color": "black", "lw": 1.0},
             zorder=7,
         )
-    ax.set_title("Disease-90 top-branch centroids labeled on the Poincare disk")
+    ax.set_title(f"{args.title_label} top-branch centroids labeled on the Poincare disk")
     ax.set_aspect("equal")
     ax.set_xlim(x_min - 0.38 * x_span, x_max + 0.38 * x_span)
     ax.set_ylim(y_min - 0.08 * y_span, y_max + 0.08 * y_span)
@@ -296,7 +299,7 @@ def main() -> None:
             )
 
         title_parts = [metadata_map[node_id]["coding"] for node_id in route_node_ids]
-        ax.set_title("Disease-90 branch plot with labeled route: " + " > ".join(title_parts))
+        ax.set_title(f"{args.title_label} branch plot with labeled route: " + " > ".join(title_parts))
         ax.set_aspect("equal")
         ax.axis("off")
         fig.savefig(args.plots_dir / "poincare_disk_branch_labeled_route.png", dpi=300, bbox_inches="tight")
