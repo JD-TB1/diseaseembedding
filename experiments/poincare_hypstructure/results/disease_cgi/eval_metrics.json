@@ -1,0 +1,173 @@
+{
+  "ancestor_ranking": {
+    "mean_average_precision": 0.9617272231210285,
+    "mean_positive_rank": 1.2341729067392784
+  },
+  "angular_branch_separation": {
+    "across_branch": {
+      "count": 2700,
+      "max": 1.86461048401041,
+      "mean": 1.3044254914224567,
+      "median": 1.3241973222581285,
+      "min": 0.700472145237345
+    },
+    "within_branch": {
+      "count": 4000,
+      "max": 1.6342601453986887,
+      "mean": 0.4182226708512703,
+      "median": 0.4081637662409474,
+      "min": 1.903580058348897e-05
+    }
+  },
+  "branch_geometry": {
+    "branch_silhouette": 0.42262483326755423,
+    "top_branch_centroid_distances": {
+      "count": 3,
+      "max": 0.02461801766717945,
+      "mean": 0.023312942423795686,
+      "median": 0.023776535841750174,
+      "min": 0.02154427376245743
+    }
+  },
+  "branch_separation": {
+    "across_branch": {
+      "count": 2700,
+      "max": 0.03249101531159347,
+      "mean": 0.02777855772125363,
+      "median": 0.028208633921898263,
+      "min": 0.017359287594588005
+    },
+    "within_branch": {
+      "count": 4000,
+      "max": 0.02685691932558661,
+      "mean": 0.0158403925445478,
+      "median": 0.016045176762808665,
+      "min": 0.0031572977601480945
+    }
+  },
+  "checkpoint_epoch": 34,
+  "depth_radius": {
+    "pearson": 0.5310534674437495,
+    "spearman": 0.32272045978483144
+  },
+  "gate_deficit_score": 0.8490157845927182,
+  "gate_deficits": {
+    "ancestor_map": 0.0,
+    "branch_ratio": 0.6292517727933084,
+    "minimum_adjacent_gap": 0.0,
+    "parent_mean_rank": 0.028477422282732017,
+    "positive_quantile_gaps": 0.0,
+    "radial_violation": 0.19128658951667793,
+    "reconstruction_map": 0.0,
+    "sibling_ratio": 0.0,
+    "total": 0.8490157845927182
+  },
+  "parent_ranking": {
+    "depth_stratified_mean_rank": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 2.421276595744681,
+      "4": 1.0084388185654007,
+      "5": 1.0
+    },
+    "mean_rank": 1.2341729067392784,
+    "median_rank": 1.0
+  },
+  "radius_structure": {
+    "adjacent_depth_gaps": {
+      "0_to_1": 0.005587045760412752,
+      "1_to_2": 0.0005640210752283674,
+      "2_to_3": 0.0017360682682335468,
+      "3_to_4": 0.0005698770242313234,
+      "4_to_5": 0.0028593639866430435
+    },
+    "adjacent_depth_quantile_gaps": {
+      "0_to_1": 0.005464356679063243,
+      "1_to_2": 0.0003234200048740782,
+      "2_to_3": 0.0005220966339035786,
+      "3_to_4": -0.0011987389096721375,
+      "4_to_5": 0.0022452607998900993
+    },
+    "depth_overlap_rates": {
+      "0_to_1": 0.0,
+      "1_to_2": 0.046296296296296294,
+      "2_to_3": 0.09160756501182032,
+      "3_to_4": 0.3345327228656073,
+      "4_to_5": 0.0004219409282700422
+    },
+    "internal_mean_radius": 0.006494552885942079,
+    "leaf_internal_radius_ratio": 1.3739084151954268,
+    "leaf_mean_radius": 0.008922920862927567,
+    "mean_radius_by_depth": {
+      "0": 0.0005395643018341153,
+      "1": 0.006126610062246868,
+      "2": 0.006690631137475235,
+      "3": 0.008426699405708782,
+      "4": 0.008996576429940105,
+      "5": 0.011855940416583149
+    },
+    "minimum_adjacent_gap": 0.0005640210752283674,
+    "minimum_adjacent_quantile_gap": -0.0011987389096721375,
+    "monotonic_depth_means": true,
+    "parent_child_radial_violation_rate": 0.1191286589516678,
+    "positive_adjacent_depth_quantile_gap_count": 4
+  },
+  "radius_summary": {
+    "internal": {
+      "count": 40,
+      "max": 0.007487738507039971,
+      "mean": 0.006494552885942079,
+      "median": 0.0066453133618344686,
+      "min": 0.0005395643018341153
+    },
+    "leaf": {
+      "count": 1430,
+      "max": 0.0119718868365043,
+      "mean": 0.008922920862927567,
+      "median": 0.009169572138641838,
+      "min": 0.002141954080184672
+    }
+  },
+  "ratios": {
+    "angular_within_branch_to_across_branch_mean": 0.32061829027521127,
+    "same_depth_within_branch_to_across_branch_mean": 0.5631332133322087,
+    "sibling_to_non_sibling_mean": 0.21111339286872946,
+    "within_branch_to_across_branch_mean": 0.5702381204776579
+  },
+  "reconstruction": {
+    "map_rank": 0.30062076560446255,
+    "mean_rank": 8.719537100068074
+  },
+  "same_depth_branch_separation": {
+    "across_branch": {
+      "count": 4000,
+      "max": 0.039523858042663146,
+      "mean": 0.028606971991999203,
+      "median": 0.02881018734666637,
+      "min": 0.015825321201372342
+    },
+    "within_branch": {
+      "count": 4000,
+      "max": 0.026877118428740406,
+      "mean": 0.016109536061559005,
+      "median": 0.016412462445820925,
+      "min": 0.003157291883769467
+    }
+  },
+  "sibling_cohesion": {
+    "same_depth_non_siblings": {
+      "count": 4000,
+      "max": 0.038941134796786,
+      "mean": 0.024458627012931417,
+      "median": 0.027364797635356652,
+      "min": 0.0034741002427374195
+    },
+    "siblings": {
+      "count": 4000,
+      "max": 0.026124836407382904,
+      "mean": 0.005163543733610709,
+      "median": 0.0031574482858212393,
+      "min": 0.003157289268016435
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "C_count": 559,
+  "block_ancestor_count": 15,
+  "chapter_ancestor_count": 1,
+  "closure_edge_count": 1602,
+  "depth_counts": {
+    "0": 1,
+    "1": 15,
+    "2": 90,
+    "3": 469
+  },
+  "direct_edge_count": 574,
+  "long_edge_stride": null,
+  "natural_roots": [
+    {
+      "coding": "Chapter II",
+      "meaning": "Chapter II Neoplasms",
+      "node_id": "20"
+    }
+  ],
+  "node_count": 575,
+  "real_node_count": 575,
+  "relation_mode": "direct",
+  "root_id": "20",
+  "root_mode": "individual",
+  "source_data": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/data/datacode-19.tsv",
+  "synthetic_node_count": 0,
+  "synthetic_root_id": null,
+  "target_code_count": 559,
+  "target_code_counts_by_prefix": {
+    "C": 559
+  },
+  "target_code_pattern": "^[C][0-9]",
+  "target_prefixes": [
+    "C"
+  ],
+  "top_branch_count": 15,
+  "training_edge_count": 574,
+  "training_node_count": 575
+}

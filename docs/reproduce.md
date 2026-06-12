@@ -151,30 +151,45 @@ preservation, same-depth branch contrastive loss, and lower learning rates for
 contrastive weight and enables same-depth hard-negative mining. Stage D reruns
 the top five candidates for 500 epochs.
 
-## C/G Labmate Embeddings
+## Prefix Labmate Embeddings
 
-The C/G export uses the active hybrid trainer on a target subforest built from
-ICD code regex `^[CG][0-9]`. The builder adds only required Chapter II, Chapter
-VI, and block ancestors plus a synthetic `CG_ROOT`; D-code neoplasm rows are not
-target rows.
+The prefix export uses the active hybrid trainer on ICD target subforests built
+from code prefixes. Individual C, G, and I runs use the natural chapter root and
+block-level top branches. The combined C/G/I run adds a synthetic `CGI_ROOT` so
+C, G, and I are trained jointly in one coordinate system; do not merge
+separately trained vectors when comparability across these groups is required.
 
 Recommended runtime in the current local environment:
 
 ```bash
 /opt/homebrew/Caskroom/miniforge/base/envs/logic-bank-benchmark/bin/python \
-  experiments/poincare_hypstructure/scripts/run_cg_pipeline.py
+  experiments/poincare_hypstructure/scripts/run_disease_subforest_pipeline.py --prefixes C --dataset-label C
+
+/opt/homebrew/Caskroom/miniforge/base/envs/logic-bank-benchmark/bin/python \
+  experiments/poincare_hypstructure/scripts/run_disease_subforest_pipeline.py --prefixes G --dataset-label G
+
+/opt/homebrew/Caskroom/miniforge/base/envs/logic-bank-benchmark/bin/python \
+  experiments/poincare_hypstructure/scripts/run_disease_subforest_pipeline.py --prefixes I --dataset-label I
+
+/opt/homebrew/Caskroom/miniforge/base/envs/logic-bank-benchmark/bin/python \
+  experiments/poincare_hypstructure/scripts/run_disease_subforest_pipeline.py --prefixes C G I --dataset-label CGI
 ```
 
-The runner trains a C/G current-hybrid baseline, then runs the Stage D
-branch-repair recipe initialized from that C/G baseline. The labmate-facing
-outputs are:
+Each runner trains a dataset-specific current-hybrid baseline, then runs the
+Stage D branch-repair recipe initialized from that baseline. Labmates should use
+the code-only TSV for downstream feature-selection training:
 
-- `experiments/poincare_hypstructure/results/disease_cg/labmate/cg_embeddings_codes_only.tsv`
-- `experiments/poincare_hypstructure/results/disease_cg/labmate/cg_embeddings_all_nodes.tsv`
-- `experiments/poincare_hypstructure/results/disease_cg/labmate/README.md`
-- `experiments/poincare_hypstructure/results/disease_cg/labmate/manifest.json`
+- C-specific training: `experiments/poincare_hypstructure/results/disease_c/labmate/c_embeddings_codes_only.tsv`
+- G-specific training: `experiments/poincare_hypstructure/results/disease_g/labmate/g_embeddings_codes_only.tsv`
+- I-specific training: `experiments/poincare_hypstructure/results/disease_i/labmate/i_embeddings_codes_only.tsv`
+- Joint C/G/I training: `experiments/poincare_hypstructure/results/disease_cgi/labmate/cgi_embeddings_codes_only.tsv`
 
-Labmates should use `cg_embeddings_codes_only.tsv` for downstream training.
+The matching `*_embeddings_all_nodes.tsv` files keep chapter roots, block
+ancestors, and the combined synthetic root for hierarchy context. Each labmate
+folder also contains a `README.md` and `manifest.json` with source counts,
+commands, training recipe, selected checkpoint, metrics, plots, and validation
+status. The expected code-only/all-node row counts are C `559/575`, G `396/408`,
+I `475/486`, and C/G/I `1430/1470`.
 
 ## Tree Visualizations
 

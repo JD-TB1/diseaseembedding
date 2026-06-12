@@ -1,0 +1,40 @@
+{
+  "G_count": 396,
+  "block_ancestor_count": 11,
+  "chapter_ancestor_count": 1,
+  "closure_edge_count": 1131,
+  "depth_counts": {
+    "0": 1,
+    "1": 11,
+    "2": 68,
+    "3": 328
+  },
+  "direct_edge_count": 407,
+  "long_edge_stride": null,
+  "natural_roots": [
+    {
+      "coding": "Chapter VI",
+      "meaning": "Chapter VI Diseases of the nervous system",
+      "node_id": "60"
+    }
+  ],
+  "node_count": 408,
+  "real_node_count": 408,
+  "relation_mode": "direct",
+  "root_id": "60",
+  "root_mode": "individual",
+  "source_data": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/data/datacode-19.tsv",
+  "synthetic_node_count": 0,
+  "synthetic_root_id": null,
+  "target_code_count": 396,
+  "target_code_counts_by_prefix": {
+    "G": 396
+  },
+  "target_code_pattern": "^[G][0-9]",
+  "target_prefixes": [
+    "G"
+  ],
+  "top_branch_count": 11,
+  "training_edge_count": 407,
+  "training_node_count": 408
+}

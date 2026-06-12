@@ -1,0 +1,409 @@
+node_id	coding	meaning	parent_id	depth	top_branch_id	top_branch_code	selectable	is_target_code
+60	Chapter VI	Chapter VI Diseases of the nervous system	0	0	60	Chapter VI	N	N
+870	Block G00-G09	G00-G09 Inflammatory diseases of the central nervous system	60	1	870	Block G00-G09	N	N
+880	Block G10-G14	G10-G14 Systemic atrophies primarily affecting the central nervous system	60	1	880	Block G10-G14	N	N
+890	Block G20-G26	G20-G26 Extrapyramidal and movement disorders	60	1	890	Block G20-G26	N	N
+900	Block G30-G32	G30-G32 Other degenerative diseases of the nervous system	60	1	900	Block G30-G32	N	N
+910	Block G35-G37	G35-G37 Demyelinating diseases of the central nervous system	60	1	910	Block G35-G37	N	N
+920	Block G40-G47	G40-G47 Episodic and paroxysmal disorders	60	1	920	Block G40-G47	N	N
+930	Block G50-G59	G50-G59 Nerve, nerve root and plexus disorders	60	1	930	Block G50-G59	N	N
+940	Block G60-G64	G60-G64 Polyneuropathies and other disorders of the peripheral nervous system	60	1	940	Block G60-G64	N	N
+950	Block G70-G73	G70-G73 Diseases of myoneural junction and muscle	60	1	950	Block G70-G73	N	N
+960	Block G80-G83	G80-G83 Cerebral palsy and other paralytic syndromes	60	1	960	Block G80-G83	N	N
+970	Block G90-G99	G90-G99 Other disorders of the nervous system	60	1	970	Block G90-G99	N	N
+31760	G00	G00 Bacterial meningitis, not elsewhere classified	870	2	870	Block G00-G09	Y	Y
+31830	G01	G01 Meningitis in bacterial diseases classified elsewhere	870	2	870	Block G00-G09	Y	Y
+31840	G02	G02 Meningitis in other infectious and parasitic diseases classified elsewhere	870	2	870	Block G00-G09	Y	Y
+31880	G03	G03 Meningitis due to other and unspecified causes	870	2	870	Block G00-G09	Y	Y
+31940	G04	G04 Encephalitis, myelitis and encephalomyelitis	870	2	870	Block G00-G09	Y	Y
+32000	G05	G05 Encephalitis, myelitis and encephalomyelitis in diseases classified elsewhere	870	2	870	Block G00-G09	Y	Y
+32050	G06	G06 Intracranial and intraspinal abscess and granuloma	870	2	870	Block G00-G09	Y	Y
+32090	G07	G07 Intracranial and intraspinal abscess and granuloma in diseases classified elsewhere	870	2	870	Block G00-G09	Y	Y
+32100	G08	G08 Intracranial and intraspinal phlebitis and thrombophlebitis	870	2	870	Block G00-G09	Y	Y
+32110	G09	G09 Sequelae of inflammatory diseases of central nervous system	870	2	870	Block G00-G09	Y	Y
+32120	G10	G10 Huntington's disease	880	2	880	Block G10-G14	Y	Y
+32130	G11	G11 Hereditary ataxia	880	2	880	Block G10-G14	Y	Y
+32210	G12	G12 Spinal muscular atrophy and related syndromes	880	2	880	Block G10-G14	Y	Y
+32270	G13	G13 Systemic atrophies primarily affecting central nervous system in diseases classified elsewhere	880	2	880	Block G10-G14	Y	Y
+32320	G14	G14 Postpolio syndrome	880	2	880	Block G10-G14	Y	Y
+32330	G20	G20 Parkinson's disease	890	2	890	Block G20-G26	Y	Y
+32340	G21	G21 Secondary Parkinsonism	890	2	890	Block G20-G26	Y	Y
+32420	G22	G22 Parkinsonism in diseases classified elsewhere	890	2	890	Block G20-G26	Y	Y
+32430	G23	G23 Other degenerative diseases of basal ganglia	890	2	890	Block G20-G26	Y	Y
+32500	G24	G24 Dystonia	890	2	890	Block G20-G26	Y	Y
+32590	G25	G25 Other extrapyramidal and movement disorders	890	2	890	Block G20-G26	Y	Y
+32690	G26	G26 Extrapyramidal and movement disorders in diseases classified elsewhere	890	2	890	Block G20-G26	Y	Y
+32700	G30	G30 Alzheimer's disease	900	2	900	Block G30-G32	Y	Y
+32750	G31	G31 Other degenerative diseases of nervous system, not elsewhere classified	900	2	900	Block G30-G32	Y	Y
+32810	G32	G32 Other degenerative disorders of nervous system in diseases classified elsewhere	900	2	900	Block G30-G32	Y	Y
+32840	G35	G35 Multiple sclerosis	910	2	910	Block G35-G37	Y	Y
+32850	G36	G36 Other acute disseminated demyelination	910	2	910	Block G35-G37	Y	Y
+32900	G37	G37 Other demyelinating diseases of central nervous system	910	2	910	Block G35-G37	Y	Y
+32990	G40	G40 Epilepsy	920	2	920	Block G40-G47	Y	Y
+33100	G41	G41 Status epilepticus	920	2	920	Block G40-G47	Y	Y
+33160	G43	G43 Migraine	920	2	920	Block G40-G47	Y	Y
+33230	G44	G44 Other headache syndromes	920	2	920	Block G40-G47	Y	Y
+33300	G45	G45 Transient cerebral ischaemic attacks and related syndromes	920	2	920	Block G40-G47	Y	Y
+33380	G46	G46 Vascular syndromes of brain in cerebrovascular diseases	920	2	920	Block G40-G47	Y	Y
+33480	G47	G47 Sleep disorders	920	2	920	Block G40-G47	Y	Y
+33560	G50	G50 Disorders of trigeminal nerve	930	2	930	Block G50-G59	Y	Y
+33610	G51	G51 Facial nerve disorders	930	2	930	Block G50-G59	Y	Y
+33690	G52	G52 Disorders of other cranial nerves	930	2	930	Block G50-G59	Y	Y
+33770	G53	G53 Cranial nerve disorders in diseases classified elsewhere	930	2	930	Block G50-G59	Y	Y
+33830	G54	G54 Nerve root and plexus disorders	930	2	930	Block G50-G59	Y	Y
+33940	G55	G55 Nerve root and plexus compressions in diseases classified elsewhere	930	2	930	Block G50-G59	Y	Y
+34000	G56	G56 Mononeuropathies of upper limb	930	2	930	Block G50-G59	Y	Y
+34080	G57	G57 Mononeuropathies of lower limb	930	2	930	Block G50-G59	Y	Y
+34180	G58	G58 Other mononeuropathies	930	2	930	Block G50-G59	Y	Y
+34230	G59	G59 Mononeuropathy in diseases classified elsewhere	930	2	930	Block G50-G59	Y	Y
+34260	G60	G60 Hereditary and idiopathic neuropathy	940	2	940	Block G60-G64	Y	Y
+34330	G61	G61 Inflammatory polyneuropathy	940	2	940	Block G60-G64	Y	Y
+34380	G62	G62 Other polyneuropathies	940	2	940	Block G60-G64	Y	Y
+34440	G63	G63 Polyneuropathy in diseases classified elsewhere	940	2	940	Block G60-G64	Y	Y
+34530	G64	G64 Other disorders of peripheral nervous system	940	2	940	Block G60-G64	Y	Y
+34540	G70	G70 Myasthenia gravis and other myoneural disorders	950	2	950	Block G70-G73	Y	Y
+34600	G71	G71 Primary disorders of muscles	950	2	950	Block G70-G73	Y	Y
+34670	G72	G72 Other myopathies	950	2	950	Block G70-G73	Y	Y
+34750	G73	G73 Disorders of myoneural junction and muscle in diseases classified elsewhere	950	2	950	Block G70-G73	Y	Y
+34840	G80	G80 Infantile cerebral palsy	960	2	960	Block G80-G83	Y	Y
+34920	G81	G81 Hemiplegia	960	2	960	Block G80-G83	Y	Y
+34960	G82	G82 Paraplegia and tetraplegia	960	2	960	Block G80-G83	Y	Y
+35030	G83	G83 Other paralytic syndromes	960	2	960	Block G80-G83	Y	Y
+35120	G90	G90 Disorders of autonomic nervous system	970	2	970	Block G90-G99	Y	Y
+35200	G91	G91 Hydrocephalus	970	2	970	Block G90-G99	Y	Y
+35270	G92	G92 Toxic encephalopathy	970	2	970	Block G90-G99	Y	Y
+35280	G93	G93 Other disorders of brain	970	2	970	Block G90-G99	Y	Y
+35390	G94	G94 Other disorders of brain in diseases classified elsewhere	970	2	970	Block G90-G99	Y	Y
+35440	G95	G95 Other diseases of spinal cord	970	2	970	Block G90-G99	Y	Y
+35500	G96	G96 Other disorders of central nervous system	970	2	970	Block G90-G99	Y	Y
+35550	G97	G97 Postprocedural disorders of nervous system, not elsewhere classified	970	2	970	Block G90-G99	Y	Y
+35610	G98	G98 Other disorders of nervous system, not elsewhere classified	970	2	970	Block G90-G99	Y	Y
+35620	G99	G99 Other disorders of nervous system in diseases classified elsewhere	970	2	970	Block G90-G99	Y	Y
+31770	G000	G00.0 Haemophilus meningitis	31760	3	870	Block G00-G09	Y	Y
+31780	G001	G00.1 Pneumococcal meningitis	31760	3	870	Block G00-G09	Y	Y
+31790	G002	G00.2 Streptococcal meningitis	31760	3	870	Block G00-G09	Y	Y
+31800	G003	G00.3 Staphylococcal meningitis	31760	3	870	Block G00-G09	Y	Y
+31810	G008	G00.8 Other bacterial meningitis	31760	3	870	Block G00-G09	Y	Y
+31820	G009	G00.9 Bacterial meningitis, unspecified	31760	3	870	Block G00-G09	Y	Y
+31850	G020	G02.0 Meningitis in viral diseases classified elsewhere	31840	3	870	Block G00-G09	Y	Y
+31860	G021	G02.1 Meningitis in mycoses	31840	3	870	Block G00-G09	Y	Y
+31870	G028	G02.8 Meningitis in other specified infectious and parasitic diseases classified elsewhere	31840	3	870	Block G00-G09	Y	Y
+31890	G030	G03.0 Nonpyogenic meningitis	31880	3	870	Block G00-G09	Y	Y
+31900	G031	G03.1 Chronic meningitis	31880	3	870	Block G00-G09	Y	Y
+31910	G032	G03.2 Benign recurrent meningitis [Mollaret]	31880	3	870	Block G00-G09	Y	Y
+31920	G038	G03.8 Meningitis due to other specified causes	31880	3	870	Block G00-G09	Y	Y
+31930	G039	G03.9 Meningitis, unspecified	31880	3	870	Block G00-G09	Y	Y
+31950	G040	G04.0 Acute disseminated encephalitis	31940	3	870	Block G00-G09	Y	Y
+31960	G041	G04.1 Tropical spastic paraplegia	31940	3	870	Block G00-G09	Y	Y
+31970	G042	G04.2 Bacterial meningoencephalitis and meningomyelitis, not elsewhere classified	31940	3	870	Block G00-G09	Y	Y
+31980	G048	G04.8 Other encephalitis, myelitis and encephalomyelitis	31940	3	870	Block G00-G09	Y	Y
+31990	G049	G04.9 Encephalitis, myelitis and encephalomyelitis, unspecified	31940	3	870	Block G00-G09	Y	Y
+32010	G050	G05.0 Encephalitis, myelitis and encephalomyelitis in bacterial diseases classified elsewhere	32000	3	870	Block G00-G09	Y	Y
+32020	G051	G05.1 Encephalitis, myelitis and encephalomyelitis in viral diseases classified elsewhere	32000	3	870	Block G00-G09	Y	Y
+32030	G052	G05.2 Encephalitis, myelitis and encephalomyelitis in other infectious and parasitic diseases classified elsewhere	32000	3	870	Block G00-G09	Y	Y
+32040	G058	G05.8 Encephalitis, myelitis and encephalomyelitis in other diseases classified elsewhere	32000	3	870	Block G00-G09	Y	Y
+32060	G060	G06.0 Intracranial abscess and granuloma	32050	3	870	Block G00-G09	Y	Y
+32070	G061	G06.1 Intraspinal abscess and granuloma	32050	3	870	Block G00-G09	Y	Y
+32080	G062	G06.2 Extradural and subdural abscess, unspecified	32050	3	870	Block G00-G09	Y	Y
+32140	G110	G11.0 Congenital nonprogressive ataxia	32130	3	880	Block G10-G14	Y	Y
+32150	G111	G11.1 Early-onset cerebellar ataxia	32130	3	880	Block G10-G14	Y	Y
+32160	G112	G11.2 Late-onset cerebellar ataxia	32130	3	880	Block G10-G14	Y	Y
+32170	G113	G11.3 Cerebellar ataxia with defective DNA repair	32130	3	880	Block G10-G14	Y	Y
+32180	G114	G11.4 Hereditary spastic paraplegia	32130	3	880	Block G10-G14	Y	Y
+32190	G118	G11.8 Other hereditary ataxias	32130	3	880	Block G10-G14	Y	Y
+32200	G119	G11.9 Hereditary ataxia, unspecified	32130	3	880	Block G10-G14	Y	Y
+32220	G120	G12.0 Infantile spinal muscular atrophy, type I [Werdnig-Hoffman]	32210	3	880	Block G10-G14	Y	Y
+32230	G121	G12.1 Other inherited spinal muscular atrophy	32210	3	880	Block G10-G14	Y	Y
+32240	G122	G12.2 Motor neuron disease	32210	3	880	Block G10-G14	Y	Y
+32250	G128	G12.8 Other spinal muscular atrophies and related syndromes	32210	3	880	Block G10-G14	Y	Y
+32260	G129	G12.9 Spinal muscular atrophy, unspecified	32210	3	880	Block G10-G14	Y	Y
+32280	G130	G13.0 Paraneoplastic neuromyopathy and neuropathy	32270	3	880	Block G10-G14	Y	Y
+32290	G131	G13.1 Other systemic atrophy primarily affecting central nervous system in neoplastic disease	32270	3	880	Block G10-G14	Y	Y
+32300	G132	G13.2 Systemic atrophy primarily affecting central nervous system in myxoedema	32270	3	880	Block G10-G14	Y	Y
+32310	G138	G13.8 Systemic atrophy primarily affecting central nervous system in other diseases classified elsewhere	32270	3	880	Block G10-G14	Y	Y
+32350	G210	G21.0 Malignant neuroleptic syndrome	32340	3	890	Block G20-G26	Y	Y
+32360	G211	G21.1 Other drug-induced secondary Parkinsonism	32340	3	890	Block G20-G26	Y	Y
+32370	G212	G21.2 Secondary Parkinsonism due to other external agents	32340	3	890	Block G20-G26	Y	Y
+32380	G213	G21.3 Postencephalitic Parkinsonism	32340	3	890	Block G20-G26	Y	Y
+32390	G214	G21.4 Vascular parkinsonism	32340	3	890	Block G20-G26	Y	Y
+32400	G218	G21.8 Other secondary Parkinsonism	32340	3	890	Block G20-G26	Y	Y
+32410	G219	G21.9 Secondary Parkinsonism, unspecified	32340	3	890	Block G20-G26	Y	Y
+32440	G230	G23.0 Hallervorden-Spatz disease	32430	3	890	Block G20-G26	Y	Y
+32450	G231	G23.1 Progressive supranuclear ophthalmoplegia [Steele-Richardson-Olszewski]	32430	3	890	Block G20-G26	Y	Y
+32460	G232	G23.2 Striatonigral degeneration	32430	3	890	Block G20-G26	Y	Y
+32470	G233	G23.3 Multiple system atrophy, cerebellar type	32430	3	890	Block G20-G26	Y	Y
+32480	G238	G23.8 Other specified degenerative diseases of basal ganglia	32430	3	890	Block G20-G26	Y	Y
+32490	G239	G23.9 Degenerative disease of basal ganglia, unspecified	32430	3	890	Block G20-G26	Y	Y
+32510	G240	G24.0 Drug-induced dystonia	32500	3	890	Block G20-G26	Y	Y
+32520	G241	G24.1 Idiopathic familial dystonia	32500	3	890	Block G20-G26	Y	Y
+32530	G242	G24.2 Idiopathic nonfamilial dystonia	32500	3	890	Block G20-G26	Y	Y
+32540	G243	G24.3 Spasmodic torticollis	32500	3	890	Block G20-G26	Y	Y
+32550	G244	G24.4 Idiopathic orofacial dystonia	32500	3	890	Block G20-G26	Y	Y
+32560	G245	G24.5 Blepharospasm	32500	3	890	Block G20-G26	Y	Y
+32570	G248	G24.8 Other dystonia	32500	3	890	Block G20-G26	Y	Y
+32580	G249	G24.9 Dystonia, unspecified	32500	3	890	Block G20-G26	Y	Y
+32600	G250	G25.0 Essential tremor	32590	3	890	Block G20-G26	Y	Y
+32610	G251	G25.1 Drug-induced tremor	32590	3	890	Block G20-G26	Y	Y
+32620	G252	G25.2 Other specified forms of tremor	32590	3	890	Block G20-G26	Y	Y
+32630	G253	G25.3 Myoclonus	32590	3	890	Block G20-G26	Y	Y
+32640	G254	G25.4 Drug-induced chorea	32590	3	890	Block G20-G26	Y	Y
+32650	G255	G25.5 Other chorea	32590	3	890	Block G20-G26	Y	Y
+32660	G256	G25.6 Drug-induced tics and other tics of organic origin	32590	3	890	Block G20-G26	Y	Y
+32670	G258	G25.8 Other specified extrapyramidal and movement disorders	32590	3	890	Block G20-G26	Y	Y
+32680	G259	G25.9 Extrapyramidal and movement disorder, unspecified	32590	3	890	Block G20-G26	Y	Y
+32710	G300	G30.0 Alzheimer's disease with early onset	32700	3	900	Block G30-G32	Y	Y
+32720	G301	G30.1 Alzheimer's disease with late onset	32700	3	900	Block G30-G32	Y	Y
+32730	G308	G30.8 Other Alzheimer's disease	32700	3	900	Block G30-G32	Y	Y
+32740	G309	G30.9 Alzheimer's disease, unspecified	32700	3	900	Block G30-G32	Y	Y
+32760	G310	G31.0 Circumscribed brain atrophy	32750	3	900	Block G30-G32	Y	Y
+32770	G311	G31.1 Senile degeneration of brain, not elsewhere classified	32750	3	900	Block G30-G32	Y	Y
+32780	G312	G31.2 Degeneration of nervous system due to alcohol	32750	3	900	Block G30-G32	Y	Y
+32790	G318	G31.8 Other specified degenerative diseases of nervous system	32750	3	900	Block G30-G32	Y	Y
+32800	G319	G31.9 Degenerative disease of nervous system, unspecified	32750	3	900	Block G30-G32	Y	Y
+32820	G320	G32.0 Subacute combined degeneration of spinal cord in diseases classified elsewhere	32810	3	900	Block G30-G32	Y	Y
+32830	G328	G32.8 Other specified degenerative disorders of nervous system in diseases classified elsewhere	32810	3	900	Block G30-G32	Y	Y
+32860	G360	G36.0 Neuromyelitis optica [Devic]	32850	3	910	Block G35-G37	Y	Y
+32870	G361	G36.1 Acute and subacute haemorrhagic leukoencephalitis [Hurst]	32850	3	910	Block G35-G37	Y	Y
+32880	G368	G36.8 Other specified acute disseminated demyelination	32850	3	910	Block G35-G37	Y	Y
+32890	G369	G36.9 Acute disseminated demyelination, unspecified	32850	3	910	Block G35-G37	Y	Y
+32910	G370	G37.0 Diffuse sclerosis	32900	3	910	Block G35-G37	Y	Y
+32920	G371	G37.1 Central demyelination of corpus callosum	32900	3	910	Block G35-G37	Y	Y
+32930	G372	G37.2 Central pontine myelinolysis	32900	3	910	Block G35-G37	Y	Y
+32940	G373	G37.3 Acute transverse myelitis in demyelinating disease of central nervous system	32900	3	910	Block G35-G37	Y	Y
+32950	G374	G37.4 Subacute necrotising myelitis	32900	3	910	Block G35-G37	Y	Y
+32960	G375	G37.5 Concentric sclerosis [Balo]	32900	3	910	Block G35-G37	Y	Y
+32970	G378	G37.8 Other specified demyelinating diseases of central nervous system	32900	3	910	Block G35-G37	Y	Y
+32980	G379	G37.9 Demyelinating disease of central nervous system, unspecified	32900	3	910	Block G35-G37	Y	Y
+33000	G400	G40.0 Localisation-related (focal) (partial) idiopathic epilepsy and epileptic syndromes with seizures of localised onset	32990	3	920	Block G40-G47	Y	Y
+33010	G401	G40.1 Localisation-related (focal) (partial) symptomatic epilepsy and epileptic syndromes with simple partial seizures	32990	3	920	Block G40-G47	Y	Y
+33020	G402	G40.2 Localisation-related (focal) (partial) symptomatic epilepsy and epileptic syndromes with complex partial seizures	32990	3	920	Block G40-G47	Y	Y
+33030	G403	G40.3 Generalised idiopathic epilepsy and epileptic syndromes	32990	3	920	Block G40-G47	Y	Y
+33040	G404	G40.4 Other generalised epilepsy and epileptic syndromes	32990	3	920	Block G40-G47	Y	Y
+33050	G405	G40.5 Special epileptic syndromes	32990	3	920	Block G40-G47	Y	Y
+33060	G406	G40.6 Grand mal seizures, unspecified (with or without petit mal)	32990	3	920	Block G40-G47	Y	Y
+33070	G407	G40.7 Petit mal, unspecified, without grand mal seizures	32990	3	920	Block G40-G47	Y	Y
+33080	G408	G40.8 Other epilepsy	32990	3	920	Block G40-G47	Y	Y
+33090	G409	G40.9 Epilepsy, unspecified	32990	3	920	Block G40-G47	Y	Y
+33110	G410	G41.0 Grand mal status epilepticus	33100	3	920	Block G40-G47	Y	Y
+33120	G411	G41.1 Petit mal status epilepticus	33100	3	920	Block G40-G47	Y	Y
+33130	G412	G41.2 Complex partial status epilepticus	33100	3	920	Block G40-G47	Y	Y
+33140	G418	G41.8 Other status epilepticus	33100	3	920	Block G40-G47	Y	Y
+33150	G419	G41.9 Status epilepticus, unspecified	33100	3	920	Block G40-G47	Y	Y
+33170	G430	G43.0 Migraine without aura [common migraine]	33160	3	920	Block G40-G47	Y	Y
+33180	G431	G43.1 Migraine with aura [classical migraine]	33160	3	920	Block G40-G47	Y	Y
+33190	G432	G43.2 Status migrainosus	33160	3	920	Block G40-G47	Y	Y
+33200	G433	G43.3 Complicated migraine	33160	3	920	Block G40-G47	Y	Y
+33210	G438	G43.8 Other migraine	33160	3	920	Block G40-G47	Y	Y
+33220	G439	G43.9 Migraine, unspecified	33160	3	920	Block G40-G47	Y	Y
+33240	G440	G44.0 Cluster headache syndrome	33230	3	920	Block G40-G47	Y	Y
+33250	G441	G44.1 Vascular headache, not elsewhere classified	33230	3	920	Block G40-G47	Y	Y
+33260	G442	G44.2 Tension-type headache	33230	3	920	Block G40-G47	Y	Y
+33270	G443	G44.3 Chronic posttraumatic headache	33230	3	920	Block G40-G47	Y	Y
+33280	G444	G44.4 Drug-induced headache, not elsewhere classified	33230	3	920	Block G40-G47	Y	Y
+33290	G448	G44.8 Other specified headache syndromes	33230	3	920	Block G40-G47	Y	Y
+33310	G450	G45.0 Vertebro-basilar artery syndrome	33300	3	920	Block G40-G47	Y	Y
+33320	G451	G45.1 Carotid artery syndrome (hemispheric)	33300	3	920	Block G40-G47	Y	Y
+33330	G452	G45.2 Multiple and bilateral precerebral artery syndromes	33300	3	920	Block G40-G47	Y	Y
+33340	G453	G45.3 Amaurosis fugax	33300	3	920	Block G40-G47	Y	Y
+33350	G454	G45.4 Transient global amnesia	33300	3	920	Block G40-G47	Y	Y
+33360	G458	G45.8 Other transient cerebral ischaemic attacks and related syndromes	33300	3	920	Block G40-G47	Y	Y
+33370	G459	G45.9 Transient cerebral ischaemic attack, unspecified	33300	3	920	Block G40-G47	Y	Y
+33390	G460	G46.0 Middle cerebral artery syndrome	33380	3	920	Block G40-G47	Y	Y
+33400	G461	G46.1 Anterior cerebral artery syndrome	33380	3	920	Block G40-G47	Y	Y
+33410	G462	G46.2 Posterior cerebral artery syndrome	33380	3	920	Block G40-G47	Y	Y
+33420	G463	G46.3 Brain stem stroke syndrome	33380	3	920	Block G40-G47	Y	Y
+33430	G464	G46.4 Cerebellar stroke syndrome	33380	3	920	Block G40-G47	Y	Y
+33440	G465	G46.5 Pure motor lacunar syndrome	33380	3	920	Block G40-G47	Y	Y
+33450	G466	G46.6 Pure sensory lacunar syndrome	33380	3	920	Block G40-G47	Y	Y
+33460	G467	G46.7 Other lacunar syndromes	33380	3	920	Block G40-G47	Y	Y
+33470	G468	G46.8 Other vascular syndromes of brain in cerebrovascular diseases	33380	3	920	Block G40-G47	Y	Y
+33490	G470	G47.0 Disorders of initiating and maintaining sleep [insomnias]	33480	3	920	Block G40-G47	Y	Y
+33500	G471	G47.1 Disorders of excessive somnolence [hypersomnias]	33480	3	920	Block G40-G47	Y	Y
+33510	G472	G47.2 Disorders of the sleep-wake schedule	33480	3	920	Block G40-G47	Y	Y
+33520	G473	G47.3 Sleep apnoea	33480	3	920	Block G40-G47	Y	Y
+33530	G474	G47.4 Narcolepsy and cataplexy	33480	3	920	Block G40-G47	Y	Y
+33540	G478	G47.8 Other sleep disorders	33480	3	920	Block G40-G47	Y	Y
+33550	G479	G47.9 Sleep disorder, unspecified	33480	3	920	Block G40-G47	Y	Y
+33570	G500	G50.0 Trigeminal neuralgia	33560	3	930	Block G50-G59	Y	Y
+33580	G501	G50.1 Atypical facial pain	33560	3	930	Block G50-G59	Y	Y
+33590	G508	G50.8 Other disorders of trigeminal nerve	33560	3	930	Block G50-G59	Y	Y
+33600	G509	G50.9 Disorder of trigeminal nerve, unspecified	33560	3	930	Block G50-G59	Y	Y
+33620	G510	G51.0 Bell's palsy	33610	3	930	Block G50-G59	Y	Y
+33630	G511	G51.1 Geniculate ganglionitis	33610	3	930	Block G50-G59	Y	Y
+33640	G512	G51.2 Melkersson's syndrome	33610	3	930	Block G50-G59	Y	Y
+33650	G513	G51.3 Clonic hemifacial spasm	33610	3	930	Block G50-G59	Y	Y
+33660	G514	G51.4 Facial myokymia	33610	3	930	Block G50-G59	Y	Y
+33670	G518	G51.8 Other disorders of facial nerve	33610	3	930	Block G50-G59	Y	Y
+33680	G519	G51.9 Disorder of facial nerve, unspecified	33610	3	930	Block G50-G59	Y	Y
+33700	G520	G52.0 Disorders of olfactory nerve	33690	3	930	Block G50-G59	Y	Y
+33710	G521	G52.1 Disorders of glossopharyngeal nerve	33690	3	930	Block G50-G59	Y	Y
+33720	G522	G52.2 Disorders of vagus nerve	33690	3	930	Block G50-G59	Y	Y
+33730	G523	G52.3 Disorders of hypoglossal nerve	33690	3	930	Block G50-G59	Y	Y
+33740	G527	G52.7 Disorders of multiple cranial nerves	33690	3	930	Block G50-G59	Y	Y
+33750	G528	G52.8 Disorders of other specified cranial nerves	33690	3	930	Block G50-G59	Y	Y
+33760	G529	G52.9 Cranial nerve disorder, unspecified	33690	3	930	Block G50-G59	Y	Y
+33780	G530	G53.0 Postzoster neuralgia	33770	3	930	Block G50-G59	Y	Y
+33790	G531	G53.1 Multiple cranial nerve palsies in infectious and parasitic diseases classified elsewhere	33770	3	930	Block G50-G59	Y	Y
+33800	G532	G53.2 Multiple cranial nerve palsies in sarcoidosis	33770	3	930	Block G50-G59	Y	Y
+33810	G533	G53.3 Multiple cranial nerve palsies in neoplastic disease	33770	3	930	Block G50-G59	Y	Y
+33820	G538	G53.8 Other cranial nerve disorders in other diseases classified elsewhere	33770	3	930	Block G50-G59	Y	Y
+33840	G540	G54.0 Brachial plexus disorders	33830	3	930	Block G50-G59	Y	Y
+33850	G541	G54.1 Lumbosacral plexus disorders	33830	3	930	Block G50-G59	Y	Y
+33860	G542	G54.2 Cervical root disorders, not elsewhere classified	33830	3	930	Block G50-G59	Y	Y
+33870	G543	G54.3 Thoracic root disorders, not elsewhere classified	33830	3	930	Block G50-G59	Y	Y
+33880	G544	G54.4 Lumbosacral root disorders, not elsewhere classified	33830	3	930	Block G50-G59	Y	Y
+33890	G545	G54.5 Neuralgic amyotrophy	33830	3	930	Block G50-G59	Y	Y
+33900	G546	G54.6 Phantom limb syndrome with pain	33830	3	930	Block G50-G59	Y	Y
+33910	G547	G54.7 Phantom limb syndrome without pain	33830	3	930	Block G50-G59	Y	Y
+33920	G548	G54.8 Other nerve root and plexus disorders	33830	3	930	Block G50-G59	Y	Y
+33930	G549	G54.9 Nerve root and plexus disorder, unspecified	33830	3	930	Block G50-G59	Y	Y
+33950	G550	G55.0 Nerve root and plexus compressions in neoplastic disease	33940	3	930	Block G50-G59	Y	Y
+33960	G551	G55.1 Nerve root and plexus compressions in intervertebral disk disorders	33940	3	930	Block G50-G59	Y	Y
+33970	G552	G55.2 Nerve root and plexus compressions in spondylosis	33940	3	930	Block G50-G59	Y	Y
+33980	G553	G55.3 Nerve root and plexus compressions in other dorsopathies	33940	3	930	Block G50-G59	Y	Y
+33990	G558	G55.8 Nerve root and plexus compressions in other diseases classified elsewhere	33940	3	930	Block G50-G59	Y	Y
+34010	G560	G56.0 Carpal tunnel syndrome	34000	3	930	Block G50-G59	Y	Y
+34020	G561	G56.1 Other lesions of median nerve	34000	3	930	Block G50-G59	Y	Y
+34030	G562	G56.2 Lesion of ulnar nerve	34000	3	930	Block G50-G59	Y	Y
+34040	G563	G56.3 Lesion of radial nerve	34000	3	930	Block G50-G59	Y	Y
+34050	G564	G56.4 Causalgia	34000	3	930	Block G50-G59	Y	Y
+34060	G568	G56.8 Other mononeuropathies of upper limb	34000	3	930	Block G50-G59	Y	Y
+34070	G569	G56.9 Mononeuropathy of upper limb, unspecified	34000	3	930	Block G50-G59	Y	Y
+34090	G570	G57.0 Lesion of sciatic nerve	34080	3	930	Block G50-G59	Y	Y
+34100	G571	G57.1 Meralgia paraesthetica	34080	3	930	Block G50-G59	Y	Y
+34110	G572	G57.2 Lesion of femoral nerve	34080	3	930	Block G50-G59	Y	Y
+34120	G573	G57.3 Lesion of lateral popliteal nerve	34080	3	930	Block G50-G59	Y	Y
+34130	G574	G57.4 Lesion of medial popliteal nerve	34080	3	930	Block G50-G59	Y	Y
+34140	G575	G57.5 Tarsal tunnel syndrome	34080	3	930	Block G50-G59	Y	Y
+34150	G576	G57.6 Lesion of plantar nerve	34080	3	930	Block G50-G59	Y	Y
+34160	G578	G57.8 Other mononeuropathies of lower limb	34080	3	930	Block G50-G59	Y	Y
+34170	G579	G57.9 Mononeuropathy of lower limb, unspecified	34080	3	930	Block G50-G59	Y	Y
+34190	G580	G58.0 Intercostal neuropathy	34180	3	930	Block G50-G59	Y	Y
+34200	G587	G58.7 Mononeuritis multiplex	34180	3	930	Block G50-G59	Y	Y
+34210	G588	G58.8 Other specified mononeuropathies	34180	3	930	Block G50-G59	Y	Y
+34220	G589	G58.9 Mononeuropathy, unspecified	34180	3	930	Block G50-G59	Y	Y
+34240	G590	G59.0 Diabetic mononeuropathy	34230	3	930	Block G50-G59	Y	Y
+34250	G598	G59.8 Other mononeuropathies in diseases classified elsewhere	34230	3	930	Block G50-G59	Y	Y
+34270	G600	G60.0 Hereditary motor and sensory neuropathy	34260	3	940	Block G60-G64	Y	Y
+34280	G601	G60.1 Refsum's disease	34260	3	940	Block G60-G64	Y	Y
+34290	G602	G60.2 Neuropathy in association with hereditary ataxia	34260	3	940	Block G60-G64	Y	Y
+34300	G603	G60.3 Idiopathic progressive neuropathy	34260	3	940	Block G60-G64	Y	Y
+34310	G608	G60.8 Other hereditary and idiopathic neuropathies	34260	3	940	Block G60-G64	Y	Y
+34320	G609	G60.9 Hereditary and idiopathic neuropathy, unspecified	34260	3	940	Block G60-G64	Y	Y
+34340	G610	G61.0 Guillain-Barre syndrome	34330	3	940	Block G60-G64	Y	Y
+34350	G611	G61.1 Serum neuropathy	34330	3	940	Block G60-G64	Y	Y
+34360	G618	G61.8 Other inflammatory polyneuropathies	34330	3	940	Block G60-G64	Y	Y
+34370	G619	G61.9 Inflammatory polyneuropathy, unspecified	34330	3	940	Block G60-G64	Y	Y
+34390	G620	G62.0 Drug-induced polyneuropathy	34380	3	940	Block G60-G64	Y	Y
+34400	G621	G62.1 Alcoholic polyneuropathy	34380	3	940	Block G60-G64	Y	Y
+34410	G622	G62.2 Polyneuropathy due to other toxic agents	34380	3	940	Block G60-G64	Y	Y
+34420	G628	G62.8 Other specified polyneuropathies	34380	3	940	Block G60-G64	Y	Y
+34430	G629	G62.9 Polyneuropathy, unspecified	34380	3	940	Block G60-G64	Y	Y
+34450	G630	G63.0 Polyneuropathy in infectious and parasitic diseases classified elsewhere	34440	3	940	Block G60-G64	Y	Y
+34460	G631	G63.1 Polyneuropathy in neoplastic disease	34440	3	940	Block G60-G64	Y	Y
+34470	G632	G63.2 Diabetic polyneuropathy	34440	3	940	Block G60-G64	Y	Y
+34480	G633	G63.3 Polyneuropathy in other endocrine and metabolic diseases	34440	3	940	Block G60-G64	Y	Y
+34490	G634	G63.4 Polyneuropathy in nutritional deficiency	34440	3	940	Block G60-G64	Y	Y
+34500	G635	G63.5 Polyneuropathy in systemic connective tissue disorders	34440	3	940	Block G60-G64	Y	Y
+34510	G636	G63.6 Polyneuropathy in other musculoskeletal disorders	34440	3	940	Block G60-G64	Y	Y
+34520	G638	G63.8 Polyneuropathy in other diseases classified elsewhere	34440	3	940	Block G60-G64	Y	Y
+34550	G700	G70.0 Myasthenia gravis	34540	3	950	Block G70-G73	Y	Y
+34560	G701	G70.1 Toxic myoneural disorders	34540	3	950	Block G70-G73	Y	Y
+34570	G702	G70.2 Congenital and developmental myasthenia	34540	3	950	Block G70-G73	Y	Y
+34580	G708	G70.8 Other specified myoneural disorders	34540	3	950	Block G70-G73	Y	Y
+34590	G709	G70.9 Myoneural disorder, unspecified	34540	3	950	Block G70-G73	Y	Y
+34610	G710	G71.0 Muscular dystrophy	34600	3	950	Block G70-G73	Y	Y
+34620	G711	G71.1 Myotonic disorders	34600	3	950	Block G70-G73	Y	Y
+34630	G712	G71.2 Congenital myopathies	34600	3	950	Block G70-G73	Y	Y
+34640	G713	G71.3 Mitochondrial myopathy, not elsewhere classified	34600	3	950	Block G70-G73	Y	Y
+34650	G718	G71.8 Other primary disorders of muscles	34600	3	950	Block G70-G73	Y	Y
+34660	G719	G71.9 Primary disorder of muscle, unspecified	34600	3	950	Block G70-G73	Y	Y
+34680	G720	G72.0 Drug-induced myopathy	34670	3	950	Block G70-G73	Y	Y
+34690	G721	G72.1 Alcoholic myopathy	34670	3	950	Block G70-G73	Y	Y
+34700	G722	G72.2 Myopathy due to other toxic agents	34670	3	950	Block G70-G73	Y	Y
+34710	G723	G72.3 Periodic paralysis	34670	3	950	Block G70-G73	Y	Y
+34720	G724	G72.4 Inflammatory myopathy, not elsewhere classified	34670	3	950	Block G70-G73	Y	Y
+34730	G728	G72.8 Other specified myopathies	34670	3	950	Block G70-G73	Y	Y
+34740	G729	G72.9 Myopathy, unspecified	34670	3	950	Block G70-G73	Y	Y
+34760	G730	G73.0 Myasthenic syndromes in endocrine diseases	34750	3	950	Block G70-G73	Y	Y
+34770	G731	G73.1 Eaton-Lambert syndrome	34750	3	950	Block G70-G73	Y	Y
+34780	G732	G73.2 Other myasthenic syndromes in neoplastic disease	34750	3	950	Block G70-G73	Y	Y
+34790	G733	G73.3 Myasthenic syndromes in other diseases classified elsewhere	34750	3	950	Block G70-G73	Y	Y
+34800	G734	G73.4 Myopathy in infectious and parasitic diseases classified elsewhere	34750	3	950	Block G70-G73	Y	Y
+34810	G735	G73.5 Myopathy in endocrine diseases	34750	3	950	Block G70-G73	Y	Y
+34820	G736	G73.6 Myopathy in metabolic diseases	34750	3	950	Block G70-G73	Y	Y
+34830	G737	G73.7 Myopathy other diseases classified elsewhere	34750	3	950	Block G70-G73	Y	Y
+34850	G800	G80.0 Spastic cerebral palsy	34840	3	960	Block G80-G83	Y	Y
+34860	G801	G80.1 Spastic diplegia	34840	3	960	Block G80-G83	Y	Y
+34870	G802	G80.2 Infantile hemiplegia	34840	3	960	Block G80-G83	Y	Y
+34880	G803	G80.3 Dyskinetic cerebral palsy	34840	3	960	Block G80-G83	Y	Y
+34890	G804	G80.4 Ataxic cerebral palsy	34840	3	960	Block G80-G83	Y	Y
+34900	G808	G80.8 Other infantile cerebral palsy	34840	3	960	Block G80-G83	Y	Y
+34910	G809	G80.9 Infantile cerebral palsy, unspecified	34840	3	960	Block G80-G83	Y	Y
+34930	G810	G81.0 Flaccid hemiplegia	34920	3	960	Block G80-G83	Y	Y
+34940	G811	G81.1 Spastic hemiplegia	34920	3	960	Block G80-G83	Y	Y
+34950	G819	G81.9 Hemiplegia, unspecified	34920	3	960	Block G80-G83	Y	Y
+34970	G820	G82.0 Flaccid paraplegia	34960	3	960	Block G80-G83	Y	Y
+34980	G821	G82.1 Spastic paraplegia	34960	3	960	Block G80-G83	Y	Y
+34990	G822	G82.2 Paraplegia, unspecified	34960	3	960	Block G80-G83	Y	Y
+35000	G823	G82.3 Flaccid tetraplegia	34960	3	960	Block G80-G83	Y	Y
+35010	G824	G82.4 Spastic tetraplegia	34960	3	960	Block G80-G83	Y	Y
+35020	G825	G82.5 Tetraplegia, unspecified	34960	3	960	Block G80-G83	Y	Y
+35040	G830	G83.0 Diplegia of upper limbs	35030	3	960	Block G80-G83	Y	Y
+35050	G831	G83.1 Monoplegia of lower limb	35030	3	960	Block G80-G83	Y	Y
+35060	G832	G83.2 Monoplegia of upper limb	35030	3	960	Block G80-G83	Y	Y
+35070	G833	G83.3 Monoplegia, unspecified	35030	3	960	Block G80-G83	Y	Y
+35080	G834	G83.4 Cauda equina syndrome	35030	3	960	Block G80-G83	Y	Y
+35090	G835	G83.5 Locked-in syndrome	35030	3	960	Block G80-G83	Y	Y
+191600	G836	G83.6 Upper motor neuron facial paralysis	35030	3	960	Block G80-G83	Y	Y
+35100	G838	G83.8 Other specified paralytic syndromes	35030	3	960	Block G80-G83	Y	Y
+35110	G839	G83.9 Paralytic syndrome, unspecified	35030	3	960	Block G80-G83	Y	Y
+35130	G900	G90.0 Idiopathic peripheral autonomic neuropathy	35120	3	970	Block G90-G99	Y	Y
+35140	G901	G90.1 Familial dysautonomia [Riley-Day]	35120	3	970	Block G90-G99	Y	Y
+35150	G902	G90.2 Horner's syndrome	35120	3	970	Block G90-G99	Y	Y
+35160	G903	G90.3 Multisystem degeneration	35120	3	970	Block G90-G99	Y	Y
+35170	G904	G90.4 Autonomic dysreflexia	35120	3	970	Block G90-G99	Y	Y
+191610	G905	G90.5 Complex regional pain syndrome type I	35120	3	970	Block G90-G99	Y	Y
+191620	G906	G90.6 Complex regional pain syndrome type II	35120	3	970	Block G90-G99	Y	Y
+191630	G907	G90.7 Complex regional pain syndrome, other and unspecified type	35120	3	970	Block G90-G99	Y	Y
+35180	G908	G90.8 Other disorders of autonomic nervous system	35120	3	970	Block G90-G99	Y	Y
+35190	G909	G90.9 Disorder of autonomic nervous system, unspecified	35120	3	970	Block G90-G99	Y	Y
+35210	G910	G91.0 Communicating hydrocephalus	35200	3	970	Block G90-G99	Y	Y
+35220	G911	G91.1 Obstructive hydrocephalus	35200	3	970	Block G90-G99	Y	Y
+35230	G912	G91.2 Normal-pressure hydrocephalus	35200	3	970	Block G90-G99	Y	Y
+35240	G913	G91.3 Posttraumatic hydrocephalus, unspecified	35200	3	970	Block G90-G99	Y	Y
+35250	G918	G91.8 Other hydrocephalus	35200	3	970	Block G90-G99	Y	Y
+35260	G919	G91.9 Hydrocephalus, unspecified	35200	3	970	Block G90-G99	Y	Y
+35290	G930	G93.0 Cerebral cysts	35280	3	970	Block G90-G99	Y	Y
+35300	G931	G93.1 Anoxic brain damage, not elsewhere classified	35280	3	970	Block G90-G99	Y	Y
+35310	G932	G93.2 Benign intracranial hypertension	35280	3	970	Block G90-G99	Y	Y
+35320	G933	G93.3 Postviral fatigue syndrome	35280	3	970	Block G90-G99	Y	Y
+35330	G934	G93.4 Encephalopathy, unspecified	35280	3	970	Block G90-G99	Y	Y
+35340	G935	G93.5 Compression of brain	35280	3	970	Block G90-G99	Y	Y
+35350	G936	G93.6 Cerebral oedema	35280	3	970	Block G90-G99	Y	Y
+35360	G937	G93.7 Reye's syndrome	35280	3	970	Block G90-G99	Y	Y
+35370	G938	G93.8 Other specified disorders of brain	35280	3	970	Block G90-G99	Y	Y
+35380	G939	G93.9 Disorder of brain, unspecified	35280	3	970	Block G90-G99	Y	Y
+35400	G940	G94.0 Hydrocephalus in infectious and parasitic diseases classified elsewhere	35390	3	970	Block G90-G99	Y	Y
+35410	G941	G94.1 Hydrocephalus in neoplastic disease	35390	3	970	Block G90-G99	Y	Y
+35420	G942	G94.2 Hydrocephalus in other diseases classified elsewhere	35390	3	970	Block G90-G99	Y	Y
+191640	G943	G94.3 Encephalopathy in diseases classified elsewhere	35390	3	970	Block G90-G99	Y	Y
+35430	G948	G94.8 Other specified disorders of brain in diseases classified elsewhere	35390	3	970	Block G90-G99	Y	Y
+35450	G950	G95.0 Syringomyelia and syringobulbia	35440	3	970	Block G90-G99	Y	Y
+35460	G951	G95.1 Vascular myelopathies	35440	3	970	Block G90-G99	Y	Y
+35470	G952	G95.2 Cord compression, unspecified	35440	3	970	Block G90-G99	Y	Y
+35480	G958	G95.8 Other specified diseases of spinal cord	35440	3	970	Block G90-G99	Y	Y
+35490	G959	G95.9 Disease of spinal cord, unspecified	35440	3	970	Block G90-G99	Y	Y
+35510	G960	G96.0 Cerebrospinal fluid leak	35500	3	970	Block G90-G99	Y	Y
+35520	G961	G96.1 Disorders of meninges, not elsewhere classified	35500	3	970	Block G90-G99	Y	Y
+35530	G968	G96.8 Other specified disorders of central nervous system	35500	3	970	Block G90-G99	Y	Y
+35540	G969	G96.9 Disorder of central nervous system, unspecified	35500	3	970	Block G90-G99	Y	Y
+35560	G970	G97.0 Cerebrospinal fluid leak from spinal puncture	35550	3	970	Block G90-G99	Y	Y
+35570	G971	G97.1 Other reaction to spinal and lumbar puncture	35550	3	970	Block G90-G99	Y	Y
+35580	G972	G97.2 Intracranial hypotension following ventricular shunting	35550	3	970	Block G90-G99	Y	Y
+35590	G978	G97.8 Other postprocedural disorders of nervous system	35550	3	970	Block G90-G99	Y	Y
+35600	G979	G97.9 Postprocedural disorder of nervous system, unspecified	35550	3	970	Block G90-G99	Y	Y
+35630	G990	G99.0 Autonomic neuropathy in endocrine and metabolic diseases	35620	3	970	Block G90-G99	Y	Y
+35640	G991	G99.1 Other disorders of autonomic nervous system in other diseases classified elsewhere	35620	3	970	Block G90-G99	Y	Y
+35650	G992	G99.2 Myelopathy in diseases classified elsewhere	35620	3	970	Block G90-G99	Y	Y
+35660	G998	G99.8 Other specified disorders of nervous system in diseases classified elsewhere	35620	3	970	Block G90-G99	Y	Y

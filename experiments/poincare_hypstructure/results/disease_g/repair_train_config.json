@@ -1,0 +1,46 @@
+{
+  "branch_teacher": {
+    "path": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease_g/g_current_hybrid.pth.best",
+    "status": "loaded"
+  },
+  "checkpoint": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease_g/g_stage_d_repair.pth",
+  "dataset": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease_g/g_relations_direct.csv",
+  "hyperparameters": {
+    "batchsize": 64,
+    "branch_contrastive_hard_k": 0,
+    "branch_contrastive_margin": 0.02,
+    "branch_contrastive_weight": 0.3,
+    "branch_cos_margin": 0.2,
+    "branch_teacher_checkpoint": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease_g/g_current_hybrid.pth.best",
+    "branch_teacher_weight": 0.1,
+    "branch_weight": 0.0,
+    "burnin": 20,
+    "cpcc_min_group_size": 2,
+    "cpcc_weight": 0.05,
+    "dampening": 0.75,
+    "depth_band_weight": 0.0,
+    "depth_quantile_margin": 0.0005,
+    "depth_quantile_weight": 0.1,
+    "dim": 10,
+    "epochs": 500,
+    "eval_each": 5,
+    "geometry_schedule": "constant",
+    "gpu": -1,
+    "init_source": "none",
+    "lr": 0.03,
+    "ndproc": 4,
+    "negs": 50,
+    "radial_margin": 0.0005,
+    "radial_weight": 0.1,
+    "selection_metric": "combined"
+  },
+  "init_checkpoint": {
+    "explicit": true,
+    "path": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease_g/g_current_hybrid.pth.best",
+    "reason": "ok",
+    "source": "explicit",
+    "source_epoch": 24,
+    "status": "initialized"
+  },
+  "metadata_tsv": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease_g/g_nodes.tsv"
+}

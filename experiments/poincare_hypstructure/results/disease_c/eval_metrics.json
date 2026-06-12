@@ -1,0 +1,163 @@
+{
+  "ancestor_ranking": {
+    "mean_average_precision": 0.9500604613451151,
+    "mean_positive_rank": 1.32404181184669
+  },
+  "angular_branch_separation": {
+    "across_branch": {
+      "count": 4000,
+      "max": 1.9177627874118124,
+      "mean": 1.0181791203909116,
+      "median": 1.0135420642643052,
+      "min": 0.1272105106275534
+    },
+    "within_branch": {
+      "count": 4000,
+      "max": 1.7981214920316224,
+      "mean": 0.8107525327773983,
+      "median": 0.86306318298108,
+      "min": 7.937071003938367e-05
+    }
+  },
+  "branch_geometry": {
+    "branch_silhouette": -0.05732912536382636,
+    "top_branch_centroid_distances": {
+      "count": 105,
+      "max": 0.013371390797324575,
+      "mean": 0.007785738275010438,
+      "median": 0.007407047935755126,
+      "min": 0.0031667530394784583
+    }
+  },
+  "branch_separation": {
+    "across_branch": {
+      "count": 4000,
+      "max": 0.020416494547668702,
+      "mean": 0.012440611847768316,
+      "median": 0.012451210665839214,
+      "min": 0.004176781696706766
+    },
+    "within_branch": {
+      "count": 4000,
+      "max": 0.019403613755503823,
+      "mean": 0.010859996309951232,
+      "median": 0.011490111520032927,
+      "min": 0.0031573182845908154
+    }
+  },
+  "checkpoint_epoch": 6,
+  "depth_radius": {
+    "pearson": 0.575247353858333,
+    "spearman": 0.37027860761440984
+  },
+  "gate_deficit_score": 3.074496122750058,
+  "gate_deficits": {
+    "ancestor_map": 0.0,
+    "branch_ratio": 1.4941346346354396,
+    "minimum_adjacent_gap": 0.0,
+    "parent_mean_rank": 0.10336817653890829,
+    "positive_quantile_gaps": 0.3333333333333333,
+    "radial_violation": 0.8641114982578396,
+    "reconstruction_map": 0.0,
+    "sibling_ratio": 0.27954847998453697,
+    "total": 3.074496122750058
+  },
+  "parent_ranking": {
+    "depth_stratified_mean_rank": {
+      "1": 1.0,
+      "2": 2.5555555555555554,
+      "3": 1.0980810234541578
+    },
+    "mean_rank": 1.32404181184669,
+    "median_rank": 1.0
+  },
+  "radius_structure": {
+    "adjacent_depth_gaps": {
+      "0_to_1": 0.0015009064665449101,
+      "1_to_2": 0.0017308714544699189,
+      "2_to_3": 0.0004904508031074962
+    },
+    "adjacent_depth_quantile_gaps": {
+      "0_to_1": 0.0007251136603142547,
+      "1_to_2": 8.818013324825335e-05,
+      "2_to_3": -0.000794852603864837
+    },
+    "depth_overlap_rates": {
+      "0_to_1": 0.0,
+      "1_to_2": 0.056296296296296296,
+      "2_to_3": 0.2722814498933902
+    },
+    "internal_mean_radius": 0.002244265277800873,
+    "leaf_internal_radius_ratio": 1.9963908799834988,
+    "leaf_mean_radius": 0.004480430732865297,
+    "mean_radius_by_depth": {
+      "0": 0.0008371654654150193,
+      "1": 0.0023380719319599295,
+      "2": 0.004068943386429848,
+      "3": 0.004559394189537345
+    },
+    "minimum_adjacent_gap": 0.0004904508031074962,
+    "minimum_adjacent_quantile_gap": -0.000794852603864837,
+    "monotonic_depth_means": true,
+    "parent_child_radial_violation_rate": 0.18641114982578397,
+    "positive_adjacent_depth_quantile_gap_count": 2
+  },
+  "radius_summary": {
+    "internal": {
+      "count": 16,
+      "max": 0.003921500416618922,
+      "mean": 0.002244265277800873,
+      "median": 0.0023597696301935296,
+      "min": 0.0008371654654150193
+    },
+    "leaf": {
+      "count": 559,
+      "max": 0.005877795547590119,
+      "mean": 0.004480430732865297,
+      "median": 0.004516075437857531,
+      "min": 0.0014307516514340103
+    }
+  },
+  "ratios": {
+    "angular_within_branch_to_across_branch_mean": 0.7962769188059213,
+    "same_depth_within_branch_to_across_branch_mean": 0.8602290190772817,
+    "sibling_to_non_sibling_mean": 0.3838645439953611,
+    "within_branch_to_across_branch_mean": 0.8729471221224038
+  },
+  "reconstruction": {
+    "map_rank": 0.35895906233337754,
+    "mean_rank": 7.102787456445993
+  },
+  "same_depth_branch_separation": {
+    "across_branch": {
+      "count": 4000,
+      "max": 0.019475782345716175,
+      "mean": 0.012921153860419745,
+      "median": 0.012984561470513762,
+      "min": 0.004448497688306784
+    },
+    "within_branch": {
+      "count": 4000,
+      "max": 0.01871225828235077,
+      "mean": 0.011115151510695509,
+      "median": 0.011816640811960705,
+      "min": 0.0031573339650096785
+    }
+  },
+  "sibling_cohesion": {
+    "same_depth_non_siblings": {
+      "count": 4000,
+      "max": 0.02022241498855998,
+      "mean": 0.012879968046284593,
+      "median": 0.012981683038330853,
+      "min": 0.004878042062321308
+    },
+    "siblings": {
+      "count": 1967,
+      "max": 0.016923382813633477,
+      "mean": 0.004944163060761857,
+      "median": 0.003161098371937762,
+      "min": 0.0031573182845908154
+    }
+  }
+}

@@ -74,10 +74,16 @@ Generated checkpoints, logs, exported embedding tables, and full per-run tuning 
   - staged branch/depth geometry sweep
 - `scripts/run_branch_repair_campaign.py`
   - current-hybrid repair sweep using gate-deficit selection
+- `scripts/build_disease_subforest.py`
+  - generic ICD prefix subforest builder for individual and combined exports
+- `scripts/run_disease_subforest_pipeline.py`
+  - trains and exports labmate-ready prefix embeddings
+- `scripts/export_disease_labmate_embeddings.py`
+  - writes code-only/all-node labmate TSVs, README, and manifest
 - `scripts/build_cg_subforest.py`
-  - builds the ICD C/G target subforest with synthetic `CG_ROOT`
+  - compatibility wrapper around the generic C/G subforest builder
 - `scripts/run_cg_pipeline.py`
-  - trains and exports labmate-ready C/G embeddings
+  - compatibility runner for the older combined C/G export
 
 Maintained figure generators:
 
@@ -142,12 +148,18 @@ Judge this track first against:
 
 That direct-edge pure-Poincare baseline is the fair reference for deciding whether CPCC and radial ordering improve the embedding.
 
-## C/G Export Target
+## Prefix Export Targets
 
-The downstream feature-selection handoff uses:
+The downstream feature-selection handoff uses code-only TSVs:
 
-- `results/disease_cg/labmate/cg_embeddings_codes_only.tsv`
+- `results/disease_c/labmate/c_embeddings_codes_only.tsv`
+- `results/disease_g/labmate/g_embeddings_codes_only.tsv`
+- `results/disease_i/labmate/i_embeddings_codes_only.tsv`
+- `results/disease_cgi/labmate/cgi_embeddings_codes_only.tsv`
 
-That file contains only ICD C/G disease-code rows. `cg_embeddings_all_nodes.tsv`
-keeps the synthetic root and hierarchy ancestors for context, but is not the
-default downstream training input.
+Use the individual C, G, or I embedding for disease-group-specific experiments.
+Use the combined C/G/I embedding when downstream training needs all three
+disease groups in one comparable coordinate system. The matching
+`*_embeddings_all_nodes.tsv` files retain chapter roots, block ancestors, and
+the combined synthetic root for hierarchy context, but they are not the default
+feature-selection input.

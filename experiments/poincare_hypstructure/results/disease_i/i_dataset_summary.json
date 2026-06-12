@@ -1,0 +1,41 @@
+{
+  "I_count": 475,
+  "block_ancestor_count": 10,
+  "chapter_ancestor_count": 1,
+  "closure_edge_count": 1368,
+  "depth_counts": {
+    "0": 1,
+    "1": 10,
+    "2": 77,
+    "3": 388,
+    "4": 10
+  },
+  "direct_edge_count": 485,
+  "long_edge_stride": null,
+  "natural_roots": [
+    {
+      "coding": "Chapter IX",
+      "meaning": "Chapter IX Diseases of the circulatory system",
+      "node_id": "90"
+    }
+  ],
+  "node_count": 486,
+  "real_node_count": 486,
+  "relation_mode": "direct",
+  "root_id": "90",
+  "root_mode": "individual",
+  "source_data": "/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/data/datacode-19.tsv",
+  "synthetic_node_count": 0,
+  "synthetic_root_id": null,
+  "target_code_count": 475,
+  "target_code_counts_by_prefix": {
+    "I": 475
+  },
+  "target_code_pattern": "^[I][0-9]",
+  "target_prefixes": [
+    "I"
+  ],
+  "top_branch_count": 10,
+  "training_edge_count": 485,
+  "training_node_count": 486
+}

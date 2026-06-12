@@ -24,6 +24,7 @@ fontconfig/
 **/embedding_stats.json
 **/train.log
 experiments/poincare_hypstructure/results/disease_cg/*_train.log
+experiments/poincare_hypstructure/results/disease_*/*_train.log
 experiments/**/logs/*.log
 experiments/poincare_hypstructure/tuning/radius_separation/runs/
 experiments/poincare_hypstructure/tuning/radius_separation/stage0/current_hybrid/
