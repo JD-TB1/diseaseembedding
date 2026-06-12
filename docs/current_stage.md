@@ -11,6 +11,7 @@ Completed here:
 - active hybrid method that combines Poincare edge loss, CPCC, and radial ordering
 - structural evaluation utilities for hierarchy, branch separation, and radius ordering
 - staged radius-separation tuning framework with offline checkpoint rescoring
+- labmate-ready C, G, I, and joint C/G/I embedding bundles
 - reusable disease-tree visualizations for manual inspection
 
 Not owned here:
@@ -27,11 +28,13 @@ The active method is:
 - losses: `L_edge + alpha * L_CPCC + beta * L_radial`
 - optimizer: minibatch Riemannian SGD in the Poincare ball
 
-The main checked-in hybrid evaluation summary is:
+Main checked-in orientation files:
 
 - `experiments/poincare_hypstructure/results/disease90/eval_summary.md`
+- `docs/labmate_embedding_review.md` for downstream C/G/I handoff files,
+  schema, counts, and metrics
 
-Key numbers from that committed summary:
+Key disease-90 numbers from the committed evaluation summary:
 
 - reconstruction MAP: `0.3024`
 - reconstruction mean rank: `7.5381`
@@ -76,7 +79,8 @@ Current state:
 - improve radius separation between adjacent tree depths without degrading branch clusters
 - reconcile online checkpoint selection with the stronger offline depth-first rescoring rule
 - decide whether the committed main hybrid result should be refreshed from the tuning campaign
-- extend beyond disease-90 once the depth/branch tradeoff is more stable
+- improve C/G/I branch and depth geometry beyond the current labmate handoff
+  bundles
 - use the learned disease embedding more richly in downstream RL than simple concatenation
 
 ## Recommended Next Steps For A New Contributor
@@ -85,4 +89,5 @@ Current state:
 2. Rebuild the reference Cython extensions if needed.
 3. Reproduce the direct baseline once.
 4. Reproduce the main hybrid run once.
-5. Resume the tuning campaign only after you are comfortable with the evaluation metrics and output locations.
+5. Read `docs/labmate_embedding_review.md` before using downstream C/G/I files.
+6. Resume tuning only after you are comfortable with the evaluation metrics and output locations.

@@ -159,6 +159,9 @@ block-level top branches. The combined C/G/I run adds a synthetic `CGI_ROOT` so
 C, G, and I are trained jointly in one coordinate system; do not merge
 separately trained vectors when comparability across these groups is required.
 
+For the labmate-facing file index, schema, counts, metrics, and usage notes,
+start with `docs/labmate_embedding_review.md`.
+
 Recommended runtime in the current local environment:
 
 ```bash

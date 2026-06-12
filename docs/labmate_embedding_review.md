@@ -3,6 +3,9 @@
 Generated for review on 2026-06-12 from the committed C, G, I, and C/G/I
 Poincare + CPCC + branch-repair embedding exports.
 
+Repository root:
+`/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding`
+
 ## Which File To Use
 
 Use the code-only TSVs for downstream feature-selection training. Use the
@@ -12,10 +15,10 @@ I vectors for cross-group comparison.
 
 | Use case | Primary downstream TSV | Rows |
 | --- | --- | ---: |
-| C-only downstream training | `/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease_c/labmate/c_embeddings_codes_only.tsv` | 559 |
-| G-only downstream training | `/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease_g/labmate/g_embeddings_codes_only.tsv` | 396 |
-| I-only downstream training | `/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease_i/labmate/i_embeddings_codes_only.tsv` | 475 |
-| Joint C/G/I downstream training | `/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease_cgi/labmate/cgi_embeddings_codes_only.tsv` | 1430 |
+| C-only downstream training | `experiments/poincare_hypstructure/results/disease_c/labmate/c_embeddings_codes_only.tsv` | 559 |
+| G-only downstream training | `experiments/poincare_hypstructure/results/disease_g/labmate/g_embeddings_codes_only.tsv` | 396 |
+| I-only downstream training | `experiments/poincare_hypstructure/results/disease_i/labmate/i_embeddings_codes_only.tsv` | 475 |
+| Joint C/G/I downstream training | `experiments/poincare_hypstructure/results/disease_cgi/labmate/cgi_embeddings_codes_only.tsv` | 1430 |
 
 ## Context And Audit Files
 
@@ -24,10 +27,10 @@ machine-readable manifest, evaluation metrics, and labeled plots.
 
 | Dataset | All-node context TSV | Manifest | Evaluation summary | Labeled plots |
 | --- | --- | --- | --- | --- |
-| C | `/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease_c/labmate/c_embeddings_all_nodes.tsv` | `/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease_c/labmate/manifest.json` | `/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease_c/eval_summary.md` | `/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease_c/plots/` |
-| G | `/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease_g/labmate/g_embeddings_all_nodes.tsv` | `/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease_g/labmate/manifest.json` | `/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease_g/eval_summary.md` | `/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease_g/plots/` |
-| I | `/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease_i/labmate/i_embeddings_all_nodes.tsv` | `/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease_i/labmate/manifest.json` | `/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease_i/eval_summary.md` | `/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease_i/plots/` |
-| C/G/I | `/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease_cgi/labmate/cgi_embeddings_all_nodes.tsv` | `/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease_cgi/labmate/manifest.json` | `/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease_cgi/eval_summary.md` | `/Users/jayding/Desktop/DUKE/Research/BioStats_Lynn/diseaseembedding/experiments/poincare_hypstructure/results/disease_cgi/plots/` |
+| C | `experiments/poincare_hypstructure/results/disease_c/labmate/c_embeddings_all_nodes.tsv` | `experiments/poincare_hypstructure/results/disease_c/labmate/manifest.json` | `experiments/poincare_hypstructure/results/disease_c/eval_summary.md` | `experiments/poincare_hypstructure/results/disease_c/plots/` |
+| G | `experiments/poincare_hypstructure/results/disease_g/labmate/g_embeddings_all_nodes.tsv` | `experiments/poincare_hypstructure/results/disease_g/labmate/manifest.json` | `experiments/poincare_hypstructure/results/disease_g/eval_summary.md` | `experiments/poincare_hypstructure/results/disease_g/plots/` |
+| I | `experiments/poincare_hypstructure/results/disease_i/labmate/i_embeddings_all_nodes.tsv` | `experiments/poincare_hypstructure/results/disease_i/labmate/manifest.json` | `experiments/poincare_hypstructure/results/disease_i/eval_summary.md` | `experiments/poincare_hypstructure/results/disease_i/plots/` |
+| C/G/I | `experiments/poincare_hypstructure/results/disease_cgi/labmate/cgi_embeddings_all_nodes.tsv` | `experiments/poincare_hypstructure/results/disease_cgi/labmate/manifest.json` | `experiments/poincare_hypstructure/results/disease_cgi/eval_summary.md` | `experiments/poincare_hypstructure/results/disease_cgi/plots/` |
 
 Recommended plot files to inspect first:
 
